@@ -657,6 +657,22 @@ function showToast(message) {
 document.addEventListener('DOMContentLoaded', () => {
   createHeroParticles();
   renderCatalog('all');
+  
+  // Ensure video autoplays smoothly
+  const heroVideo = document.getElementById('hero-video');
+  if (heroVideo) {
+    heroVideo.muted = true;
+    const playPromise = heroVideo.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Autoplay policy prevented playback, attempt again on user interaction
+        document.body.addEventListener('click', () => {
+          heroVideo.play();
+        }, { once: true });
+      });
+    }
+  }
+
   if (window.lucide) {
     window.lucide.createIcons();
   }

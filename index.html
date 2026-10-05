@@ -148,13 +148,22 @@
     <!-- HERO BACKDROP CONTAINER -->
     <div class="relative w-full max-w-[1440px] mx-auto">
       
-      <!-- HERO ARTWORK IMAGE -->
-      <div class="relative w-full aspect-[16/10] sm:aspect-[16/8.5] md:aspect-[16/7.8] lg:aspect-[16/7] overflow-hidden rounded-b-[40px] sm:rounded-b-[60px] shadow-2xl">
-        <img 
-          src="assets/hero_banner.jpg" 
-          alt="Bad Dad Games Country Porch Illustration" 
-          class="w-full h-full object-cover object-top filter brightness-[1.02] contrast-[1.02]"
+      <!-- HERO VIDEO BACKGROUND (Header.webm) -->
+      <div class="relative w-full aspect-[16/10] sm:aspect-[16/8.5] md:aspect-[16/8] lg:aspect-[16/7.2] overflow-hidden rounded-b-[40px] sm:rounded-b-[60px] shadow-2xl bg-[#2a1d17]">
+        <video 
+          id="hero-video"
+          autoplay 
+          loop 
+          muted 
+          playsinline 
+          poster="assets/hero_banner.jpg"
+          class="w-full h-full object-cover object-center filter brightness-[1.02] contrast-[1.02]"
         >
+          <source src="assets/Header.webm" type="video/webm">
+          <source src="assets/header.webm" type="video/webm">
+          <!-- Fallback image -->
+          <img src="assets/hero_banner.jpg" alt="Bad Dad Games Porch" class="w-full h-full object-cover">
+        </video>
         
         <!-- AMBIENT LIGHT OVERLAY & PARTICLES -->
         <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
@@ -389,7 +398,7 @@
             <img src="assets/hero_banner.jpg" alt="Bad Dad Cabin" class="w-full h-80 object-cover object-center">
             <div class="p-6 bg-white">
               <div class="flex items-center gap-3">
-                <img src="assets/bad_dad_logo.png" class="w-12 h-12 object-contain" alt="Bad Dad">
+                <img src="assets/bad_dad_logo.png" class="w-16 h-auto object-contain" alt="Bad Dad">
                 <div>
                   <h4 class="font-bold text-gray-900">Headquarters: The Porch</h4>
                   <p class="text-xs text-gray-500">Somewhere off Route 66 • Cold Beer & Good Luck</p>
