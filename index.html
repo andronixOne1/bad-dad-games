@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bad Dad Games | Good Games. Bad Manners.</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#ff3424',
+              'red-dark': '#e02819',
+              bg: '#f6f6f2',
+              card: '#ffffff',
+              dark: '#1e1b18'
+            }
+          },
+          fontFamily: {
+            comic: ['"Lilita One"', '"Fredoka"', 'system-ui', 'sans-serif'],
+            body: ['"Inter"', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lilita+One&family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#f6f6f2] font-body text-gray-900 antialiased selection:bg-red-500 selection:text-white">
+
+  <!-- ================= HEADER & NAVIGATION ================= -->
+  <header class="relative z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-start justify-between">
+        
+        <!-- BAD DAD STICKER LOGO (Desktop & Mobile) -->
+        <a href="#hero" class="relative group mt-3 sm:mt-5 transition-transform duration-300 hover:scale-105 active:scale-95 z-50">
+          <img src="assets/bad_dad_logo.png" alt="Bad Dad Logo" class="h-14 sm:h-20 w-auto drop-shadow-xl filter hover:drop-shadow-2xl transition-all">
+          <span class="sr-only">Bad Dad Games</span>
+        </a>
+
+        <!-- DESKTOP TOP-RIGHT PILL NAVBAR (Pixel-Matched to Screenshot) -->
+        <nav class="hidden md:flex items-center bg-white rounded-b-2xl shadow-md border-b border-x border-gray-100/80 px-7 py-3 transition-all duration-300 hover:shadow-lg">
+          <ul class="flex items-center space-x-7 text-sm font-semibold text-gray-800">
+            <li>
+              <a href="#hero" class="text-brand-red font-bold transition-colors hover:text-brand-red-dark">Home</a>
+            </li>
+            
+            <!-- Games Dropdown Menu -->
+            <li class="relative group" id="games-nav-item">
+              <button type="button" class="flex items-center gap-1.5 transition-colors hover:text-brand-red py-1 focus:outline-none">
+                <span>Games</span>
+                <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180 text-gray-500"></i>
+              </button>
+              
+              <!-- Dropdown Panel -->
+              <div class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-64 bg-white rounded-2xl shadow-2xl border border-gray-100 p-2.5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top scale-95 group-hover:scale-100">
+                <a href="#games" onclick="openGameModal('weed_bush')" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 transition-colors">
+                  <img src="assets/weed_bush.png" class="w-10 h-10 rounded-lg object-cover shadow-sm" alt="Weed Bush">
+                  <div>
+                    <div class="text-xs font-bold text-gray-900">Weed Bush</div>
+                    <div class="text-[10px] text-gray-500 font-medium">Mine Game • x20 Multiplier</div>
+                  </div>
+                </a>
+                <a href="#games" onclick="openGameModal('plinko_koko')" class="flex items-center gap-3 p-2 rounded-xl hover:bg-yellow-50 transition-colors mt-1">
+                  <img src="assets/plinko_koko.png" class="w-10 h-10 rounded-lg object-cover shadow-sm" alt="Plinko Koko">
+                  <div>
+                    <div class="text-xs font-bold text-gray-900">Plinko Koko</div>
+                    <div class="text-[10px] text-gray-500 font-medium">Plinko • Rainbow Eggs</div>
+                  </div>
+                </a>
+                <a href="#games" onclick="openGameModal('bad_darts')" class="flex items-center gap-3 p-2 rounded-xl hover:bg-orange-50 transition-colors mt-1">
+                  <img src="assets/bad_darts.png" class="w-10 h-10 rounded-lg object-cover shadow-sm" alt="Bad Darts">
+                  <div>
+                    <div class="text-xs font-bold text-gray-900">Bad Darts</div>
+                    <div class="text-[10px] text-gray-500 font-medium">Crash • x50 Bullseye</div>
+                  </div>
+                </a>
+              </div>
+            </li>
+            
+            <li>
+              <a href="#about" class="transition-colors hover:text-brand-red">About</a>
+            </li>
+            <li>
+              <a href="#careers" class="transition-colors hover:text-brand-red">Careers</a>
+            </li>
+            <li>
+              <a href="#contact" class="transition-colors hover:text-brand-red">Contact</a>
+            </li>
+            
+            <!-- Sound FX Toggle Button -->
+            <li class="pl-2 border-l border-gray-200">
+              <button id="sound-btn" onclick="toggleAudio()" title="Toggle Sound FX" class="flex items-center gap-1.5 text-xs text-gray-500 hover:text-brand-red transition-colors bg-gray-50 hover:bg-red-50 px-2.5 py-1 rounded-full border border-gray-200">
+                <i data-lucide="volume-2" id="sound-icon" class="w-3.5 h-3.5"></i>
+                <span id="sound-label" class="text-[11px] font-medium">SFX</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- MOBILE MENU BUTTON -->
+        <div class="flex items-center gap-2 md:hidden mt-3 bg-white/90 backdrop-blur rounded-full px-3 py-1.5 shadow-md">
+          <button id="mobile-sound-btn" onclick="toggleAudio()" class="p-1.5 text-gray-700 hover:text-brand-red">
+            <i data-lucide="volume-2" class="w-5 h-5"></i>
+          </button>
+          <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-1.5 text-gray-700 hover:text-brand-red focus:outline-none" aria-label="Toggle Navigation">
+            <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MOBILE MENU DRAWER -->
+    <div id="mobile-menu" class="hidden md:hidden fixed inset-x-0 top-20 mx-4 bg-white rounded-3xl shadow-2xl border border-gray-100 p-6 z-50 animate-fade-in">
+      <div class="flex flex-col space-y-4 text-center font-bold text-gray-800 text-lg">
+        <a href="#hero" onclick="toggleMobileMenu()" class="py-2 text-brand-red">Home</a>
+        <a href="#games" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-red">Games</a>
+        <a href="#about" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-red">About</a>
+        <a href="#careers" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-red">Careers</a>
+        <a href="#contact" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-red">Contact</a>
+        <button onclick="scrollToGames(); toggleMobileMenu();" class="w-full bg-brand-red text-white py-3 rounded-2xl shadow-lg mt-2 font-comic text-base">
+          Explore Our Games
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section id="hero" class="relative -mt-24 sm:-mt-28 pt-24 sm:pt-28 overflow-hidden">
+    
+    <!-- HERO BACKDROP CONTAINER -->
+    <div class="relative w-full max-w-[1440px] mx-auto">
+      
+      <!-- HERO ARTWORK IMAGE -->
+      <div class="relative w-full aspect-[16/10] sm:aspect-[16/8.5] md:aspect-[16/7.8] lg:aspect-[16/7] overflow-hidden rounded-b-[40px] sm:rounded-b-[60px] shadow-2xl">
+        <img 
+          src="assets/hero_banner.jpg" 
+          alt="Bad Dad Games Country Porch Illustration" 
+          class="w-full h-full object-cover object-top filter brightness-[1.02] contrast-[1.02]"
+        >
+        
+        <!-- AMBIENT LIGHT OVERLAY & PARTICLES -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+        <div id="hero-particles" class="absolute inset-0 pointer-events-none overflow-hidden"></div>
+
+        <!-- HERO TEXT CONTENT (Positioned exactly matching the screenshot) -->
+        <div class="absolute inset-0 flex flex-col justify-center px-6 sm:px-12 md:px-16 lg:px-20 pointer-events-none select-none">
+          <div class="max-w-xl pb-10 sm:pb-16 md:pb-24">
+            
+            <h1 class="font-comic tracking-tight leading-none drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+              <span class="block text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-white font-black tracking-normal">
+                GOOD<br>GAMES.
+              </span>
+              <span class="block text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-brand-red font-black tracking-normal -mt-1 sm:-mt-2">
+                BAD<br>MANNERS.
+              </span>
+            </h1>
+            
+            <p class="mt-3 sm:mt-5 text-sm sm:text-base md:text-lg text-white font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] max-w-md">
+              Memorable characters, and instant entertainment.
+            </p>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PLAYFUL SCALLOPED WAVE DIVIDER (Organic froth effect matching screenshot) -->
+      <div class="relative -mt-10 sm:-mt-16 md:-mt-20 z-20 pointer-events-none">
+        <svg class="w-full h-16 sm:h-24 md:h-32 text-[#f6f6f2] fill-current preserve-3d" viewBox="0 0 1440 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Multi-layered froth curves -->
+          <path opacity="0.4" d="M0,80 C120,130 200,40 360,70 C520,100 600,30 760,60 C920,90 1000,40 1160,70 C1320,100 1380,50 1440,80 L1440,180 L0,180 Z" fill="#f6f6f2"></path>
+          <path opacity="0.7" d="M0,110 C160,50 240,140 400,90 C560,40 640,130 800,80 C960,30 1040,120 1200,70 C1360,20 1400,90 1440,110 L1440,180 L0,180 Z" fill="#f6f6f2"></path>
+          <path d="M0,130 C80,90 140,140 220,110 C300,80 340,150 440,110 C540,70 600,140 700,100 C800,60 860,130 960,90 C1060,50 1120,120 1220,80 C1320,40 1380,110 1440,130 L1440,180 L0,180 Z" fill="#f6f6f2"></path>
+        </svg>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FEATURED GAMES SHOWCASE ================= -->
+  <!-- 3 Prominent Cards matching screenshot layout with interactive features -->
+  <section id="games" class="relative z-30 pb-20 pt-4">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- CARDS GRID (3 Columns, 280px cards on desktop) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-6 lg:gap-8 justify-items-center">
+
+        <!-- CARD 1: WEED BUSH -->
+        <div class="game-card group flex flex-col items-center w-full max-w-[320px] transition-all duration-300">
+          <!-- Card Image Thumbnail Container -->
+          <div class="relative w-full aspect-square rounded-[32px] overflow-hidden shadow-xl group-hover:shadow-2xl transition-all duration-300 transform group-hover:-translate-y-2 cursor-pointer bg-white border border-gray-100" onclick="openGameModal('weed_bush')">
+            <img 
+              src="assets/weed_bush.png" 
+              alt="Weed Bush Game by Bad Dad Games" 
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            >
+            <!-- Hover Shine & Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-5">
+              <button class="bg-brand-red text-white text-xs font-bold uppercase tracking-wider px-5 py-2 rounded-full shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-all flex items-center gap-1.5">
+                <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+                <span>Play Demo</span>
+              </button>
+            </div>
+            <!-- Multiplier Badge -->
+            <div class="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-amber-300 text-[11px] font-black px-2.5 py-1 rounded-full border border-amber-400/30">
+              x20 MAX
+            </div>
+          </div>
+          <!-- Card Info -->
+          <div class="mt-4 text-center">
+            <h3 class="text-base sm:text-lg font-bold text-gray-900 group-hover:text-brand-red transition-colors">
+              Weed Bush
+            </h3>
+            <p class="text-xs sm:text-sm font-medium text-gray-500 mt-0.5">
+              Mine
+            </p>
+          </div>
+        </div>
+
+        <!-- CARD 2: PLINKO KOKO -->
+        <div class="game-card group flex flex-col items-center w-full max-w-[320px] transition-all duration-300">
+          <!-- Card Image Thumbnail Container -->
+          <div class="relative w-full aspect-square rounded-[32px] overflow-hidden shadow-xl group-hover:shadow-2xl transition-all duration-300 transform group-hover:-translate-y-2 cursor-pointer bg-white border border-gray-100" onclick="openGameModal('plinko_koko')">
+            <img 
+              src="assets/plinko_koko.png" 
+              alt="Plinko Koko Game by Bad Dad Games" 
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            >
+            <!-- Hover Shine & Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-5">
+              <button class="bg-brand-red text-white text-xs font-bold uppercase tracking-wider px-5 py-2 rounded-full shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-all flex items-center gap-1.5">
+                <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+                <span>Play Demo</span>
+              </button>
+            </div>
+            <!-- Multiplier Badge -->
+            <div class="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-amber-300 text-[11px] font-black px-2.5 py-1 rounded-full border border-amber-400/30">
+              x25 MAX
+            </div>
+          </div>
+          <!-- Card Info -->
+          <div class="mt-4 text-center">
+            <h3 class="text-base sm:text-lg font-bold text-gray-900 group-hover:text-brand-red transition-colors">
+              Plinko Koko
+            </h3>
+            <p class="text-xs sm:text-sm font-medium text-gray-500 mt-0.5">
+              Plinko
+            </p>
+          </div>
+        </div>
+
+        <!-- CARD 3: BAD DARTS (Backgrounddd.png in mockup) -->
+        <div class="game-card group flex flex-col items-center w-full max-w-[320px] transition-all duration-300">
+          <!-- Card Image Thumbnail Container -->
+          <div class="relative w-full aspect-square rounded-[32px] overflow-hidden shadow-xl group-hover:shadow-2xl transition-all duration-300 transform group-hover:-translate-y-2 cursor-pointer bg-white border border-gray-100" onclick="openGameModal('bad_darts')">
+            <img 
+              src="assets/bad_darts.png" 
+              alt="Bad Darts Game by Bad Dad Games" 
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            >
+            <!-- Hover Shine & Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-5">
+              <button class="bg-brand-red text-white text-xs font-bold uppercase tracking-wider px-5 py-2 rounded-full shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-all flex items-center gap-1.5">
+                <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+                <span>Play Demo</span>
+              </button>
+            </div>
+            <!-- Multiplier Badge -->
+            <div class="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-amber-300 text-[11px] font-black px-2.5 py-1 rounded-full border border-amber-400/30">
+              x50 MAX
+            </div>
+          </div>
+          <!-- Card Info (Honoring Backgrounddd.png from screenshot with toggle badge) -->
+          <div class="mt-4 text-center">
+            <div class="flex items-center justify-center gap-1.5">
+              <h3 id="card-3-title" class="text-base sm:text-lg font-bold text-gray-900 group-hover:text-brand-red transition-colors">
+                Backgrounddd.png
+              </h3>
+              <button onclick="toggleCard3Name(event)" class="text-[10px] text-gray-400 hover:text-brand-red bg-gray-100 hover:bg-red-50 px-1.5 py-0.5 rounded transition-colors" title="In mockup as 'Backgrounddd.png'. Click to toggle to 'Bad Darts'">
+                <i data-lucide="refresh-cw" class="w-2.5 h-2.5"></i>
+              </button>
+            </div>
+            <p class="text-xs sm:text-sm font-medium text-gray-500 mt-0.5">
+              Crash
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PRIMARY CTA BUTTON (Matching Screenshot Red Pill) -->
+      <div class="mt-14 sm:mt-16 flex flex-col items-center justify-center">
+        <button 
+          id="explore-btn" 
+          onclick="scrollToCatalog()" 
+          class="relative group bg-brand-red hover:bg-brand-red-dark text-white font-bold text-sm sm:text-base px-9 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center gap-2"
+        >
+          <span>Explore Our Games</span>
+          <i data-lucide="arrow-down" class="w-4 h-4 transition-transform duration-300 group-hover:translate-y-1"></i>
+        </button>
+        <span class="text-[11px] text-gray-400 mt-3 font-medium">Over 20+ original fast-paced titles created for instant laughs & wins</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= EXPANDED GAMES CATALOG (When clicking Explore) ================= -->
+  <section id="catalog" class="py-16 bg-white border-t border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+        <div>
+          <span class="text-xs font-bold text-brand-red uppercase tracking-wider">The Bad Dad Vault</span>
+          <h2 class="text-3xl sm:text-4xl font-black font-comic text-gray-900 mt-1">Full Game Library</h2>
+          <p class="text-gray-500 text-sm mt-1">All titles feature certified provably fair RNG, mobile portrait mode, and high-frequency action.</p>
+        </div>
+
+        <!-- Filter Tags -->
+        <div class="flex flex-wrap gap-2" id="filter-tabs">
+          <button onclick="filterGames('all')" class="catalog-filter active bg-brand-red text-white text-xs font-bold px-4 py-2 rounded-full transition-all">All (6)</button>
+          <button onclick="filterGames('Mine')" class="catalog-filter bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-bold px-4 py-2 rounded-full transition-all">Mine</button>
+          <button onclick="filterGames('Plinko')" class="catalog-filter bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-bold px-4 py-2 rounded-full transition-all">Plinko</button>
+          <button onclick="filterGames('Crash')" class="catalog-filter bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-bold px-4 py-2 rounded-full transition-all">Crash</button>
+          <button onclick="filterGames('Slots')" class="catalog-filter bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-bold px-4 py-2 rounded-full transition-all">Slots</button>
+        </div>
+      </div>
+
+      <!-- Catalog Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6" id="games-grid">
+        <!-- Will be dynamically populated / filtered by JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= ABOUT STUDIO SECTION ================= -->
+  <section id="about" class="py-20 bg-[#f6f6f2] relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="text-xs font-bold text-brand-red uppercase tracking-wider">Meet The Studio</span>
+          <h2 class="text-3xl sm:text-5xl font-black font-comic text-gray-900 mt-2 leading-tight">
+            GOOD GAMES.<br><span class="text-brand-red">UNAPOLOGETIC FUN.</span>
+          </h2>
+          <p class="text-gray-600 mt-4 leading-relaxed text-sm sm:text-base">
+            Bad Dad Games was founded in a weather-beaten wooden cabin with a simple mission: strip away corporate gaming fluff and deliver unfiltered, laugh-out-loud entertainment.
+          </p>
+          <p class="text-gray-600 mt-3 leading-relaxed text-sm sm:text-base">
+            Every game is built around iconic characters, absurd situations, and high-adrenaline gameplay. Whether it's mowing energized weed patches, tossing darts in smoky dive bars, or dropping rainbow eggs with hilarious chickens, we build memories and instant smiles.
+          </p>
+
+          <div class="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-gray-200/80">
+            <div>
+              <div class="text-2xl sm:text-3xl font-black font-comic text-brand-red">99.2%</div>
+              <div class="text-xs text-gray-500 font-medium mt-0.5">Certified Max RTP</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-black font-comic text-gray-900">12M+</div>
+              <div class="text-xs text-gray-500 font-medium mt-0.5">Spins Played</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-black font-comic text-amber-500">100%</div>
+              <div class="text-xs text-gray-500 font-medium mt-0.5">Dad Bod Certified</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white">
+            <img src="assets/hero_banner.jpg" alt="Bad Dad Cabin" class="w-full h-80 object-cover object-center">
+            <div class="p-6 bg-white">
+              <div class="flex items-center gap-3">
+                <img src="assets/bad_dad_logo.png" class="w-12 h-12 object-contain" alt="Bad Dad">
+                <div>
+                  <h4 class="font-bold text-gray-900">Headquarters: The Porch</h4>
+                  <p class="text-xs text-gray-500">Somewhere off Route 66 • Cold Beer & Good Luck</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CAREERS SECTION ================= -->
+  <section id="careers" class="py-20 bg-white border-t border-gray-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs font-bold text-brand-red uppercase tracking-wider">Join The Pack</span>
+        <h2 class="text-3xl sm:text-4xl font-black font-comic text-gray-900 mt-2">Work With Bad Dad</h2>
+        <p class="text-gray-500 text-sm mt-2">We build games people actually laugh playing. If you love arcade mechanics, wild 2D art, and zero red tape, pull up a rocking chair.</p>
+      </div>
+
+      <div class="space-y-4">
+        
+        <!-- Job 1 -->
+        <div class="p-6 rounded-2xl border border-gray-100 bg-[#fbfbf9] hover:border-brand-red/40 hover:bg-white hover:shadow-lg transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="bg-red-100 text-brand-red text-[11px] font-bold px-2.5 py-0.5 rounded-full">Engineering</span>
+              <span class="text-xs text-gray-400">Remote / Hybrid</span>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mt-1">Senior WebGL / Canvas Game Developer</h3>
+            <p class="text-xs text-gray-500 mt-0.5">Build blazing-fast 60fps lightweight mobile slot and multiplier engines.</p>
+          </div>
+          <button onclick="openApplyModal('Senior WebGL Developer')" class="bg-gray-900 hover:bg-brand-red text-white text-xs font-bold px-5 py-2.5 rounded-xl transition-colors whitespace-nowrap self-start sm:self-auto">
+            Apply Now
+          </button>
+        </div>
+
+        <!-- Job 2 -->
+        <div class="p-6 rounded-2xl border border-gray-100 bg-[#fbfbf9] hover:border-brand-red/40 hover:bg-white hover:shadow-lg transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="bg-amber-100 text-amber-700 text-[11px] font-bold px-2.5 py-0.5 rounded-full">Art & Animation</span>
+              <span class="text-xs text-gray-400">Remote</span>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mt-1">Lead 2D Character Animator</h3>
+            <p class="text-xs text-gray-500 mt-0.5">Spine 2D master who can bring Dad, crazy chickens, and lawnmowers to life.</p>
+          </div>
+          <button onclick="openApplyModal('Lead 2D Character Animator')" class="bg-gray-900 hover:bg-brand-red text-white text-xs font-bold px-5 py-2.5 rounded-xl transition-colors whitespace-nowrap self-start sm:self-auto">
+            Apply Now
+          </button>
+        </div>
+
+        <!-- Job 3 -->
+        <div class="p-6 rounded-2xl border border-gray-100 bg-[#fbfbf9] hover:border-brand-red/40 hover:bg-white hover:shadow-lg transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="bg-emerald-100 text-emerald-700 text-[11px] font-bold px-2.5 py-0.5 rounded-full">Math & Tech</span>
+              <span class="text-xs text-gray-400">Remote</span>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mt-1">Game Mathematician & Economy Designer</h3>
+            <p class="text-xs text-gray-500 mt-0.5">Formulate volatility curves, crash algorithms, and provably fair seeds.</p>
+          </div>
+          <button onclick="openApplyModal('Game Mathematician')" class="bg-gray-900 hover:bg-brand-red text-white text-xs font-bold px-5 py-2.5 rounded-xl transition-colors whitespace-nowrap self-start sm:self-auto">
+            Apply Now
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CONTACT SECTION ================= -->
+  <section id="contact" class="py-20 bg-[#f6f6f2] border-t border-gray-200/80">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 sm:p-12">
+        <div class="text-center mb-8">
+          <span class="text-xs font-bold text-brand-red uppercase tracking-wider">Get In Touch</span>
+          <h2 class="text-3xl font-black font-comic text-gray-900 mt-1">Holler At Bad Dad</h2>
+          <p class="text-gray-500 text-sm mt-1">Operator distribution, media inquiries, or player feedback — drop a note below.</p>
+        </div>
+
+        <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs font-bold text-gray-700 uppercase mb-1.5">Your Name</label>
+              <input type="text" required placeholder="Hank Hill" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-red text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-gray-700 uppercase mb-1.5">Your Email</label>
+              <input type="email" required placeholder="hank@porch.com" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-red text-sm">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-gray-700 uppercase mb-1.5">Subject</label>
+            <select class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-red text-sm bg-white">
+              <option>Casino / Operator Integration</option>
+              <option>Game Licensing & API Access</option>
+              <option>Player Support & Feedback</option>
+              <option>Media & Partnerships</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-gray-700 uppercase mb-1.5">Message</label>
+            <textarea rows="4" required placeholder="Tell us what's on your mind..." class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-red text-sm"></textarea>
+          </div>
+
+          <button type="submit" class="w-full bg-brand-red hover:bg-brand-red-dark text-white font-bold py-3.5 rounded-xl shadow-lg transition-transform transform active:scale-98">
+            Send Message
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-[#181614] text-white py-14">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row items-center justify-between gap-8 pb-10 border-b border-white/10">
+        <div class="flex items-center gap-4">
+          <img src="assets/bad_dad_logo.png" alt="Bad Dad Logo" class="h-16 w-auto">
+          <div>
+            <div class="font-comic text-xl text-white tracking-wide">BAD DAD GAMES</div>
+            <p class="text-xs text-gray-400">Good Games. Bad Manners.</p>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-6 text-sm text-gray-400 font-medium">
+          <a href="#hero" class="hover:text-white transition-colors">Home</a>
+          <a href="#games" class="hover:text-white transition-colors">Games</a>
+          <a href="#about" class="hover:text-white transition-colors">About</a>
+          <a href="#careers" class="hover:text-white transition-colors">Careers</a>
+          <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+        <div class="flex items-center gap-3">
+          <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-red-900/50 border border-red-500/40 text-red-400 font-bold text-[10px]">18+</span>
+          <p>© 2026 Bad Dad Games Studio Inc. All rights reserved. Play responsibly.</p>
+        </div>
+        <p>Provably Fair RNG Certified • Mobile Portrait First</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================= PLAYABLE GAME DEMO MODAL ================= -->
+  <div id="game-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 p-4">
+    <div class="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 transform scale-95 transition-transform duration-300" id="modal-container">
+      
+      <!-- Modal Header -->
+      <div class="bg-gray-900 text-white p-4 sm:p-5 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <img id="modal-game-thumb" src="assets/plinko_koko.png" class="w-10 h-10 rounded-xl object-cover" alt="Game Icon">
+          <div>
+            <h3 id="modal-game-title" class="font-bold text-base sm:text-lg">Game Title</h3>
+            <span id="modal-game-badge" class="text-xs text-amber-400 font-medium">Demo Mode</span>
+          </div>
+        </div>
+        <button onclick="closeGameModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors text-white">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Modal Interactive Canvas / Mini Game Body -->
+      <div class="p-6 bg-[#f6f6f2] flex flex-col items-center justify-center min-h-[360px]" id="modal-content">
+        <!-- Interactive game will be injected dynamically here -->
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="bg-white p-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
+        <span>🎮 Free Play Demo Sandbox</span>
+        <button onclick="closeGameModal()" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold px-4 py-2 rounded-xl transition-colors">
+          Close Demo
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-gray-900 text-white text-xs font-bold px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-2 border border-white/10">
+    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
+    <span id="toast-msg">Action performed!</span>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="app.js"></script>
+</body>
+</html>

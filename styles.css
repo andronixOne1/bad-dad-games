@@ -1,0 +1,111 @@
+/* ==========================================================================
+   Bad Dad Games - Custom Styling
+   ========================================================================== */
+
+/* Font definitions & base smoothing */
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Comic Font */
+.font-comic {
+  font-family: 'Lilita One', 'Fredoka', cursive, system-ui, sans-serif;
+  letter-spacing: 0.02em;
+}
+
+/* Card Glow & 3D Hover */
+.game-card {
+  perspective: 1000px;
+}
+
+.game-card > div:first-child {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+
+.game-card:hover > div:first-child {
+  box-shadow: 0 25px 35px -10px rgba(255, 52, 36, 0.25), 0 15px 20px -10px rgba(0, 0, 0, 0.15);
+}
+
+/* Ambient Floating Dust in Hero */
+@keyframes floatParticle {
+  0% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-80px) translateX(20px);
+    opacity: 0;
+  }
+}
+
+.particle {
+  position: absolute;
+  background-color: rgba(255, 235, 180, 0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: floatParticle 6s infinite linear;
+}
+
+/* Catalog Filter Active State */
+.catalog-filter.active {
+  background-color: #ff3424 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(255, 52, 36, 0.3);
+}
+
+/* Wave SVG smoothness */
+svg.preserve-3d {
+  filter: drop-shadow(0 -4px 6px rgba(0, 0, 0, 0.03));
+}
+
+/* Custom mini game canvas & elements */
+#plinko-canvas {
+  background: radial-gradient(circle at 50% 20%, #2b1f1d, #141110);
+  border-radius: 20px;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5), 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Weed Bush Mine Grid */
+.mine-tile {
+  background: linear-gradient(135deg, #4ade80, #16a34a);
+  border: 2px solid #15803d;
+  box-shadow: 0 4px 0 #14532d;
+  transition: all 0.15s ease;
+}
+
+.mine-tile:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+.mine-tile:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #14532d;
+}
+
+.mine-tile.revealed {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+  transform: none;
+}
+
+/* Bad Darts Board */
+.dart-target {
+  background: radial-gradient(circle, #ff3424 15%, #ffffff 16%, #ffffff 30%, #1e1b18 31%, #1e1b18 55%, #16a34a 56%, #16a34a 70%, #ff3424 71%);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3), inset 0 0 15px rgba(0,0,0,0.4);
+}
+
+/* Modal Open Animations */
+#game-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#game-modal.active #modal-container {
+  transform: scale(1);
+}
