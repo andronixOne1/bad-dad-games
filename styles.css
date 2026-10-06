@@ -35,11 +35,11 @@ body {
   box-shadow: 4px 4px 0px #000000;
 }
 
-/* Comic Cutout DEMO Button attached to bottom-right of thumbnail */
+/* Comic Cutout DEMO Button: Bigger and sticking out of the thumbnail frame */
 .comic-demo-btn {
   background-color: #d72015;
   color: #ffffff;
-  border: 3.5px solid #000000;
+  border: 4px solid #000000;
   box-shadow: 4px 4px 0px #000000;
   font-family: 'Lilita One', 'Fredoka', cursive, system-ui, sans-serif;
   letter-spacing: 0.05em;
@@ -48,13 +48,35 @@ body {
 
 .comic-demo-btn:hover {
   background-color: #ff2b1d;
-  transform: translate(-1px, -1px);
-  box-shadow: 5px 5px 0px #000000;
+  transform: scale(1.05);
+  box-shadow: 6px 6px 0px #000000;
 }
 
 .comic-demo-btn:active {
-  transform: translate(2px, 2px);
+  transform: translate(2px, 2px) scale(0.98);
   box-shadow: 2px 2px 0px #000000;
+}
+
+/* Seamless horizontally tileable cartoon wave banner */
+.wave-tile-divider {
+  width: 100%;
+  height: 180px;
+  background-image: url('assets/wave_tile.png');
+  background-repeat: repeat-x;
+  background-position: center bottom;
+  background-size: auto 100%;
+}
+
+@media (min-width: 640px) {
+  .wave-tile-divider {
+    height: 220px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .wave-tile-divider {
+    height: 260px;
+  }
 }
 
 /* Ambient Floating Dust in Hero */
