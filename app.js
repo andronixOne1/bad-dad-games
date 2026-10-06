@@ -204,7 +204,7 @@ function renderCatalog(filter = 'all') {
         </div>
         <p class="text-[11px] text-gray-500 mt-1 line-clamp-2 leading-relaxed">${game.tagline}</p>
       </div>
-      <button class="w-full mt-3 bg-gray-50 group-hover:bg-brand-red group-hover:text-white text-gray-700 font-bold text-xs py-2 rounded-xl transition-colors flex items-center justify-center gap-1.5">
+      <button class="comic-btn comic-btn-red w-full mt-3 text-xs py-2.5 rounded-xl flex items-center justify-center gap-1.5 cursor-pointer">
         <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
         <span>View Game & Demo</span>
       </button>
@@ -291,7 +291,7 @@ function renderModalOverview(game) {
         </div>
         <button 
           onclick="launchInteractiveDemo('${game.id}')" 
-          class="w-full sm:w-auto bg-brand-red hover:bg-brand-red-dark text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-lg transition-transform transform active:scale-95 flex items-center justify-center gap-2 whitespace-nowrap"
+          class="comic-btn comic-btn-red w-full sm:w-auto text-xs sm:text-sm px-7 py-3 rounded-xl flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer"
         >
           <i data-lucide="play" class="w-4 h-4 fill-current"></i>
           <span>PLAY DEMO NOW</span>
@@ -344,7 +344,7 @@ function launchInteractiveDemo(gameId) {
   content.innerHTML = `
     <div class="w-full max-w-md flex flex-col items-center">
       <div class="w-full flex items-center justify-between mb-3">
-        <button onclick="renderModalOverview(gamesData['${gameId}'])" class="text-xs text-gray-600 hover:text-brand-red font-bold flex items-center gap-1 bg-white px-3 py-1.5 rounded-xl border border-gray-200 shadow-sm transition-colors">
+        <button onclick="renderModalOverview(gamesData['${gameId}'])" class="comic-btn comic-btn-light text-xs px-3.5 py-2 rounded-xl flex items-center gap-1.5 cursor-pointer">
           <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
           <span>Back to Video & Info</span>
         </button>
@@ -398,7 +398,7 @@ function initPlinkoGame(container) {
       <canvas id="plinko-canvas" width="340" height="300" class="w-full max-w-[340px]"></canvas>
 
       <div class="flex items-center gap-3 mt-4 w-full justify-center">
-        <button id="drop-egg-btn" onclick="dropPlinkoEgg()" class="bg-brand-red hover:bg-brand-red-dark text-white font-black text-sm px-6 py-2.5 rounded-full shadow-lg transition-transform active:scale-95 flex items-center gap-2">
+        <button id="drop-egg-btn" onclick="dropPlinkoEgg()" class="comic-btn comic-btn-red text-sm px-7 py-3 rounded-full flex items-center gap-2 cursor-pointer">
           <span>🥚 Drop Rainbow Egg</span>
         </button>
       </div>
@@ -558,7 +558,7 @@ function initWeedBushGame(container) {
     <div class="flex flex-col items-center w-full max-w-sm">
       <div class="flex items-center justify-between w-full mb-3">
         <div class="text-xs font-bold text-gray-700">Mower Multiplier: <span id="weed-mult" class="text-brand-red font-black text-base">x1.00</span></div>
-        <button id="weed-cashout" onclick="cashoutWeed()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-3.5 py-1.5 rounded-xl transition-all shadow opacity-50 cursor-not-allowed" disabled>
+        <button id="weed-cashout" onclick="cashoutWeed()" class="comic-btn comic-btn-green text-xs px-4 py-2 rounded-xl opacity-50 cursor-not-allowed" disabled>
           Take Win
         </button>
       </div>
@@ -636,7 +636,7 @@ function initBadDartsGame(container) {
       </div>
 
       <div class="mt-4 flex items-center gap-3">
-        <button onclick="throwDartCenter()" class="bg-brand-red hover:bg-brand-red-dark text-white font-bold text-xs px-5 py-2 rounded-full shadow transition-all active:scale-95">
+        <button onclick="throwDartCenter()" class="comic-btn comic-btn-red text-xs px-6 py-2.5 rounded-full cursor-pointer">
           🎯 Quick Throw
         </button>
       </div>
@@ -706,7 +706,7 @@ function openApplyModal(roleName) {
         <input type="email" required placeholder="Email Address" class="w-full px-3 py-2 text-xs rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-red focus:outline-none">
         <input type="url" required placeholder="Portfolio / GitHub Link" class="w-full px-3 py-2 text-xs rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-red focus:outline-none">
         <textarea rows="3" placeholder="Tell Bad Dad why you want to build games..." class="w-full px-3 py-2 text-xs rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-red focus:outline-none"></textarea>
-        <button type="submit" class="w-full bg-brand-red text-white font-bold py-2.5 rounded-xl shadow text-xs">Submit Application</button>
+        <button type="submit" class="comic-btn comic-btn-red w-full text-xs py-3 rounded-xl cursor-pointer">Submit Application</button>
       </form>
     </div>
   `;

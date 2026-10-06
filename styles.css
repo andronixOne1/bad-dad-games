@@ -35,26 +35,95 @@ body {
   box-shadow: 4px 4px 0px #000000;
 }
 
-/* Comic Cutout DEMO Button: Bigger and sticking out of the thumbnail frame */
+/* Comic Buttons: Thick Outline + Hard Black Extrude Shadow */
+.comic-btn,
 .comic-demo-btn {
-  background-color: #d72015;
-  color: #ffffff;
-  border: 4px solid #000000;
+  border: 3.5px solid #000000;
   box-shadow: 4px 4px 0px #000000;
   font-family: 'Lilita One', 'Fredoka', cursive, system-ui, sans-serif;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+  user-select: none;
 }
 
+.comic-btn:hover,
 .comic-demo-btn:hover {
-  background-color: #ff2b1d;
-  transform: scale(1.05);
+  transform: translate(-1px, -1px);
   box-shadow: 6px 6px 0px #000000;
 }
 
+.comic-btn:active,
 .comic-demo-btn:active {
-  transform: translate(2px, 2px) scale(0.98);
+  transform: translate(2px, 2px);
   box-shadow: 2px 2px 0px #000000;
+}
+
+/* Red Comic Button Variant (Default) */
+.comic-btn-red,
+.comic-demo-btn {
+  background-color: #d72015;
+  color: #ffffff;
+}
+
+.comic-btn-red:hover,
+.comic-demo-btn:hover {
+  background-color: #ff2b1d;
+}
+
+/* Dark Comic Button Variant */
+.comic-btn-dark {
+  background-color: #1a1917;
+  color: #ffffff;
+}
+
+.comic-btn-dark:hover {
+  background-color: #2b2824;
+}
+
+/* Green / Emerald Comic Button Variant */
+.comic-btn-green {
+  background-color: #059669;
+  color: #ffffff;
+}
+
+.comic-btn-green:hover {
+  background-color: #10b981;
+}
+
+/* White / Light Comic Button Variant */
+.comic-btn-light {
+  background-color: #ffffff;
+  color: #1a1917;
+}
+
+.comic-btn-light:hover {
+  background-color: #f3f3ee;
+}
+
+/* Catalog Filter Pills in Comic Style */
+.catalog-filter {
+  border: 3px solid #000000;
+  box-shadow: 3px 3px 0px #000000;
+  font-family: 'Lilita One', 'Fredoka', cursive, system-ui, sans-serif;
+  letter-spacing: 0.03em;
+  transition: all 0.15s ease;
+}
+
+.catalog-filter:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px #000000;
+}
+
+.catalog-filter:active {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0px #000000;
+}
+
+.catalog-filter.active {
+  background-color: #d72015 !important;
+  color: #ffffff !important;
+  border-color: #000000 !important;
+  box-shadow: 3px 3px 0px #000000 !important;
 }
 
 /* Seamless horizontally tileable cartoon wave banner */
