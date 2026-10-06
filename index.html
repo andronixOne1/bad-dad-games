@@ -67,97 +67,94 @@
       <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/30 pointer-events-none"></div>
       <div id="hero-particles" class="absolute inset-0 pointer-events-none overflow-hidden"></div>
 
-      <!-- ================= HEADER & HERO CONTENT (Grouped closely within max-w-6xl) ================= -->
+      <!-- ================= HEADER & HERO CONTENT ================= -->
       <div class="absolute inset-0 z-40 w-full pointer-events-none">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-start pt-4 sm:pt-6 md:pt-8">
-          
-          <!-- TOP ROW: Logo (Left) + Nav Menu (Right) -->
-          <div class="flex items-start justify-between w-full pointer-events-auto">
-            
-            <!-- BAD DAD STICKER LOGO -->
-            <a href="#hero" class="relative group transition-transform duration-300 hover:scale-105 active:scale-95 z-50">
-              <img src="assets/bad_dad_logo.png" alt="Bad Dad Logo" class="h-16 sm:h-20 md:h-22 w-auto drop-shadow-2xl filter hover:drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-all">
-              <span class="sr-only">Bad Dad Games</span>
-            </a>
+        
+        <!-- TOP NAVIGATION BAR (Flush to the very top, comfortable width) -->
+        <header class="w-full px-4 sm:px-8 lg:px-12 flex items-start justify-between pointer-events-auto">
+          <!-- BAD DAD STICKER LOGO (Offset slightly from top for natural sticker look) -->
+          <a href="#hero" class="relative group transition-transform duration-300 hover:scale-105 active:scale-95 z-50 pt-3 sm:pt-4">
+            <img src="assets/bad_dad_logo.png" alt="Bad Dad Logo" class="h-16 sm:h-20 md:h-24 w-auto drop-shadow-2xl filter hover:drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-all">
+            <span class="sr-only">Bad Dad Games</span>
+          </a>
 
-            <!-- DESKTOP TOP-RIGHT PILL NAVBAR (Positioned close within max-w-6xl) -->
-            <nav class="hidden md:flex items-center bg-white rounded-b-2xl shadow-xl border-b border-x border-gray-100/90 px-6 py-2.5 transition-all duration-300 hover:shadow-2xl">
-              <ul class="flex items-center space-x-6 text-sm font-semibold text-gray-800">
-                <li>
-                  <a href="#hero" class="text-brand-red font-bold transition-colors hover:text-brand-red-dark">Home</a>
-                </li>
+          <!-- DESKTOP TOP-RIGHT PILL NAVBAR (Sticks directly flush to the top edge) -->
+          <nav class="hidden md:flex items-center bg-white rounded-b-2xl shadow-xl border-b border-x border-gray-100/90 px-7 py-3 transition-all duration-300 hover:shadow-2xl">
+            <ul class="flex items-center space-x-7 text-sm font-semibold text-gray-800">
+              <li>
+                <a href="#hero" class="text-brand-red font-bold transition-colors hover:text-brand-red-dark">Home</a>
+              </li>
+              
+              <!-- Games Dropdown Menu -->
+              <li class="relative group" id="games-nav-item">
+                <button type="button" class="flex items-center gap-1.5 transition-colors hover:text-brand-red py-1 focus:outline-none">
+                  <span>Games</span>
+                  <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180 text-gray-500"></i>
+                </button>
                 
-                <!-- Games Dropdown Menu -->
-                <li class="relative group" id="games-nav-item">
-                  <button type="button" class="flex items-center gap-1.5 transition-colors hover:text-brand-red py-1 focus:outline-none">
-                    <span>Games</span>
-                    <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180 text-gray-500"></i>
-                  </button>
-                  
-                  <!-- Dropdown Panel -->
-                  <div class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-64 bg-white rounded-2xl shadow-2xl border border-gray-100 p-2.5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top scale-95 group-hover:scale-100">
-                    <a href="#games" onclick="openGameModal('weed_bush')" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 transition-colors">
-                      <img src="assets/weed_bush.png" class="w-10 h-10 rounded-lg object-cover shadow-sm" alt="Weed Bush">
-                      <div>
-                        <div class="text-xs font-bold text-gray-900">Weed Bush</div>
-                        <div class="text-[10px] text-gray-500 font-medium">Mine Game • x20 Multiplier</div>
-                      </div>
-                    </a>
-                    <a href="#games" onclick="openGameModal('plinko_koko')" class="flex items-center gap-3 p-2 rounded-xl hover:bg-yellow-50 transition-colors mt-1">
-                      <img src="assets/plinko_koko.png" class="w-10 h-10 rounded-lg object-cover shadow-sm" alt="Plinko Koko">
-                      <div>
-                        <div class="text-xs font-bold text-gray-900">Plinko Koko</div>
-                        <div class="text-[10px] text-gray-500 font-medium">Plinko • Rainbow Eggs</div>
-                      </div>
-                    </a>
-                    <a href="#games" onclick="openGameModal('bad_darts')" class="flex items-center gap-3 p-2 rounded-xl hover:bg-orange-50 transition-colors mt-1">
-                      <img src="assets/bad_darts.png" class="w-10 h-10 rounded-lg object-cover shadow-sm" alt="Bad Darts">
-                      <div>
-                        <div class="text-xs font-bold text-gray-900">Bad Darts</div>
-                        <div class="text-[10px] text-gray-500 font-medium">Crash • x50 Bullseye</div>
-                      </div>
-                    </a>
-                  </div>
-                </li>
-                
-                <li>
-                  <a href="#about" class="transition-colors hover:text-brand-red">About</a>
-                </li>
-                <li>
-                  <a href="#careers" class="transition-colors hover:text-brand-red">Careers</a>
-                </li>
-                <li>
-                  <a href="#contact" class="transition-colors hover:text-brand-red">Contact</a>
-                </li>
-              </ul>
-            </nav>
+                <!-- Dropdown Panel -->
+                <div class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-64 bg-white rounded-2xl shadow-2xl border border-gray-100 p-2.5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top scale-95 group-hover:scale-100">
+                  <a href="#games" onclick="openGameModal('weed_bush')" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 transition-colors">
+                    <img src="assets/weed_bush.png" class="w-10 h-10 rounded-lg object-cover shadow-sm" alt="Weed Bush">
+                    <div>
+                      <div class="text-xs font-bold text-gray-900">Weed Bush</div>
+                      <div class="text-[10px] text-gray-500 font-medium">Mine Game • x20 Multiplier</div>
+                    </div>
+                  </a>
+                  <a href="#games" onclick="openGameModal('plinko_koko')" class="flex items-center gap-3 p-2 rounded-xl hover:bg-yellow-50 transition-colors mt-1">
+                    <img src="assets/plinko_koko.png" class="w-10 h-10 rounded-lg object-cover shadow-sm" alt="Plinko Koko">
+                    <div>
+                      <div class="text-xs font-bold text-gray-900">Plinko Koko</div>
+                      <div class="text-[10px] text-gray-500 font-medium">Plinko • Rainbow Eggs</div>
+                    </div>
+                  </a>
+                  <a href="#games" onclick="openGameModal('bad_darts')" class="flex items-center gap-3 p-2 rounded-xl hover:bg-orange-50 transition-colors mt-1">
+                    <img src="assets/bad_darts.png" class="w-10 h-10 rounded-lg object-cover shadow-sm" alt="Bad Darts">
+                    <div>
+                      <div class="text-xs font-bold text-gray-900">Bad Darts</div>
+                      <div class="text-[10px] text-gray-500 font-medium">Crash • x50 Bullseye</div>
+                    </div>
+                  </a>
+                </div>
+              </li>
+              
+              <li>
+                <a href="#about" class="transition-colors hover:text-brand-red">About</a>
+              </li>
+              <li>
+                <a href="#careers" class="transition-colors hover:text-brand-red">Careers</a>
+              </li>
+              <li>
+                <a href="#contact" class="transition-colors hover:text-brand-red">Contact</a>
+              </li>
+            </ul>
+          </nav>
 
-            <!-- MOBILE MENU BUTTON -->
-            <div class="flex items-center gap-2 md:hidden bg-white/95 backdrop-blur rounded-full px-3 py-1.5 shadow-lg pointer-events-auto">
-              <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-1.5 text-gray-700 hover:text-brand-red focus:outline-none" aria-label="Toggle Navigation">
-                <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
-              </button>
-            </div>
-
+          <!-- MOBILE MENU BUTTON (Flush near top) -->
+          <div class="flex items-center gap-2 md:hidden bg-white/95 backdrop-blur rounded-b-2xl px-4 py-2.5 shadow-lg pointer-events-auto">
+            <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-1 text-gray-700 hover:text-brand-red focus:outline-none" aria-label="Toggle Navigation">
+              <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+            </button>
           </div>
+        </header>
 
-          <!-- MOBILE MENU DRAWER -->
-          <div id="mobile-menu" class="hidden md:hidden fixed inset-x-0 top-20 mx-4 bg-white rounded-3xl shadow-2xl border border-gray-100 p-6 z-50 animate-fade-in pointer-events-auto">
-            <div class="flex flex-col space-y-4 text-center font-bold text-gray-800 text-lg">
-              <a href="#hero" onclick="toggleMobileMenu()" class="py-2 text-brand-red">Home</a>
-              <a href="#games" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-red">Games</a>
-              <a href="#about" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-red">About</a>
-              <a href="#careers" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-red">Careers</a>
-              <a href="#contact" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-red">Contact</a>
-              <button onclick="scrollToGames(); toggleMobileMenu();" class="w-full bg-brand-red text-white py-3 rounded-2xl shadow-lg mt-2 font-comic text-base">
-                Explore Our Games
-              </button>
-            </div>
+        <!-- MOBILE MENU DRAWER -->
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-x-0 top-16 mx-4 bg-white rounded-3xl shadow-2xl border border-gray-100 p-6 z-50 animate-fade-in pointer-events-auto">
+          <div class="flex flex-col space-y-4 text-center font-bold text-gray-800 text-lg">
+            <a href="#hero" onclick="toggleMobileMenu()" class="py-2 text-brand-red">Home</a>
+            <a href="#games" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-red">Games</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-red">About</a>
+            <a href="#careers" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-red">Careers</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-red">Contact</a>
+            <button onclick="scrollToGames(); toggleMobileMenu();" class="w-full bg-brand-red text-white py-3 rounded-2xl shadow-lg mt-2 font-comic text-base">
+              Explore Our Games
+            </button>
           </div>
+        </div>
 
-          <!-- HEADER TEXT (Tightly positioned directly below logo) -->
-          <div class="max-w-xl mt-6 sm:mt-8 md:mt-10 select-none pointer-events-none">
-            
+        <!-- HEADER TEXT CONTAINER (Comfortably spaced below logo and nav menu) -->
+        <div class="w-full px-4 sm:px-8 lg:px-12 mt-12 sm:mt-16 md:mt-20 lg:mt-24 select-none pointer-events-none">
+          <div class="max-w-xl">
             <h1 class="font-comic tracking-tight leading-none drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
               <span class="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-black tracking-normal">
                 GOOD<br>GAMES.
@@ -167,13 +164,12 @@
               </span>
             </h1>
             
-            <p class="mt-3 sm:mt-4 text-xs sm:text-sm md:text-base text-white font-semibold drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] max-w-md">
+            <p class="mt-4 sm:mt-5 text-xs sm:text-sm md:text-base text-white/95 font-semibold drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] max-w-md">
               Memorable characters, and instant entertainment.
             </p>
-
           </div>
-
         </div>
+
       </div>
 
       <!-- PLAYFUL SCALLOPED WAVE DIVIDER (Full-width, responsive, no crop across 100vw) -->
@@ -334,6 +330,19 @@
 
         <!-- Phone & Floating Elements Wrapper -->
         <div class="relative flex items-center justify-center w-full py-12 px-4">
+          
+          <!-- BARELY VISIBLE IN-GAME GRASS PATCH BEHIND THE PHONE -->
+          <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-visible">
+            <div class="relative w-[500px] sm:w-[650px] md:w-[780px] h-[340px] sm:h-[420px] md:h-[480px] opacity-25 filter blur-[2px] transition-opacity duration-700 hover:opacity-40">
+              <img 
+                src="assets/weed_grass_patch.png" 
+                alt="Weed Bush Lawn Patch" 
+                class="w-full h-full object-cover rounded-[100px] shadow-[0_0_80px_rgba(34,197,94,0.18)]"
+              >
+              <!-- Ambient soft green glow -->
+              <div class="absolute inset-0 bg-radial from-emerald-500/20 via-lime-600/10 to-transparent rounded-full filter blur-3xl"></div>
+            </div>
+          </div>
           
           <!-- REAL GAME ELEMENT 1: Pink Multiplier Bush X2.05 (Top-Left) -->
           <div class="absolute -top-4 sm:-top-6 left-1 sm:left-4 md:left-12 lg:left-6 z-30 pointer-events-none animate-float-slow select-none">
