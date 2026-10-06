@@ -1,92 +1,125 @@
 /* ==========================================================================
    Bad Dad Games - Main Application Script
+   (Sound effects removed, Game Video + Info Popup & Demos enabled)
    ========================================================================== */
 
-// --- 1. Audio Synthesizer (Web Audio API - Zero External Dependencies) ---
-let audioCtx = null;
-let soundEnabled = true;
-
-function initAudio() {
-  if (!audioCtx) {
-    const AudioContext = window.AudioContext || window.webkitAudioContext;
-    audioCtx = new AudioContext();
+// --- 1. Games Catalog & Details Data ---
+const gamesData = {
+  weed_bush: {
+    id: 'weed_bush',
+    title: 'Weed Bush',
+    category: 'Mine Game',
+    image: 'assets/weed_bush.png',
+    video: 'assets/weed_bush_preview.mp4',
+    maxMultiplier: 'x20.00',
+    rtp: '96.80% - 99.20%',
+    volatility: 'High / Electric',
+    betRange: '$0.10 - $100.00',
+    tagline: 'Mow wild patches, evade skulls & hit electric multipliers!',
+    description: `Guide Bad Dad on his souped-up electric lawnmower through overgrown patches of green. Every fresh patch cut reveals surging cash multipliers, but watch your throttle! Hit a breakdown skull and your mower blows a gasket. Cash out anytime before disaster strikes to pocket your winnings.`,
+    features: [
+      'Configurable mine density & multiplier curve',
+      'Instant cashout on every successful mow',
+      'High-voltage x20 max multiplier triggers',
+      'Certified Provably Fair SHA-256 seed generation'
+    ]
+  },
+  plinko_koko: {
+    id: 'plinko_koko',
+    title: 'Plinko Koko',
+    category: 'Plinko Physics',
+    image: 'assets/plinko_koko.png',
+    video: 'assets/plinko_koko_preview.mp4',
+    maxMultiplier: 'x25.00',
+    rtp: '97.50% - 99.10%',
+    volatility: 'Medium - High',
+    betRange: '$0.10 - $100.00',
+    tagline: 'Crazy hen dropping rainbow eggs down high-stakes peg pyramids!',
+    description: `Watch Bad Dad's lunatic barnyard hen drop golden and rainbow eggs through brass pin mazes. Every peg collision deflects your egg toward extreme multiplier crates at the bottom. Land in the outer rainbow pockets to unlock maximum multipliers!`,
+    features: [
+      'Real-time deterministic physics simulation',
+      'Rainbow egg bonus multiplier drops',
+      'Adjustable risk rows & payout spreads',
+      'Certified Provably Fair RNG'
+    ]
+  },
+  bad_darts: {
+    id: 'bad_darts',
+    title: 'Bad Darts',
+    category: 'Crash Target',
+    image: 'assets/bad_darts.png',
+    video: 'assets/bad_darts_preview.mp4',
+    maxMultiplier: 'x50.00',
+    rtp: '96.00% - 98.80%',
+    volatility: 'High',
+    betRange: '$0.10 - $50.00',
+    tagline: 'Dive bar accuracy! Hit the x50 bullseye before the tavern clock crashes.',
+    description: `Step inside Bad Dad's favorite smoky roadside dive bar. Aim true and throw darts at the spinning multiplier target before the tavern clock runs out. Hit the x50 bullseye while Bad Dad cheers you on with a cold brew. Fast, intense, and deeply satisfying.`,
+    features: [
+      'x50 Bullseye progressive multiplier jackpot',
+      'High-tension crash mechanics with manual release',
+      'Authentic roadside bar tavern lore & soundless visual flair',
+      'Instant cryptographic round verification'
+    ]
+  },
+  moonshine_run: {
+    id: 'moonshine_run',
+    title: 'Moonshine Run',
+    category: 'Crash',
+    image: 'assets/hero_banner.jpg',
+    video: 'assets/Header.webm',
+    maxMultiplier: 'x100.00',
+    rtp: '97.00% - 99.00%',
+    volatility: 'Extreme',
+    betRange: '$0.20 - $100.00',
+    tagline: 'Speed the rusty pickup down the ridge before the sheriff catches up!',
+    description: `Bad Dad loaded up the bed of his rusted blue pickup with moonshine jugs. Put pedal to the metal down winding mountain backroads as the payout multiplier climbs rapidly. Bail out before the sheriff siren sounds!`,
+    features: [
+      'Rising multiplier curve up to x100.00',
+      'Dual bet placement & auto cashout',
+      'High-speed chase animation pacing',
+      'Mobile-first portrait HUD'
+    ]
+  },
+  porch_slots: {
+    id: 'porch_slots',
+    title: 'Porch Dog Deluxe',
+    category: 'Slots',
+    image: 'assets/weed_bush.png',
+    video: 'assets/weed_bush_preview.mp4',
+    maxMultiplier: 'x500.00',
+    rtp: '96.50% - 98.50%',
+    volatility: 'Medium',
+    betRange: '$0.20 - $50.00',
+    tagline: '5x3 reels with sleeping hound wilds and exploding beer can scatters.',
+    description: `Spin across 25 paylines on the porch deck. When the sleeping hound wakes up, sticky full-reel wilds take over the screen. Hit 3 beer coolers to enter the Backyard Free Spins bonus round.`,
+    features: [
+      '25 fixed paylines with tumbling reels',
+      'Sleeping Dog expanding sticky wilds',
+      'Beer Cooler Free Spins multiplier ladder',
+      'Bonus Buy option available'
+    ]
+  },
+  lawnmower_mayhem: {
+    id: 'lawnmower_mayhem',
+    title: 'Lawnmower Mayhem',
+    category: 'Mine',
+    image: 'assets/weed_bush.png',
+    video: 'assets/weed_bush_preview.mp4',
+    maxMultiplier: 'x40.00',
+    rtp: '96.90% - 99.00%',
+    volatility: 'Very High',
+    betRange: '$0.10 - $100.00',
+    tagline: 'High volatility terrain sweeper with double turbo boost triggers.',
+    description: `An extreme variance edition of Weed Bush for high-rollers. Featuring double nitro canisters, chained multipliers, and explosive skull zones.`,
+    features: [
+      'Turbo nitro multiplier boosts up to x40.00',
+      'Dynamic grid sizing (3x3 to 7x7)',
+      'Provably Fair seed hash viewer',
+      'Instant payout engine'
+    ]
   }
-}
-
-function playSound(type) {
-  if (!soundEnabled) return;
-  try {
-    initAudio();
-    if (audioCtx.state === 'suspended') {
-      audioCtx.resume();
-    }
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    osc.connect(gain);
-    gain.connect(audioCtx.destination);
-    const now = audioCtx.currentTime;
-
-    switch (type) {
-      case 'pop':
-        osc.type = 'triangle';
-        osc.frequency.setValueAtTime(400, now);
-        osc.frequency.exponentialRampToValueAtTime(80, now + 0.1);
-        gain.gain.setValueAtTime(0.3, now);
-        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
-        osc.start(now);
-        osc.stop(now + 0.1);
-        break;
-
-      case 'ding':
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(650, now);
-        osc.frequency.exponentialRampToValueAtTime(1300, now + 0.25);
-        gain.gain.setValueAtTime(0.25, now);
-        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.35);
-        osc.start(now);
-        osc.stop(now + 0.35);
-        break;
-
-      case 'win':
-        osc.type = 'square';
-        osc.frequency.setValueAtTime(523.25, now); // C5
-        osc.frequency.setValueAtTime(659.25, now + 0.1); // E5
-        osc.frequency.setValueAtTime(783.99, now + 0.2); // G5
-        osc.frequency.setValueAtTime(1046.50, now + 0.3); // C6
-        gain.gain.setValueAtTime(0.15, now);
-        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.5);
-        osc.start(now);
-        osc.stop(now + 0.5);
-        break;
-
-      case 'buzz':
-        osc.type = 'sawtooth';
-        osc.frequency.setValueAtTime(150, now);
-        osc.frequency.linearRampToValueAtTime(80, now + 0.3);
-        gain.gain.setValueAtTime(0.3, now);
-        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
-        osc.start(now);
-        osc.stop(now + 0.3);
-        break;
-    }
-  } catch (e) {
-    console.warn('Audio not available', e);
-  }
-}
-
-function toggleAudio() {
-  soundEnabled = !soundEnabled;
-  const label = document.getElementById('sound-label');
-  const icon = document.getElementById('sound-icon');
-  if (soundEnabled) {
-    if (label) label.textContent = 'SFX ON';
-    playSound('ding');
-    showToast('Sound Effects Enabled 🔊');
-  } else {
-    if (label) label.textContent = 'SFX OFF';
-    showToast('Sound Effects Muted 🔇');
-  }
-}
+};
 
 // --- 2. Floating Dust Particles in Hero ---
 function createHeroParticles() {
@@ -117,7 +150,6 @@ function toggleCard3Name(e) {
     title.textContent = card3Official ? 'Bad Darts' : 'Backgrounddd.png';
   }
   showToast(card3Official ? 'Showing official name: Bad Darts' : 'Showing mockup name: Backgrounddd.png');
-  playSound('pop');
 }
 
 // --- 4. Navigation & Mobile Drawer ---
@@ -130,7 +162,6 @@ function toggleMobileMenu() {
   } else {
     menu.classList.add('hidden');
   }
-  playSound('pop');
 }
 
 function scrollToGames() {
@@ -141,67 +172,18 @@ function scrollToGames() {
 function scrollToCatalog() {
   const el = document.getElementById('catalog');
   if (el) el.scrollIntoView({ behavior: 'smooth' });
-  playSound('pop');
 }
 
 // --- 5. Games Library Data & Filter ---
-const catalogGames = [
-  {
-    id: 'weed_bush',
-    title: 'Weed Bush',
-    category: 'Mine',
-    image: 'assets/weed_bush.png',
-    maxMultiplier: 'x20',
-    desc: 'Mow through wild patches, evade skulls, and hit electrifying multipliers.'
-  },
-  {
-    id: 'plinko_koko',
-    title: 'Plinko Koko',
-    category: 'Plinko',
-    image: 'assets/plinko_koko.png',
-    maxMultiplier: 'x25',
-    desc: 'Crazy chicken eggs bouncing off brass pins into rainbow treasure buckets.'
-  },
-  {
-    id: 'bad_darts',
-    title: 'Bad Darts',
-    category: 'Crash',
-    image: 'assets/bad_darts.png',
-    maxMultiplier: 'x50',
-    desc: 'Beer-fueled dive bar precision! Throw darts before the clock crashes out.'
-  },
-  {
-    id: 'moonshine_run',
-    title: 'Moonshine Run',
-    category: 'Crash',
-    image: 'assets/hero_banner.jpg',
-    maxMultiplier: 'x100',
-    desc: 'Speed the rusty pickup down the ridge before the sheriff catches up!'
-  },
-  {
-    id: 'porch_slots',
-    title: 'Porch Dog Deluxe',
-    category: 'Slots',
-    image: 'assets/weed_bush.png',
-    maxMultiplier: 'x500',
-    desc: '5x3 reels with sleeping hound wilds and exploding beer can scatters.'
-  },
-  {
-    id: 'lawnmower_mayhem',
-    title: 'Lawnmower Mayhem',
-    category: 'Mine',
-    image: 'assets/weed_bush.png',
-    maxMultiplier: 'x40',
-    desc: 'High volatility terrain sweeper with double turbo boost triggers.'
-  }
-];
-
 function renderCatalog(filter = 'all') {
   const grid = document.getElementById('games-grid');
   if (!grid) return;
   grid.innerHTML = '';
 
-  const filtered = filter === 'all' ? catalogGames : catalogGames.filter(g => g.category.toLowerCase() === filter.toLowerCase());
+  const allGames = Object.values(gamesData);
+  const filtered = filter === 'all' 
+    ? allGames 
+    : allGames.filter(g => g.category.toLowerCase().includes(filter.toLowerCase()));
 
   filtered.forEach(game => {
     const card = document.createElement('div');
@@ -220,11 +202,11 @@ function renderCatalog(filter = 'all') {
           <h4 class="font-bold text-gray-900 group-hover:text-brand-red transition-colors text-sm sm:text-base">${game.title}</h4>
           <span class="text-[11px] font-semibold text-gray-400 bg-gray-50 px-2 py-0.5 rounded-md">${game.category}</span>
         </div>
-        <p class="text-[11px] text-gray-500 mt-1 line-clamp-2 leading-relaxed">${game.desc}</p>
+        <p class="text-[11px] text-gray-500 mt-1 line-clamp-2 leading-relaxed">${game.tagline}</p>
       </div>
       <button class="w-full mt-3 bg-gray-50 group-hover:bg-brand-red group-hover:text-white text-gray-700 font-bold text-xs py-2 rounded-xl transition-colors flex items-center justify-center gap-1.5">
         <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
-        <span>Try Demo</span>
+        <span>View Game & Demo</span>
       </button>
     `;
 
@@ -239,13 +221,15 @@ function renderCatalog(filter = 'all') {
 function filterGames(category) {
   const tabs = document.querySelectorAll('.catalog-filter');
   tabs.forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
+  if (event && event.target) {
+    event.target.classList.add('active');
+  }
   renderCatalog(category);
-  playSound('pop');
 }
 
-// --- 6. Playable Game Demos Modal ---
+// --- 6. Comprehensive Game Popup Modal (Video + Play Demo + RTP + Info) ---
 function openGameModal(gameId) {
+  const game = gamesData[gameId] || gamesData['weed_bush'];
   const modal = document.getElementById('game-modal');
   const title = document.getElementById('modal-game-title');
   const thumb = document.getElementById('modal-game-thumb');
@@ -253,28 +237,132 @@ function openGameModal(gameId) {
   const content = document.getElementById('modal-content');
 
   modal.classList.add('active');
-  playSound('pop');
 
+  title.textContent = game.title;
+  thumb.src = game.image;
+  badge.textContent = `${game.category} • ${game.maxMultiplier} Max Win`;
+
+  // Render Video + Info View
+  renderModalOverview(game);
+
+  if (window.lucide) window.lucide.createIcons();
+}
+
+function renderModalOverview(game) {
+  const content = document.getElementById('modal-content');
+  if (!content) return;
+
+  content.innerHTML = `
+    <div class="w-full max-w-2xl flex flex-col gap-4 text-left">
+      
+      <!-- Video Showcase of the Game -->
+      <div class="relative w-full aspect-video rounded-2xl overflow-hidden bg-black shadow-lg border border-gray-200">
+        <video 
+          id="modal-game-video" 
+          autoplay 
+          loop 
+          muted 
+          playsinline 
+          poster="${game.image}" 
+          class="w-full h-full object-cover"
+        >
+          <source src="${game.video}" type="video/mp4">
+          <source src="${game.video}" type="video/webm">
+        </video>
+        
+        <!-- Live Preview HUD Overlay -->
+        <div class="absolute top-3 left-3 bg-black/75 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-white flex items-center gap-1.5 border border-white/10 shadow">
+          <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+          <span>GAMEPLAY VIDEO</span>
+        </div>
+        <div class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded-lg text-xs font-black text-amber-300 border border-amber-400/30">
+          MAX ${game.maxMultiplier}
+        </div>
+      </div>
+
+      <!-- Prominent PLAY DEMO Action Header -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
+        <div>
+          <h4 class="font-bold text-gray-900 text-base flex items-center gap-2">
+            <span>${game.title}</span>
+            <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-red-50 text-brand-red border border-red-200">${game.category}</span>
+          </h4>
+          <p class="text-xs text-gray-500 mt-0.5">${game.tagline}</p>
+        </div>
+        <button 
+          onclick="launchInteractiveDemo('${game.id}')" 
+          class="w-full sm:w-auto bg-brand-red hover:bg-brand-red-dark text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-lg transition-transform transform active:scale-95 flex items-center justify-center gap-2 whitespace-nowrap"
+        >
+          <i data-lucide="play" class="w-4 h-4 fill-current"></i>
+          <span>PLAY DEMO NOW</span>
+        </button>
+      </div>
+
+      <!-- RTP & Technical Specs Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+        <div class="bg-white p-3 rounded-xl border border-gray-100 text-center shadow-xs">
+          <div class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Certified RTP</div>
+          <div class="text-sm sm:text-base font-black text-emerald-600 mt-0.5">${game.rtp}</div>
+        </div>
+        <div class="bg-white p-3 rounded-xl border border-gray-100 text-center shadow-xs">
+          <div class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Volatility</div>
+          <div class="text-sm sm:text-base font-black text-gray-900 mt-0.5">${game.volatility}</div>
+        </div>
+        <div class="bg-white p-3 rounded-xl border border-gray-100 text-center shadow-xs">
+          <div class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Max Win</div>
+          <div class="text-sm sm:text-base font-black text-brand-red mt-0.5">${game.maxMultiplier}</div>
+        </div>
+        <div class="bg-white p-3 rounded-xl border border-gray-100 text-center shadow-xs">
+          <div class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Fairness</div>
+          <div class="text-sm sm:text-base font-black text-amber-600 mt-0.5">Provably Fair</div>
+        </div>
+      </div>
+
+      <!-- Basic Game Info & Description -->
+      <div class="bg-white p-4 sm:p-5 rounded-2xl border border-gray-100 shadow-sm">
+        <h5 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Game Info & Mechanics</h5>
+        <p class="text-xs sm:text-sm text-gray-700 leading-relaxed">${game.description}</p>
+        
+        <div class="mt-4 pt-3 border-t border-gray-100 flex flex-wrap gap-2">
+          ${game.features.map(f => `<span class="bg-gray-50 text-gray-600 text-[11px] font-semibold px-2.5 py-1 rounded-lg border border-gray-200">✓ ${f}</span>`).join('')}
+        </div>
+      </div>
+
+    </div>
+  `;
+
+  if (window.lucide) window.lucide.createIcons();
+}
+
+function launchInteractiveDemo(gameId) {
+  const content = document.getElementById('modal-content');
+  if (!content) return;
+
+  const game = gamesData[gameId] || gamesData['weed_bush'];
+
+  // Wrap with Back button
+  content.innerHTML = `
+    <div class="w-full max-w-md flex flex-col items-center">
+      <div class="w-full flex items-center justify-between mb-3">
+        <button onclick="renderModalOverview(gamesData['${gameId}'])" class="text-xs text-gray-600 hover:text-brand-red font-bold flex items-center gap-1 bg-white px-3 py-1.5 rounded-xl border border-gray-200 shadow-sm transition-colors">
+          <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+          <span>Back to Video & Info</span>
+        </button>
+        <span class="text-xs font-bold text-amber-600">Interactive Sandbox</span>
+      </div>
+      <div id="demo-game-container" class="w-full flex justify-center"></div>
+    </div>
+  `;
+
+  const container = document.getElementById('demo-game-container');
   if (gameId === 'plinko_koko') {
-    title.textContent = 'Plinko Koko (Playable Sandbox)';
-    thumb.src = 'assets/plinko_koko.png';
-    badge.textContent = 'Drop Rainbow Eggs!';
-    initPlinkoGame(content);
+    initPlinkoGame(container);
   } else if (gameId === 'weed_bush') {
-    title.textContent = 'Weed Bush (Mine Sweeper)';
-    thumb.src = 'assets/weed_bush.png';
-    badge.textContent = 'Find Multipliers, Avoid The Skull!';
-    initWeedBushGame(content);
+    initWeedBushGame(container);
   } else if (gameId === 'bad_darts') {
-    title.textContent = 'Bad Darts (Target Challenge)';
-    thumb.src = 'assets/bad_darts.png';
-    badge.textContent = 'Hit The x50 Bullseye!';
-    initBadDartsGame(content);
+    initBadDartsGame(container);
   } else {
-    title.textContent = 'Bad Dad Games Demo';
-    thumb.src = 'assets/bad_dad_logo.png';
-    badge.textContent = 'Demo Sandbox';
-    content.innerHTML = `<div class="text-center py-12"><p class="text-gray-600 font-bold">Demo ready! Click start to play.</p></div>`;
+    initWeedBushGame(container);
   }
 
   if (window.lucide) window.lucide.createIcons();
@@ -283,7 +371,10 @@ function openGameModal(gameId) {
 function closeGameModal() {
   const modal = document.getElementById('game-modal');
   modal.classList.remove('active');
-  playSound('pop');
+  const video = document.getElementById('modal-game-video');
+  if (video) {
+    video.pause();
+  }
 }
 
 // Close on backdrop click
@@ -318,7 +409,6 @@ function initPlinkoGame(container) {
   const canvas = document.getElementById('plinko-canvas');
   const ctx = canvas.getContext('2d');
 
-  // Peg layout
   const rows = 6;
   const pegs = [];
   const startY = 50;
@@ -334,7 +424,6 @@ function initPlinkoGame(container) {
     }
   }
 
-  // Multiplier Buckets at bottom
   const multipliers = [25, 5, 2, 0.5, 2, 5, 25];
   const bucketWidth = canvas.width / multipliers.length;
 
@@ -377,43 +466,38 @@ function initPlinkoGame(container) {
     const balls = window.plinkoState.balls;
     for (let i = balls.length - 1; i >= 0; i--) {
       const b = balls[i];
-      b.vy += 0.22; // gravity
+      b.vy += 0.22;
       b.x += b.vx;
       b.y += b.vy;
 
-      // Peg collisions
       pegs.forEach(peg => {
         const dx = b.x - peg.x;
         const dy = b.y - peg.y;
         const dist = Math.hypot(dx, dy);
         if (dist < b.r + peg.r) {
-          // Bounce
           const angle = Math.atan2(dy, dx);
           b.vx = Math.cos(angle) * (1.8 + Math.random() * 0.5);
           b.vy = Math.sin(angle) * 1.5;
-          playSound('pop');
         }
       });
 
-      // Wall bounds
       if (b.x < b.r) { b.x = b.r; b.vx *= -0.7; }
       if (b.x > canvas.width - b.r) { b.x = canvas.width - b.r; b.vx *= -0.7; }
 
-      // Bottom Bucket Hit
       if (b.y >= canvas.height - 35) {
         const bucketIndex = Math.min(multipliers.length - 1, Math.max(0, Math.floor(b.x / bucketWidth)));
         const mult = multipliers[bucketIndex];
         const win = 5 * mult;
         window.plinkoState.balance += win;
 
-        document.getElementById('plinko-balance').textContent = `$${window.plinkoState.balance.toFixed(2)}`;
-        document.getElementById('plinko-win').textContent = `+$${win.toFixed(2)} (x${mult})`;
-        playSound(mult >= 5 ? 'win' : 'ding');
+        const balEl = document.getElementById('plinko-balance');
+        const winEl = document.getElementById('plinko-win');
+        if (balEl) balEl.textContent = `$${window.plinkoState.balance.toFixed(2)}`;
+        if (winEl) winEl.textContent = `+$${win.toFixed(2)} (x${mult})`;
         balls.splice(i, 1);
         continue;
       }
 
-      // Draw Rainbow Egg Ball
       ctx.beginPath();
       ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
       const grad = ctx.createLinearGradient(b.x - b.r, b.y, b.x + b.r, b.y);
@@ -439,9 +523,11 @@ function dropPlinkoEgg() {
     window.plinkoState.balance = 50;
   }
   window.plinkoState.balance -= 5;
-  document.getElementById('plinko-balance').textContent = `$${window.plinkoState.balance.toFixed(2)}`;
+  const balEl = document.getElementById('plinko-balance');
+  if (balEl) balEl.textContent = `$${window.plinkoState.balance.toFixed(2)}`;
 
   const canvas = document.getElementById('plinko-canvas');
+  if (!canvas) return;
   window.plinkoState.balls.push({
     x: canvas.width / 2 + (Math.random() * 20 - 10),
     y: 15,
@@ -449,7 +535,6 @@ function dropPlinkoEgg() {
     vy: 1,
     r: 7
   });
-  playSound('pop');
 }
 
 // --- Mini Game 2: Weed Bush Mine Sweeper ---
@@ -500,35 +585,38 @@ function revealWeedTile(index, tileEl) {
   tileEl.classList.add('revealed');
 
   if (weedState.mineIndices.has(index)) {
-    // BOOM
     tileEl.innerHTML = `💀`;
     tileEl.style.backgroundColor = '#ef4444';
     weedState.active = false;
-    playSound('buzz');
     showToast('Lawnmower broke down! 💀 Try again!');
-    document.getElementById('weed-mult').textContent = 'BUSTED';
-    document.getElementById('weed-cashout').disabled = true;
-    document.getElementById('weed-cashout').classList.add('opacity-50', 'cursor-not-allowed');
+    const multEl = document.getElementById('weed-mult');
+    const cashEl = document.getElementById('weed-cashout');
+    if (multEl) multEl.textContent = 'BUSTED';
+    if (cashEl) {
+      cashEl.disabled = true;
+      cashEl.classList.add('opacity-50', 'cursor-not-allowed');
+    }
   } else {
-    // SAFE
     weedState.clearedCount++;
     weedState.multiplier = parseFloat((weedState.multiplier + 0.45).toFixed(2));
     tileEl.innerHTML = `<span class="text-emerald-700 font-black text-xs">x${weedState.multiplier}</span>`;
-    document.getElementById('weed-mult').textContent = `x${weedState.multiplier.toFixed(2)}`;
-    playSound('ding');
+    const multEl = document.getElementById('weed-mult');
+    if (multEl) multEl.textContent = `x${weedState.multiplier.toFixed(2)}`;
 
     const cashoutBtn = document.getElementById('weed-cashout');
-    cashoutBtn.disabled = false;
-    cashoutBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+    if (cashoutBtn) {
+      cashoutBtn.disabled = false;
+      cashoutBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+    }
   }
 }
 
 function cashoutWeed() {
   if (!weedState || !weedState.active || weedState.clearedCount === 0) return;
-  playSound('win');
   showToast(`Cashed out at x${weedState.multiplier.toFixed(2)} Multiplier! 🎉`);
   weedState.active = false;
-  document.getElementById('weed-cashout').disabled = true;
+  const cashEl = document.getElementById('weed-cashout');
+  if (cashEl) cashEl.disabled = true;
 }
 
 // --- Mini Game 3: Bad Darts (Target Throw) ---
@@ -541,7 +629,6 @@ function initBadDartsGame(container) {
       </div>
 
       <div class="relative w-64 h-64 rounded-full dart-target flex items-center justify-center cursor-crosshair overflow-hidden" id="dart-board" onclick="throwDart(event)">
-        <!-- Moving Bullseye Indicator -->
         <div id="dart-aim" class="absolute w-6 h-6 border-2 border-yellow-300 rounded-full pointer-events-none transition-all duration-75"></div>
         <div class="w-8 h-8 rounded-full bg-yellow-400 flex items-center justify-center text-[10px] font-black text-gray-900 shadow">
           x50
@@ -557,7 +644,6 @@ function initBadDartsGame(container) {
     </div>
   `;
 
-  // Random moving reticle
   const aim = document.getElementById('dart-aim');
   if (dartsTimer) clearInterval(dartsTimer);
   dartsTimer = setInterval(() => {
@@ -572,6 +658,7 @@ function initBadDartsGame(container) {
 let dartsScore = 0;
 function throwDart(event) {
   const board = document.getElementById('dart-board');
+  if (!board) return;
   const rect = board.getBoundingClientRect();
   const x = event.clientX - rect.left - rect.width / 2;
   const y = event.clientY - rect.top - rect.height / 2;
@@ -585,11 +672,10 @@ function throwDart(event) {
 
   if (mult > 0) {
     dartsScore += mult * 10;
-    document.getElementById('darts-score').textContent = `${dartsScore} PTS (x${mult} Hit!)`;
-    playSound(mult >= 25 ? 'win' : 'ding');
+    const scoreEl = document.getElementById('darts-score');
+    if (scoreEl) scoreEl.textContent = `${dartsScore} PTS (x${mult} Hit!)`;
     showToast(`BULLSEYE! x${mult} Multiplier Hit! 🎯`);
   } else {
-    playSound('pop');
     showToast('Missed the board! Try again!');
   }
 }
@@ -604,10 +690,11 @@ function throwDartCenter() {
 
 // --- 7. Careers & Contact Forms ---
 function openApplyModal(roleName) {
-  openGameModal('');
+  const modal = document.getElementById('game-modal');
   const title = document.getElementById('modal-game-title');
   const badge = document.getElementById('modal-game-badge');
   const content = document.getElementById('modal-content');
+  modal.classList.add('active');
   title.textContent = `Apply: ${roleName}`;
   badge.textContent = 'Bad Dad Careers';
 
@@ -628,13 +715,11 @@ function openApplyModal(roleName) {
 function handleApplySubmit(e) {
   e.preventDefault();
   closeGameModal();
-  playSound('win');
   showToast('Application submitted! Bad Dad will review it soon.');
 }
 
 function handleContactSubmit(e) {
   e.preventDefault();
-  playSound('win');
   showToast('Thanks for reaching out! Bad Dad received your message.');
   e.target.reset();
 }
@@ -658,14 +743,13 @@ document.addEventListener('DOMContentLoaded', () => {
   createHeroParticles();
   renderCatalog('all');
   
-  // Ensure video autoplays smoothly
+  // Ensure hero video autoplays smoothly
   const heroVideo = document.getElementById('hero-video');
   if (heroVideo) {
     heroVideo.muted = true;
     const playPromise = heroVideo.play();
     if (playPromise !== undefined) {
       playPromise.catch(() => {
-        // Autoplay policy prevented playback, attempt again on user interaction
         document.body.addEventListener('click', () => {
           heroVideo.play();
         }, { once: true });

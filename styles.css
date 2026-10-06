@@ -50,6 +50,54 @@ body {
   animation: floatParticle 6s infinite linear;
 }
 
+/* Full-bleed video styling with vertical centering to frame */
+#hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Floating Animations for Scattered Phone Game Elements */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(-12deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-8deg);
+  }
+}
+
+@keyframes floatDelayed {
+  0%, 100% {
+    transform: translateY(0px) rotate(12deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(16deg);
+  }
+}
+
+@keyframes floatFast {
+  0%, 100% {
+    transform: translateY(0px) rotate(-6deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(-2deg);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 4.5s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatDelayed 5.2s ease-in-out infinite 0.8s;
+}
+
+.animate-float-fast {
+  animation: floatFast 3.8s ease-in-out infinite 0.4s;
+}
+
 /* Catalog Filter Active State */
 .catalog-filter.active {
   background-color: #ff3424 !important;
