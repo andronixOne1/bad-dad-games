@@ -16,8 +16,8 @@
             brand: {
               red: '#ff3424',
               'red-dark': '#d72015',
-              bg: '#f6f6f2',
-              card: '#ffffff',
+              bg: '#FCF1E6',
+              card: '#FCF1E6',
               dark: '#1e1b18'
             }
           },
@@ -41,10 +41,10 @@
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-[#f6f6f2] font-body text-gray-900 antialiased selection:bg-red-500 selection:text-white min-h-screen flex flex-col justify-between">
+<body class="bg-[#FCF1E6] font-body text-gray-900 antialiased selection:bg-red-500 selection:text-white min-h-screen flex flex-col justify-between">
 
   <!-- TOP NAVIGATION BAR -->
-  <header class="w-full px-4 sm:px-8 lg:px-12 flex items-center justify-between py-4 bg-white/90 backdrop-blur-md border-b-4 border-black sticky top-0 z-50">
+  <header class="w-full px-4 sm:px-8 lg:px-12 flex items-center justify-between py-4 bg-[#FCF1E6]/95 backdrop-blur-md border-b-4 border-black sticky top-0 z-50">
     <a href="index.html" class="flex items-center gap-3 transition-transform duration-200 hover:scale-105">
       <img src="assets/bad_dad_logo.png" alt="Bad Dad Logo" class="h-12 sm:h-14 w-auto">
       <span class="font-comic text-xl sm:text-2xl text-gray-900 tracking-wide hidden sm:inline">BAD DAD GAMES</span>
@@ -55,12 +55,11 @@
       <a href="index.html#hero" class="hover:text-brand-red transition-colors">Home</a>
       <a href="index.html#games" class="text-brand-red font-black">All Games</a>
       <a href="index.html#about" class="hover:text-brand-red transition-colors">About</a>
-      <a href="index.html#careers" class="hover:text-brand-red transition-colors">Careers</a>
       <a href="index.html#contact" class="hover:text-brand-red transition-colors">Contact</a>
     </nav>
 
     <!-- Return to Games CTA -->
-    <a href="index.html#games" class="comic-btn comic-btn-dark text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl flex items-center gap-1.5 cursor-pointer">
+    <a href="index.html#games" class="comic-btn comic-btn-dark text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-none flex items-center gap-1.5 cursor-pointer">
       <i data-lucide="arrow-left" class="w-4 h-4"></i>
       <span>Back to Games</span>
     </a>
@@ -73,10 +72,10 @@
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
       <div>
         <div class="flex items-center gap-2 mb-1.5">
-          <span id="game-category-badge" class="bg-red-100 text-brand-red text-xs font-black uppercase px-3 py-1 rounded-full border border-red-300">
+          <span id="game-category-badge" class="bg-red-100 text-brand-red text-xs font-black uppercase px-3 py-1 rounded-none border-2 border-black shadow-[2px_2px_0px_#000]">
             Game Category
           </span>
-          <span class="bg-emerald-100 text-emerald-800 text-xs font-black uppercase px-3 py-1 rounded-full border border-emerald-300">
+          <span class="bg-emerald-100 text-emerald-800 text-xs font-black uppercase px-3 py-1 rounded-none border-2 border-black shadow-[2px_2px_0px_#000]">
             Provably Fair RNG
           </span>
         </div>
@@ -91,7 +90,7 @@
       <!-- Quick Switch Game Dropdown -->
       <div class="flex items-center gap-3">
         <label for="game-selector" class="text-xs font-bold text-gray-500 uppercase">Switch Game:</label>
-        <select id="game-selector" onchange="switchGame(this.value)" class="bg-white border-2 border-black rounded-xl px-3 py-2 text-xs sm:text-sm font-bold text-gray-800 shadow-[3px_3px_0px_#000] focus:outline-none">
+        <select id="game-selector" onchange="switchGame(this.value)" class="bg-[#FCF1E6] border-2 border-black rounded-none px-3 py-2 text-xs sm:text-sm font-bold text-gray-800 shadow-[3px_3px_0px_#000] focus:outline-none">
           <option value="weed_bush">Weed Bush (Mine)</option>
           <option value="plinko_koko">Plinko Koko (Plinko)</option>
           <option value="bad_darts">Bad Darts (Crash)</option>
@@ -109,28 +108,28 @@
       <div class="lg:col-span-7 flex flex-col gap-6">
         
         <!-- Interactive Game Stage / Video Canvas -->
-        <div class="bg-white rounded-3xl border-4 border-black shadow-[8px_8px_0px_#000] overflow-hidden p-4 sm:p-6 relative">
+        <div class="bg-[#FCF1E6] rounded-none border-4 border-black shadow-[8px_8px_0px_#000] overflow-hidden p-4 sm:p-6 relative">
           
           <!-- Mode Tabs (Video Preview vs Playable Demo) -->
-          <div class="flex items-center justify-between pb-4 border-b-2 border-gray-100 mb-4">
+          <div class="flex items-center justify-between pb-4 border-b-2 border-black/10 mb-4">
             <div class="flex items-center gap-2">
-              <button id="tab-video" onclick="setStageMode('video')" class="comic-btn comic-btn-red text-xs px-4 py-2 rounded-xl flex items-center gap-1.5 cursor-pointer">
+              <button id="tab-video" onclick="setStageMode('video')" class="comic-btn comic-btn-red text-xs px-4 py-2 rounded-none flex items-center gap-1.5 cursor-pointer">
                 <i data-lucide="video" class="w-3.5 h-3.5"></i>
                 <span>Gameplay Video</span>
               </button>
-              <button id="tab-demo" onclick="setStageMode('demo')" class="comic-btn comic-btn-light text-xs px-4 py-2 rounded-xl flex items-center gap-1.5 cursor-pointer">
+              <button id="tab-demo" onclick="setStageMode('demo')" class="comic-btn comic-btn-light text-xs px-4 py-2 rounded-none flex items-center gap-1.5 cursor-pointer">
                 <i data-lucide="play" class="w-3.5 h-3.5"></i>
                 <span>Play Live Demo</span>
               </button>
             </div>
             
-            <span class="text-xs font-mono font-bold text-gray-400 uppercase hidden sm:inline" id="stage-status-badge">
+            <span class="text-xs font-mono font-bold text-gray-500 uppercase hidden sm:inline" id="stage-status-badge">
               HD Gameplay
             </span>
           </div>
 
           <!-- Stage 1: Video Player Container -->
-          <div id="video-container" class="relative w-full aspect-video rounded-2xl overflow-hidden bg-black border-2 border-black shadow-inner">
+          <div id="video-container" class="relative w-full aspect-video rounded-none overflow-hidden bg-black border-2 border-black shadow-[3px_3px_0px_#000]">
             <video 
               id="game-video" 
               autoplay 
@@ -144,18 +143,18 @@
             </video>
             
             <!-- Video Overlay Badge -->
-            <div class="absolute top-3 left-3 bg-black/80 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-bold text-white flex items-center gap-1.5 border border-white/20">
+            <div class="absolute top-3 left-3 bg-black/80 backdrop-blur-md px-3 py-1 rounded-none text-[11px] font-bold text-white flex items-center gap-1.5 border border-white/20">
               <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
               <span>IN-GAME FOOTAGE</span>
             </div>
             
-            <div id="video-max-mult" class="absolute bottom-3 right-3 bg-black/85 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-black text-amber-300 border border-amber-400/40">
+            <div id="video-max-mult" class="absolute bottom-3 right-3 bg-black/85 backdrop-blur-md px-3 py-1 rounded-none text-xs font-black text-amber-300 border border-amber-400/40">
               MAX x20.00
             </div>
 
             <!-- Switch to Play button in center overlay -->
             <div class="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
-              <button onclick="setStageMode('demo')" class="comic-btn comic-btn-red text-sm sm:text-base px-6 py-3 rounded-2xl flex items-center gap-2 cursor-pointer">
+              <button onclick="setStageMode('demo')" class="comic-btn comic-btn-red text-sm sm:text-base px-6 py-3 rounded-none flex items-center gap-2 cursor-pointer">
                 <i data-lucide="play" class="w-5 h-5 fill-current"></i>
                 <span>Switch to Playable Demo</span>
               </button>
@@ -163,24 +162,24 @@
           </div>
 
           <!-- Stage 2: Interactive Sandbox Container -->
-          <div id="sandbox-container" class="hidden min-h-[360px] flex flex-col items-center justify-center p-2 bg-[#f6f6f2] rounded-2xl border-2 border-black">
+          <div id="sandbox-container" class="hidden min-h-[360px] flex flex-col items-center justify-center p-2 bg-[#FCF1E6] rounded-none border-2 border-black">
             <!-- Sandbox game rendered dynamically -->
           </div>
 
         </div>
 
         <!-- Provably Fair & Certified RNG Banner -->
-        <div class="bg-amber-50 rounded-2xl border-2 border-amber-300 p-4 flex items-center justify-between gap-4 shadow-sm">
+        <div class="bg-amber-100/70 rounded-none border-3 border-black p-4 flex items-center justify-between gap-4 shadow-[4px_4px_0px_#000] border-2">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-amber-200 border-2 border-black flex items-center justify-center text-lg">
+            <div class="w-10 h-10 rounded-none bg-amber-200 border-2 border-black flex items-center justify-center text-lg shadow-[2px_2px_0px_#000]">
               🔒
             </div>
             <div>
               <h4 class="text-xs sm:text-sm font-bold text-amber-950">Cryptographic Provably Fair RNG</h4>
-              <p class="text-[11px] sm:text-xs text-amber-800">Every round seed is deterministically hashed with SHA-256 for complete player transparency.</p>
+              <p class="text-[11px] sm:text-xs text-amber-900">Every round seed is deterministically hashed with SHA-256 for complete player transparency.</p>
             </div>
           </div>
-          <span class="text-xs font-black font-mono text-amber-900 bg-amber-200/80 px-2.5 py-1 rounded-lg border border-amber-400 whitespace-nowrap hidden sm:inline">
+          <span class="text-xs font-black font-mono text-amber-900 bg-amber-200 px-2.5 py-1 rounded-none border-2 border-black shadow-[2px_2px_0px_#000] whitespace-nowrap hidden sm:inline">
             SHA-256
           </span>
         </div>
@@ -191,41 +190,41 @@
       <div class="lg:col-span-5 flex flex-col gap-6">
         
         <!-- Technical Specs Card -->
-        <div class="bg-white rounded-3xl border-4 border-black shadow-[8px_8px_0px_#000] p-6">
-          <h3 class="text-base sm:text-lg font-black font-comic text-gray-900 uppercase tracking-wide mb-4 flex items-center justify-between border-b-2 border-gray-100 pb-2">
+        <div class="bg-[#FCF1E6] rounded-none border-4 border-black shadow-[8px_8px_0px_#000] p-6">
+          <h3 class="text-base sm:text-lg font-black font-comic text-gray-900 uppercase tracking-wide mb-4 flex items-center justify-between border-b-2 border-black/10 pb-2">
             <span>Game Specifications</span>
             <span class="text-xs font-bold text-brand-red">Official Math Model</span>
           </h3>
 
           <div class="grid grid-cols-2 gap-3.5">
-            <div class="bg-gray-50 p-3.5 rounded-2xl border-2 border-black text-center shadow-[2px_2px_0px_#000]">
-              <div class="text-[10px] text-gray-500 font-bold uppercase tracking-wider">Certified RTP</div>
+            <div class="bg-[#FCF1E6] p-3.5 rounded-none border-2 border-black text-center shadow-[3px_3px_0px_#000]">
+              <div class="text-[10px] text-gray-600 font-bold uppercase tracking-wider">Certified RTP</div>
               <div id="spec-rtp" class="text-lg sm:text-xl font-black font-comic text-emerald-600 mt-0.5">96.80% - 99.20%</div>
             </div>
 
-            <div class="bg-gray-50 p-3.5 rounded-2xl border-2 border-black text-center shadow-[2px_2px_0px_#000]">
-              <div class="text-[10px] text-gray-500 font-bold uppercase tracking-wider">Max Multiplier</div>
+            <div class="bg-[#FCF1E6] p-3.5 rounded-none border-2 border-black text-center shadow-[3px_3px_0px_#000]">
+              <div class="text-[10px] text-gray-600 font-bold uppercase tracking-wider">Max Multiplier</div>
               <div id="spec-max" class="text-lg sm:text-xl font-black font-comic text-brand-red mt-0.5">x20.00</div>
             </div>
 
-            <div class="bg-gray-50 p-3.5 rounded-2xl border-2 border-black text-center shadow-[2px_2px_0px_#000]">
-              <div class="text-[10px] text-gray-500 font-bold uppercase tracking-wider">Volatility</div>
+            <div class="bg-[#FCF1E6] p-3.5 rounded-none border-2 border-black text-center shadow-[3px_3px_0px_#000]">
+              <div class="text-[10px] text-gray-600 font-bold uppercase tracking-wider">Volatility</div>
               <div id="spec-volatility" class="text-sm sm:text-base font-black font-comic text-gray-900 mt-1">High</div>
             </div>
 
-            <div class="bg-gray-50 p-3.5 rounded-2xl border-2 border-black text-center shadow-[2px_2px_0px_#000]">
-              <div class="text-[10px] text-gray-500 font-bold uppercase tracking-wider">Betting Limits</div>
+            <div class="bg-[#FCF1E6] p-3.5 rounded-none border-2 border-black text-center shadow-[3px_3px_0px_#000]">
+              <div class="text-[10px] text-gray-600 font-bold uppercase tracking-wider">Betting Limits</div>
               <div id="spec-bet" class="text-sm sm:text-base font-black font-comic text-gray-900 mt-1">$0.10 - $100.00</div>
             </div>
           </div>
 
           <!-- Quick Action Buttons -->
           <div class="mt-6 flex flex-col gap-2.5">
-            <button onclick="setStageMode('demo')" class="comic-btn comic-btn-red w-full text-base py-3.5 rounded-2xl flex items-center justify-center gap-2 cursor-pointer">
+            <button onclick="setStageMode('demo')" class="comic-btn comic-btn-red w-full text-base py-3.5 rounded-none flex items-center justify-center gap-2 cursor-pointer shadow-[3px_3px_0px_#000] border-[2.5px] border-black">
               <i data-lucide="play" class="w-5 h-5 fill-current"></i>
               <span>PLAY INTERACTIVE DEMO</span>
             </button>
-            <a href="index.html#contact" class="comic-btn comic-btn-dark w-full text-xs sm:text-sm py-3 rounded-2xl flex items-center justify-center gap-2 text-center cursor-pointer">
+            <a href="index.html#contact" class="comic-btn comic-btn-dark w-full text-xs sm:text-sm py-3 rounded-none flex items-center justify-center gap-2 text-center cursor-pointer shadow-[3px_3px_0px_#000] border-[2.5px] border-black">
               <i data-lucide="briefcase" class="w-4 h-4"></i>
               <span>Request Casino API Integration</span>
             </a>
@@ -233,16 +232,16 @@
         </div>
 
         <!-- Game Description & Features Card -->
-        <div class="bg-white rounded-3xl border-4 border-black shadow-[8px_8px_0px_#000] p-6">
-          <h3 class="text-base sm:text-lg font-black font-comic text-gray-900 uppercase tracking-wide mb-3 flex items-center gap-2 border-b-2 border-gray-100 pb-2">
+        <div class="bg-[#FCF1E6] rounded-none border-4 border-black shadow-[8px_8px_0px_#000] p-6">
+          <h3 class="text-base sm:text-lg font-black font-comic text-gray-900 uppercase tracking-wide mb-3 flex items-center gap-2 border-b-2 border-black/10 pb-2">
             <span>About The Game</span>
           </h3>
 
-          <p id="game-description" class="text-xs sm:text-sm text-gray-700 leading-relaxed font-normal">
+          <p id="game-description" class="text-xs sm:text-sm text-gray-800 leading-relaxed font-normal">
             Game description goes here.
           </p>
 
-          <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mt-5 mb-2.5">
+          <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider mt-5 mb-2.5">
             Key Features & Mechanics
           </h4>
           <div id="game-features" class="flex flex-col gap-2">
@@ -261,7 +260,7 @@
           <span class="text-xs font-bold text-brand-red uppercase tracking-wider">More Titles</span>
           <h2 class="text-2xl sm:text-3xl font-black font-comic text-gray-900">Explore More Bad Dad Games</h2>
         </div>
-        <a href="index.html#games" class="comic-btn comic-btn-dark text-xs sm:text-sm px-4 py-2 rounded-xl cursor-pointer">
+        <a href="index.html#games" class="comic-btn comic-btn-dark text-xs sm:text-sm px-4 py-2 rounded-none cursor-pointer">
           View All Games
         </a>
       </div>

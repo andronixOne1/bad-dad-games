@@ -16,8 +16,8 @@
             brand: {
               red: '#ff3424',
               'red-dark': '#e02819',
-              bg: '#f6f6f2',
-              card: '#ffffff',
+              bg: '#FCF1E6',
+              card: '#FCF1E6',
               dark: '#1e1b18'
             }
           },
@@ -41,7 +41,7 @@
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-[#f6f6f2] font-body text-gray-900 antialiased selection:bg-red-500 selection:text-white">
+<body class="bg-[#FCF1E6] font-body text-gray-900 antialiased selection:bg-red-500 selection:text-white">
 
   <!-- ================= HERO SECTION WITH FULL-BLEED VIDEO & OVERLAYED NAV ================= -->
   <section id="hero" class="relative w-full overflow-hidden bg-[#2a1d17]">
@@ -98,7 +98,7 @@
         </header>
 
         <!-- MOBILE MENU DRAWER -->
-        <div id="mobile-menu" class="hidden md:hidden fixed inset-x-0 top-20 mx-4 bg-white rounded-2xl shadow-2xl border-4 border-black p-6 z-50 animate-fade-in pointer-events-auto">
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-x-0 top-20 mx-4 bg-[#FCF1E6] rounded-2xl shadow-2xl border-4 border-black p-6 z-50 animate-fade-in pointer-events-auto">
           <div class="flex flex-col space-y-4 text-center font-comic font-black text-gray-900 text-lg">
             <a href="#hero" onclick="toggleMobileMenu()" class="py-2 text-brand-red">HOME</a>
             <a href="#games" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-red">GAMES</a>
@@ -114,14 +114,14 @@
           NO BORING GAMES !!!
         </div>
 
-        <!-- HERO STICKER 2: "BUILT DIFFERENT" (Enlarged 300% tilted white sticker next to chicken) -->
-        <div class="absolute bottom-[16%] sm:bottom-[18%] right-[22%] sm:right-[26%] md:right-[30%] rotate-[4deg] comic-sticker bg-white text-black text-lg sm:text-2xl md:text-3xl font-black px-5 sm:px-8 py-2 sm:py-3.5 uppercase pointer-events-none z-30 shadow-[5px_5px_0px_#000] sm:shadow-[6px_6px_0px_#000] border-[3.5px] sm:border-4 border-black">
-          BUILT DIFFERENT
-        </div>
-
-        <!-- HERO STICKER 3: FUNNY CHICKEN CHARACTER (Positioned close to BUILT DIFFERENT badge) -->
-        <div class="absolute bottom-[2%] sm:bottom-[4%] right-4 sm:right-10 md:right-16 lg:right-24 z-30 pointer-events-none select-none">
-          <img src="assets/chicken_sticker.png" alt="Bad Dad Chicken" class="w-32 sm:w-44 md:w-56 lg:w-64 h-auto filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.7)]">
+        <!-- HERO STICKER 2 & CHICKEN GROUP: Positioned together side-by-side -->
+        <div class="absolute bottom-[8%] sm:bottom-[10%] md:bottom-[12%] right-[4%] sm:right-[8%] md:right-[12%] z-30 pointer-events-none select-none flex items-end gap-2 sm:gap-4">
+          <!-- "BUILT DIFFERENT" (Enlarged 300% tilted badge with #FCF1E6) -->
+          <div class="rotate-[4deg] comic-sticker bg-[#FCF1E6] text-black text-lg sm:text-2xl md:text-3xl font-black px-5 sm:px-8 py-2 sm:py-3.5 uppercase shadow-[5px_5px_0px_#000] sm:shadow-[6px_6px_0px_#000] border-[3.5px] sm:border-4 border-black mb-4 sm:mb-6">
+            BUILT DIFFERENT
+          </div>
+          <!-- FUNNY CHICKEN CHARACTER: Immediately next to the badge -->
+          <img src="assets/chicken_sticker.png" alt="Bad Dad Chicken" class="w-28 sm:w-40 md:w-52 lg:w-60 h-auto filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.7)] shrink-0">
         </div>
 
         <!-- HEADER TEXT CONTAINER & YELLOW EXPLORE BUTTON (Figma Layout) -->
@@ -181,7 +181,7 @@
             <img src="assets/weed_bush.png" alt="Weed Bush" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
           </div>
           <!-- Card Info Bar -->
-          <div class="p-3 sm:p-3.5 bg-white flex items-center justify-between gap-2">
+          <div class="p-3 sm:p-3.5 bg-[#FCF1E6] flex items-center justify-between gap-2">
             <div>
               <h3 class="font-comic font-black text-lg sm:text-xl text-black uppercase leading-tight">
                 WEED BUSH
@@ -213,7 +213,7 @@
             <img src="assets/plinko_koko.png" alt="PlinKoko" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
           </div>
           <!-- Card Info Bar -->
-          <div class="p-3 sm:p-3.5 bg-white flex items-center justify-between gap-2">
+          <div class="p-3 sm:p-3.5 bg-[#FCF1E6] flex items-center justify-between gap-2">
             <div>
               <h3 class="font-comic font-black text-lg sm:text-xl text-black uppercase leading-tight">
                 PLINKOKO
@@ -245,7 +245,7 @@
             <img src="assets/bad_darts.png" alt="Bad Darts" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
           </div>
           <!-- Card Info Bar -->
-          <div class="p-3 sm:p-3.5 bg-white flex items-center justify-between gap-2">
+          <div class="p-3 sm:p-3.5 bg-[#FCF1E6] flex items-center justify-between gap-2">
             <div>
               <h3 class="font-comic font-black text-lg sm:text-xl text-black uppercase leading-tight">
                 BAD DARTS
@@ -280,12 +280,12 @@
           <div class="relative w-full aspect-square overflow-hidden bg-black border-b-[3.5px] border-black">
             <img src="assets/weed_bush.png" alt="Weed Bush" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
           </div>
-          <div class="p-2.5 sm:p-3 bg-white flex flex-col justify-between">
+          <div class="p-2.5 sm:p-3 bg-[#FCF1E6] flex flex-col justify-between">
             <div>
               <h3 class="font-comic font-black text-sm sm:text-base text-black uppercase leading-tight">WEED BUSH</h3>
               <p class="text-[9px] sm:text-[10px] text-gray-500 font-medium leading-tight mt-0.5 line-clamp-1">A clean crash game built around chain-reaction tension.</p>
             </div>
-            <div class="flex items-center justify-between mt-2 pt-2 border-t border-gray-100">
+            <div class="flex items-center justify-between mt-2 pt-2 border-t border-black/10">
               <div class="flex items-center gap-1">
                 <span class="badge-yellow-comic">Crash</span>
                 <span class="badge-yellow-comic">97%</span>
@@ -300,12 +300,12 @@
           <div class="relative w-full aspect-square overflow-hidden bg-black border-b-[3.5px] border-black">
             <img src="assets/hero_banner.jpg" alt="Moonshine Run" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
           </div>
-          <div class="p-2.5 sm:p-3 bg-white flex flex-col justify-between">
+          <div class="p-2.5 sm:p-3 bg-[#FCF1E6] flex flex-col justify-between">
             <div>
               <h3 class="font-comic font-black text-sm sm:text-base text-black uppercase leading-tight">MOONSHINE RUN</h3>
               <p class="text-[9px] sm:text-[10px] text-gray-500 font-medium leading-tight mt-0.5 line-clamp-1">Speed down winding mountain ridges before the sheriff catches up.</p>
             </div>
-            <div class="flex items-center justify-between mt-2 pt-2 border-t border-gray-100">
+            <div class="flex items-center justify-between mt-2 pt-2 border-t border-black/10">
               <div class="flex items-center gap-1">
                 <span class="badge-yellow-comic">Crash</span>
                 <span class="badge-yellow-comic">98%</span>
@@ -320,12 +320,12 @@
           <div class="relative w-full aspect-square overflow-hidden bg-black border-b-[3.5px] border-black">
             <img src="assets/weed_bush.png" alt="Porch Dog Deluxe" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
           </div>
-          <div class="p-2.5 sm:p-3 bg-white flex flex-col justify-between">
+          <div class="p-2.5 sm:p-3 bg-[#FCF1E6] flex flex-col justify-between">
             <div>
               <h3 class="font-comic font-black text-sm sm:text-base text-black uppercase leading-tight">PORCH DELUXE</h3>
               <p class="text-[9px] sm:text-[10px] text-gray-500 font-medium leading-tight mt-0.5 line-clamp-1">5x3 reels with sleeping hound sticky wilds and beer cooler scatters.</p>
             </div>
-            <div class="flex items-center justify-between mt-2 pt-2 border-t border-gray-100">
+            <div class="flex items-center justify-between mt-2 pt-2 border-t border-black/10">
               <div class="flex items-center gap-1">
                 <span class="badge-yellow-comic">Slots</span>
                 <span class="badge-yellow-comic">97%</span>
@@ -340,12 +340,12 @@
           <div class="relative w-full aspect-square overflow-hidden bg-black border-b-[3.5px] border-black">
             <img src="assets/weed_bush.png" alt="Lawnmower Mayhem" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
           </div>
-          <div class="p-2.5 sm:p-3 bg-white flex flex-col justify-between">
+          <div class="p-2.5 sm:p-3 bg-[#FCF1E6] flex flex-col justify-between">
             <div>
               <h3 class="font-comic font-black text-sm sm:text-base text-black uppercase leading-tight">MOWER MAYHEM</h3>
               <p class="text-[9px] sm:text-[10px] text-gray-500 font-medium leading-tight mt-0.5 line-clamp-1">High-volatility terrain sweeper with double turbo boost triggers.</p>
             </div>
-            <div class="flex items-center justify-between mt-2 pt-2 border-t border-gray-100">
+            <div class="flex items-center justify-between mt-2 pt-2 border-t border-black/10">
               <div class="flex items-center gap-1">
                 <span class="badge-yellow-comic">Mine</span>
                 <span class="badge-yellow-comic">98%</span>
@@ -361,7 +361,7 @@
   </section>
 
   <!-- ================= SECTION 3: MEET THE STUDIO (FIGMA ABOUT LAYOUT) ================= -->
-  <section id="about" class="py-20 sm:py-28 bg-white border-t-4 border-black relative overflow-hidden">
+  <section id="about" class="py-20 sm:py-28 bg-[#FCF1E6] border-t-4 border-black relative overflow-hidden">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
@@ -432,17 +432,17 @@
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label class="block text-[10px] font-black uppercase text-gray-800 mb-1">NAME</label>
-                  <input type="text" required placeholder="Bad Dad" class="w-full bg-white border-2 border-black rounded-none px-3 py-2 text-xs font-semibold text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-red">
+                  <input type="text" required placeholder="Bad Dad" class="w-full bg-[#FCF1E6] border-2 border-black rounded-none px-3 py-2 text-xs font-semibold text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-red">
                 </div>
                 <div>
                   <label class="block text-[10px] font-black uppercase text-gray-800 mb-1">EMAIL</label>
-                  <input type="email" required placeholder="you@company.com" class="w-full bg-white border-2 border-black rounded-none px-3 py-2 text-xs font-semibold text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-red">
+                  <input type="email" required placeholder="you@company.com" class="w-full bg-[#FCF1E6] border-2 border-black rounded-none px-3 py-2 text-xs font-semibold text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-red">
                 </div>
               </div>
 
               <div>
                 <label class="block text-[10px] font-black uppercase text-gray-800 mb-1">WHAT'S THIS ABOUT?</label>
-                <select required class="w-full bg-white border-2 border-black rounded-none px-3 py-2 text-xs font-semibold text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-red">
+                <select required class="w-full bg-[#FCF1E6] border-2 border-black rounded-none px-3 py-2 text-xs font-semibold text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-red">
                   <option value="" disabled selected>Select a topic</option>
                   <option value="partnership">Partnership &amp; Distribution</option>
                   <option value="licensing">Game Licensing</option>
@@ -454,7 +454,7 @@
 
               <div>
                 <label class="block text-[10px] font-black uppercase text-gray-800 mb-1">MESSAGE</label>
-                <textarea rows="4" required placeholder="Tell us a bit about what you need..." class="w-full bg-white border-2 border-black rounded-none px-3 py-2 text-xs font-semibold text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-red resize-none"></textarea>
+                <textarea rows="4" required placeholder="Tell us a bit about what you need..." class="w-full bg-[#FCF1E6] border-2 border-black rounded-none px-3 py-2 text-xs font-semibold text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-red resize-none"></textarea>
               </div>
 
               <button type="submit" class="comic-btn comic-btn-red w-full py-3.5 text-xs sm:text-sm uppercase font-black tracking-wider flex items-center justify-center gap-1.5 cursor-pointer mt-2 shadow-[3px_3px_0px_#000] border-[2.5px] border-black">
@@ -508,31 +508,31 @@
 
   <!-- ================= PLAYABLE GAME DEMO MODAL ================= -->
   <div id="game-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 p-4">
-    <div class="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden border-4 border-black transform scale-95 transition-transform duration-300" id="modal-container">
+    <div class="relative w-full max-w-2xl bg-[#FCF1E6] rounded-none shadow-2xl overflow-hidden border-4 border-black transform scale-95 transition-transform duration-300" id="modal-container">
       
       <!-- Modal Header -->
       <div class="bg-gray-900 text-white p-4 sm:p-5 flex items-center justify-between border-b-4 border-black">
         <div class="flex items-center gap-3">
-          <img id="modal-game-thumb" src="assets/plinko_koko.png" class="w-10 h-10 rounded-xl object-cover border-2 border-black" alt="Game Icon">
+          <img id="modal-game-thumb" src="assets/plinko_koko.png" class="w-10 h-10 rounded-none object-cover border-2 border-black" alt="Game Icon">
           <div>
             <h3 id="modal-game-title" class="font-bold text-base sm:text-lg">Game Title</h3>
             <span id="modal-game-badge" class="text-xs text-amber-400 font-medium">Demo Mode</span>
           </div>
         </div>
-        <button onclick="closeGameModal()" class="comic-btn comic-btn-dark w-9 h-9 rounded-full flex items-center justify-center text-white cursor-pointer" aria-label="Close Modal">
+        <button onclick="closeGameModal()" class="comic-btn comic-btn-dark w-9 h-9 rounded-none flex items-center justify-center text-white cursor-pointer" aria-label="Close Modal">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
 
       <!-- Modal Interactive Canvas / Mini Game Body -->
-      <div class="p-6 bg-[#f6f6f2] flex flex-col items-center justify-center min-h-[360px]" id="modal-content">
+      <div class="p-6 bg-[#FCF1E6] flex flex-col items-center justify-center min-h-[360px]" id="modal-content">
         <!-- Interactive game will be injected dynamically here -->
       </div>
 
       <!-- Modal Footer -->
-      <div class="bg-white p-4 border-t-4 border-black flex items-center justify-between text-xs text-gray-500">
+      <div class="bg-[#FCF1E6] p-4 border-t-4 border-black flex items-center justify-between text-xs text-gray-500">
         <span class="font-bold">🎮 Free Play Demo Sandbox</span>
-        <button onclick="closeGameModal()" class="comic-btn comic-btn-dark text-xs px-5 py-2.5 rounded-xl cursor-pointer">
+        <button onclick="closeGameModal()" class="comic-btn comic-btn-dark text-xs px-5 py-2.5 rounded-none cursor-pointer">
           Close Demo
         </button>
       </div>

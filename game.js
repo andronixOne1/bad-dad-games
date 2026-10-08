@@ -147,20 +147,26 @@ function renderOtherGames(currentId) {
   const others = Object.values(gamesData).filter(g => g.id !== currentId).slice(0, 3);
   others.forEach(game => {
     const card = document.createElement('div');
-    card.className = 'game-card group flex flex-col items-center w-full transition-all duration-300';
+    card.className = 'figma-poison-card group flex flex-col justify-between cursor-pointer w-full';
+    card.onclick = () => window.location.href = `game.html?id=${game.id}`;
     card.innerHTML = `
-      <div class="relative w-full aspect-square">
-        <div class="game-thumb-container w-full h-full rounded-[30px] overflow-hidden cursor-pointer bg-black" onclick="window.location.href='game.html?id=${game.id}'">
-          <img src="${game.image}" alt="${game.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-          <div class="absolute bottom-4 left-5 z-20 pointer-events-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
-            <h3 class="text-xl sm:text-2xl font-black font-comic text-white leading-tight">${game.title}</h3>
-            <p class="text-xs sm:text-sm font-semibold text-gray-300 leading-none mt-0.5">${game.category}</p>
+      <div class="relative w-full aspect-square overflow-hidden bg-black border-b-[3.5px] border-black">
+        <img src="${game.image}" alt="${game.title}" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+      </div>
+      <div class="p-3 sm:p-3.5 bg-[#FCF1E6] flex items-center justify-between gap-2">
+        <div>
+          <h3 class="font-comic font-black text-lg sm:text-xl text-black uppercase leading-tight">${game.title}</h3>
+          <p class="text-[10px] sm:text-[11px] text-gray-500 font-medium leading-tight mt-0.5 line-clamp-1">${game.tagline}</p>
+        </div>
+        <div class="flex flex-col items-end gap-1.5 shrink-0">
+          <a href="game.html?id=${game.id}&play=true" onclick="event.stopPropagation()" class="card-play-demo-btn cursor-pointer">
+            PLAY DEMO
+          </a>
+          <div class="flex items-center gap-1">
+            <span class="badge-yellow-comic">${game.category}</span>
+            <span class="badge-yellow-comic">${game.rtp.split(' ')[0]}</span>
           </div>
         </div>
-        <a href="game.html?id=${game.id}" class="comic-demo-btn absolute -bottom-3 -right-3 z-30 px-5 sm:px-6 py-2 sm:py-2.5 rounded-xl flex items-center gap-2 text-sm sm:text-base font-black uppercase cursor-pointer">
-          <span class="text-xs leading-none">►</span>
-          <span>DEMO</span>
-        </a>
       </div>
     `;
     grid.appendChild(card);

@@ -37,7 +37,7 @@ body {
 
 /* Reference Figma: Pick Your Poison Cards */
 .figma-poison-card {
-  background-color: #ffffff;
+  background-color: #FCF1E6;
   border: 3.5px solid #000000;
   box-shadow: 5px 6px 0px #000000;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -333,12 +333,12 @@ body {
 
 /* White / Light Comic Button Variant */
 .comic-btn-light {
-  background-color: #ffffff;
+  background-color: #FCF1E6;
   color: #1a1917;
 }
 
 .comic-btn-light:hover {
-  background-color: #f3f3ee;
+  background-color: #f1e2d2;
 }
 
 /* Catalog Filter Pills in Comic Style */
