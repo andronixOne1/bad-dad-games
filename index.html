@@ -70,8 +70,8 @@
       <!-- ================= HEADER & HERO CONTENT ================= -->
       <div class="absolute inset-0 z-40 w-full pointer-events-none">
         
-        <!-- TOP NAVIGATION BAR (Matching Figma: Logo Left, Links & Red Contact Us Right) -->
-        <header class="w-full px-4 sm:px-8 lg:px-12 flex items-center justify-between pointer-events-auto pt-3 sm:pt-4">
+        <!-- TOP NAVIGATION BAR (Matching Figma: Logo Left, Links & Red Contact Us Right with 25% black bar) -->
+        <header class="w-full bg-black/25 backdrop-blur-[2px] px-4 sm:px-8 lg:px-12 py-3 sm:py-4 flex items-center justify-between pointer-events-auto border-b border-black/10">
           <!-- BAD DAD STICKER LOGO -->
           <a href="#hero" class="relative group transition-transform duration-300 hover:scale-105 active:scale-95 z-50">
             <img src="assets/bad_dad_logo.png" alt="Bad Dad Logo" class="h-14 sm:h-18 md:h-20 w-auto drop-shadow-2xl">
@@ -109,19 +109,19 @@
           </div>
         </div>
 
-        <!-- HERO STICKER 1: "NO BORING GAMES !!!" (Tilted yellow sticker on porch) -->
-        <div class="absolute top-[26%] left-[45%] sm:left-[47%] md:left-[49%] -rotate-[6deg] comic-sticker bg-[#ffd000] text-black text-[10px] sm:text-xs font-black px-2.5 sm:px-3 py-1 sm:py-1.5 uppercase pointer-events-none z-30 shadow-[3px_3px_0px_#000] border-2 border-black">
+        <!-- HERO STICKER 1: "NO BORING GAMES !!!" (Enlarged 300% tilted yellow sticker on porch) -->
+        <div class="absolute top-[22%] left-[40%] sm:left-[43%] md:left-[46%] -rotate-[6deg] comic-sticker bg-[#ffd000] text-black text-lg sm:text-2xl md:text-3xl font-black px-5 sm:px-8 py-2 sm:py-3.5 uppercase pointer-events-none z-30 shadow-[5px_5px_0px_#000] sm:shadow-[6px_6px_0px_#000] border-[3.5px] sm:border-4 border-black">
           NO BORING GAMES !!!
         </div>
 
-        <!-- HERO STICKER 2: "BUILT DIFFERENT" (Tilted white sticker on right porch) -->
-        <div class="absolute bottom-[20%] sm:bottom-[23%] right-[28%] sm:right-[32%] md:right-[34%] rotate-[4deg] comic-sticker bg-white text-black text-[10px] sm:text-xs font-black px-2.5 sm:px-3 py-1 sm:py-1.5 uppercase pointer-events-none z-30 shadow-[3px_3px_0px_#000] border-2 border-black">
+        <!-- HERO STICKER 2: "BUILT DIFFERENT" (Enlarged 300% tilted white sticker next to chicken) -->
+        <div class="absolute bottom-[16%] sm:bottom-[18%] right-[22%] sm:right-[26%] md:right-[30%] rotate-[4deg] comic-sticker bg-white text-black text-lg sm:text-2xl md:text-3xl font-black px-5 sm:px-8 py-2 sm:py-3.5 uppercase pointer-events-none z-30 shadow-[5px_5px_0px_#000] sm:shadow-[6px_6px_0px_#000] border-[3.5px] sm:border-4 border-black">
           BUILT DIFFERENT
         </div>
 
-        <!-- HERO STICKER 3: FUNNY CHICKEN CHARACTER (Overlapping bottom right & wave) -->
-        <div class="absolute bottom-[1%] sm:bottom-[2%] right-2 sm:right-6 md:right-12 lg:right-20 z-30 pointer-events-none select-none">
-          <img src="assets/chicken_sticker.png" alt="Bad Dad Chicken" class="w-24 sm:w-32 md:w-40 lg:w-48 h-auto filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.6)]">
+        <!-- HERO STICKER 3: FUNNY CHICKEN CHARACTER (Positioned close to BUILT DIFFERENT badge) -->
+        <div class="absolute bottom-[2%] sm:bottom-[4%] right-4 sm:right-10 md:right-16 lg:right-24 z-30 pointer-events-none select-none">
+          <img src="assets/chicken_sticker.png" alt="Bad Dad Chicken" class="w-32 sm:w-44 md:w-56 lg:w-64 h-auto filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.7)]">
         </div>
 
         <!-- HEADER TEXT CONTAINER & YELLOW EXPLORE BUTTON (Figma Layout) -->
@@ -287,10 +287,10 @@
             </div>
             <div class="flex items-center justify-between mt-2 pt-2 border-t border-gray-100">
               <div class="flex items-center gap-1">
-                <span class="badge-yellow-comic text-[8px] py-0.5 px-1">Crash</span>
-                <span class="badge-yellow-comic text-[8px] py-0.5 px-1">97%</span>
+                <span class="badge-yellow-comic">Crash</span>
+                <span class="badge-yellow-comic">97%</span>
               </div>
-              <a href="game.html?id=weed_bush&play=true" onclick="event.stopPropagation()" class="card-play-demo-btn text-[9px] py-1 px-2">PLAY DEMO</a>
+              <a href="game.html?id=weed_bush&play=true" onclick="event.stopPropagation()" class="card-play-demo-btn">PLAY DEMO</a>
             </div>
           </div>
         </div>
@@ -307,10 +307,10 @@
             </div>
             <div class="flex items-center justify-between mt-2 pt-2 border-t border-gray-100">
               <div class="flex items-center gap-1">
-                <span class="badge-yellow-comic text-[8px] py-0.5 px-1">Crash</span>
-                <span class="badge-yellow-comic text-[8px] py-0.5 px-1">98%</span>
+                <span class="badge-yellow-comic">Crash</span>
+                <span class="badge-yellow-comic">98%</span>
               </div>
-              <a href="game.html?id=moonshine_run&play=true" onclick="event.stopPropagation()" class="card-play-demo-btn text-[9px] py-1 px-2">PLAY DEMO</a>
+              <a href="game.html?id=moonshine_run&play=true" onclick="event.stopPropagation()" class="card-play-demo-btn">PLAY DEMO</a>
             </div>
           </div>
         </div>
@@ -327,10 +327,10 @@
             </div>
             <div class="flex items-center justify-between mt-2 pt-2 border-t border-gray-100">
               <div class="flex items-center gap-1">
-                <span class="badge-yellow-comic text-[8px] py-0.5 px-1">Slots</span>
-                <span class="badge-yellow-comic text-[8px] py-0.5 px-1">97%</span>
+                <span class="badge-yellow-comic">Slots</span>
+                <span class="badge-yellow-comic">97%</span>
               </div>
-              <a href="game.html?id=porch_slots&play=true" onclick="event.stopPropagation()" class="card-play-demo-btn text-[9px] py-1 px-2">PLAY DEMO</a>
+              <a href="game.html?id=porch_slots&play=true" onclick="event.stopPropagation()" class="card-play-demo-btn">PLAY DEMO</a>
             </div>
           </div>
         </div>
@@ -347,10 +347,10 @@
             </div>
             <div class="flex items-center justify-between mt-2 pt-2 border-t border-gray-100">
               <div class="flex items-center gap-1">
-                <span class="badge-yellow-comic text-[8px] py-0.5 px-1">Mine</span>
-                <span class="badge-yellow-comic text-[8px] py-0.5 px-1">98%</span>
+                <span class="badge-yellow-comic">Mine</span>
+                <span class="badge-yellow-comic">98%</span>
               </div>
-              <a href="game.html?id=lawnmower_mayhem&play=true" onclick="event.stopPropagation()" class="card-play-demo-btn text-[9px] py-1 px-2">PLAY DEMO</a>
+              <a href="game.html?id=lawnmower_mayhem&play=true" onclick="event.stopPropagation()" class="card-play-demo-btn">PLAY DEMO</a>
             </div>
           </div>
         </div>
