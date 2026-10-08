@@ -51,24 +51,30 @@ body {
 .card-play-demo-btn {
   background-color: #e52b20;
   color: #ffffff;
-  border: 2.5px solid #000000;
-  box-shadow: 3px 3px 0px #000000;
+  border: 3px solid #000000;
+  box-shadow: 4px 4px 0px #000000;
   font-family: 'Lilita One', 'Fredoka', cursive, system-ui, sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 900;
-  padding: 5px 12px;
+  padding: 8px 18px;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   transition: all 0.15s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  white-space: nowrap;
 }
 
 .card-play-demo-btn:hover {
   background-color: #ff3424;
   transform: translate(-1px, -1px);
-  box-shadow: 4px 4px 0px #000000;
+  box-shadow: 5px 5px 0px #000000;
+}
+
+.card-play-demo-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000000;
 }
 
 .badge-yellow-comic {
