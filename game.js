@@ -10,6 +10,7 @@ let currentStageMode = 'video'; // 'video' | 'demo'
 document.addEventListener('DOMContentLoaded', () => {
   const urlParams = new URLSearchParams(window.location.search);
   const requestedId = urlParams.get('id') || urlParams.get('game');
+  const shouldPlay = urlParams.get('play') === 'true';
   
   if (requestedId && gamesData[requestedId]) {
     currentGameId = requestedId;
@@ -17,11 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
     currentGameId = 'weed_bush';
   }
 
-  loadGamePage(currentGameId);
+  loadGamePage(currentGameId, shouldPlay);
 });
 
 // 2. Load game data into page
-function loadGamePage(gameId) {
+function loadGamePage(gameId, startInDemoMode = false) {
   const game = gamesData[gameId] || gamesData['weed_bush'];
   currentGameId = game.id;
 
@@ -76,8 +77,8 @@ function loadGamePage(gameId) {
   // Render Other Games Recommendations
   renderOtherGames(game.id);
 
-  // Default to Video stage mode
-  setStageMode('video');
+  // Set stage mode based on URL request (video by default, or demo if play=true)
+  setStageMode(startInDemoMode ? 'demo' : 'video');
 
   // Re-create icons
   if (window.lucide) window.lucide.createIcons();

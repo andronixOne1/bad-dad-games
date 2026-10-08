@@ -163,10 +163,6 @@
                 BAD<br>MANNERS.
               </span>
             </h1>
-            
-            <p class="mt-4 sm:mt-5 text-xs sm:text-sm md:text-base text-white/95 font-semibold drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] max-w-md">
-              Memorable characters, and instant entertainment.
-            </p>
           </div>
         </div>
 
@@ -185,309 +181,280 @@
   <section id="games" class="relative z-30 -mt-10 sm:-mt-16 md:-mt-24 lg:-mt-32 pb-20 pt-4">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- CARDS GRID (3 Columns, matching screenshot style) -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 sm:gap-8 lg:gap-10 justify-items-center">
+      <!-- CARDS GRID (3 Columns, matching Figma design) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 justify-items-center">
 
         <!-- CARD 1: WEED BUSH -->
-        <div class="game-card group flex flex-col items-center w-full max-w-[320px] transition-all duration-300">
-          <!-- Card Relative Wrapper with Sticking-out Button -->
-          <div class="relative w-full aspect-square">
-            <!-- Card Image Thumbnail Container with Dark Outline & Hard Black Extrude Shadow -->
-            <div class="game-thumb-container w-full h-full rounded-[30px] overflow-hidden cursor-pointer bg-black" onclick="window.location.href='game.html?id=weed_bush'">
+        <div class="figma-card-wrapper">
+          <div class="figma-card group">
+            <!-- Card Thumbnail Media -->
+            <div class="figma-card-media" onclick="window.location.href='game.html?id=weed_bush'">
               <img 
                 src="assets/weed_bush.png" 
                 alt="Weed Bush Game by Bad Dad Games" 
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                class="w-full h-full object-cover"
               >
-              
-              <!-- In-Card Text (Bottom Left, exactly as in screenshot) -->
-              <div class="absolute bottom-4 left-5 z-20 pointer-events-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+            </div>
+
+            <!-- In-Card Bottom Bar -->
+            <div class="figma-card-bar">
+              <div>
                 <h3 class="text-xl sm:text-2xl font-black font-comic text-white leading-tight">
                   Weed Bush
                 </h3>
-                <p class="text-xs sm:text-sm font-semibold text-gray-300 leading-none mt-0.5">
+                <p class="text-xs font-semibold text-gray-400 leading-none mt-1">
                   Mines
                 </p>
               </div>
-            </div>
 
-            <!-- Attached DEMO Button (Bigger and sticking out of the thumbnail frame) -->
-            <a 
-              href="game.html?id=weed_bush"
-              class="comic-demo-btn absolute -bottom-3 -right-3 z-30 px-5 sm:px-6 py-2 sm:py-2.5 rounded-xl flex items-center gap-2 text-sm sm:text-base font-black uppercase cursor-pointer"
-            >
-              <span class="text-xs leading-none">►</span>
-              <span>DEMO</span>
-            </a>
+              <!-- Overhanging Buttons (DEMO on top sticking out, Info below) -->
+              <div class="flex flex-col items-end gap-1.5">
+                <a 
+                  href="game.html?id=weed_bush&play=true" 
+                  class="figma-demo-btn"
+                  title="Play Weed Bush Demo"
+                >
+                  <span class="text-xs">►</span>
+                  <span>DEMO</span>
+                </a>
+                <a 
+                  href="game.html?id=weed_bush" 
+                  class="figma-info-btn"
+                  title="View Weed Bush Info"
+                >
+                  <span>Info</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- CARD 2: PLINKO KOKO -->
-        <div class="game-card group flex flex-col items-center w-full max-w-[320px] transition-all duration-300">
-          <!-- Card Relative Wrapper with Sticking-out Button -->
-          <div class="relative w-full aspect-square">
-            <!-- Card Image Thumbnail Container with Dark Outline & Hard Black Extrude Shadow -->
-            <div class="game-thumb-container w-full h-full rounded-[30px] overflow-hidden cursor-pointer bg-black" onclick="window.location.href='game.html?id=plinko_koko'">
+        <div class="figma-card-wrapper">
+          <div class="figma-card group">
+            <!-- Card Thumbnail Media -->
+            <div class="figma-card-media" onclick="window.location.href='game.html?id=plinko_koko'">
               <img 
                 src="assets/plinko_koko.png" 
                 alt="Plinko Koko Game by Bad Dad Games" 
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                class="w-full h-full object-cover"
               >
-              
-              <!-- In-Card Text (Bottom Left, exactly as in screenshot) -->
-              <div class="absolute bottom-4 left-5 z-20 pointer-events-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+            </div>
+
+            <!-- In-Card Bottom Bar -->
+            <div class="figma-card-bar">
+              <div>
                 <h3 class="text-xl sm:text-2xl font-black font-comic text-white leading-tight">
                   Plinko Koko
                 </h3>
-                <p class="text-xs sm:text-sm font-semibold text-gray-300 leading-none mt-0.5">
+                <p class="text-xs font-semibold text-gray-400 leading-none mt-1">
                   Plinko
                 </p>
               </div>
-            </div>
 
-            <!-- Attached DEMO Button (Bigger and sticking out of the thumbnail frame) -->
-            <a 
-              href="game.html?id=plinko_koko"
-              class="comic-demo-btn absolute -bottom-3 -right-3 z-30 px-5 sm:px-6 py-2 sm:py-2.5 rounded-xl flex items-center gap-2 text-sm sm:text-base font-black uppercase cursor-pointer"
-            >
-              <span class="text-xs leading-none">►</span>
-              <span>DEMO</span>
-            </a>
+              <!-- Overhanging Buttons (DEMO on top sticking out, Info below) -->
+              <div class="flex flex-col items-end gap-1.5">
+                <a 
+                  href="game.html?id=plinko_koko&play=true" 
+                  class="figma-demo-btn"
+                  title="Play Plinko Koko Demo"
+                >
+                  <span class="text-xs">►</span>
+                  <span>DEMO</span>
+                </a>
+                <a 
+                  href="game.html?id=plinko_koko" 
+                  class="figma-info-btn"
+                  title="View Plinko Koko Info"
+                >
+                  <span>Info</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- CARD 3: BAD DARTS -->
-        <div class="game-card group flex flex-col items-center w-full max-w-[320px] transition-all duration-300">
-          <!-- Card Relative Wrapper with Sticking-out Button -->
-          <div class="relative w-full aspect-square">
-            <!-- Card Image Thumbnail Container with Dark Outline & Hard Black Extrude Shadow -->
-            <div class="game-thumb-container w-full h-full rounded-[30px] overflow-hidden cursor-pointer bg-black" onclick="window.location.href='game.html?id=bad_darts'">
+        <div class="figma-card-wrapper">
+          <div class="figma-card group">
+            <!-- Card Thumbnail Media -->
+            <div class="figma-card-media" onclick="window.location.href='game.html?id=bad_darts'">
               <img 
                 src="assets/bad_darts.png" 
                 alt="Bad Darts Game by Bad Dad Games" 
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                class="w-full h-full object-cover"
               >
-              
-              <!-- In-Card Text (Bottom Left, exactly as in screenshot) -->
-              <div class="absolute bottom-4 left-5 z-20 pointer-events-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+            </div>
+
+            <!-- In-Card Bottom Bar -->
+            <div class="figma-card-bar">
+              <div>
                 <h3 class="text-xl sm:text-2xl font-black font-comic text-white leading-tight">
                   Bad Darts
                 </h3>
-                <p class="text-xs sm:text-sm font-semibold text-gray-300 leading-none mt-0.5">
-                  Mines
+                <p class="text-xs font-semibold text-gray-400 leading-none mt-1">
+                  Crash
                 </p>
               </div>
-            </div>
 
-            <!-- Attached DEMO Button (Bigger and sticking out of the thumbnail frame) -->
-            <a 
-              href="game.html?id=bad_darts"
-              class="comic-demo-btn absolute -bottom-3 -right-3 z-30 px-5 sm:px-6 py-2 sm:py-2.5 rounded-xl flex items-center gap-2 text-sm sm:text-base font-black uppercase cursor-pointer"
-            >
-              <span class="text-xs leading-none">►</span>
-              <span>DEMO</span>
-            </a>
+              <!-- Overhanging Buttons (DEMO on top sticking out, Info below) -->
+              <div class="flex flex-col items-end gap-1.5">
+                <a 
+                  href="game.html?id=bad_darts&play=true" 
+                  class="figma-demo-btn"
+                  title="Play Bad Darts Demo"
+                >
+                  <span class="text-xs">►</span>
+                  <span>DEMO</span>
+                </a>
+                <a 
+                  href="game.html?id=bad_darts" 
+                  class="figma-info-btn"
+                  title="View Bad Darts Info"
+                >
+                  <span>Info</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
       </div>
 
-      <!-- PRIMARY CTA BUTTON (Matching Screenshot Red Pill) -->
+      <!-- PRIMARY CTA BUTTON (Matching Figma Red Rectangular Button) -->
       <div class="mt-14 sm:mt-16 flex flex-col items-center justify-center">
         <button 
           id="explore-btn" 
           onclick="scrollToCatalog()" 
-          class="comic-btn comic-btn-red text-base sm:text-lg px-10 py-4 rounded-full flex items-center gap-2.5 cursor-pointer"
+          class="comic-btn-rect comic-btn-red text-base sm:text-lg px-8 sm:px-10 py-3.5 sm:py-4 flex items-center gap-2 cursor-pointer"
         >
-          <span>Explore Our Games</span>
-          <i data-lucide="arrow-down" class="w-4 h-4 transition-transform duration-300 group-hover:translate-y-1"></i>
+          <span>Explore our Games</span>
         </button>
-        <span class="text-[11px] text-gray-400 mt-3 font-medium">Over 20+ original fast-paced titles created for instant laughs & wins</span>
+        <span class="text-xs text-gray-500 mt-2.5 font-medium tracking-wide">
+          Over 5+ original fast-paced titles created for instant laughs &amp; wins
+        </span>
       </div>
 
-      <!-- ================= SMARTPHONE SHOWCASE ("WEED BUSH") ================= -->
-      <!-- Realistic mobile device frame with scattered floating game elements -->
-      <div class="mt-20 sm:mt-24 relative max-w-4xl mx-auto flex flex-col items-center">
+    </div>
+  </section>
+
+  <!-- ================= MOBILE FIRST GAMES SECTION (Figma Exact Layout) ================= -->
+  <section id="mobile-showcase" class="w-full bg-[#d5d6da] py-16 sm:py-24 border-y-4 border-black relative overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col items-center justify-center">
+      
+      <!-- TOP BADGE: "Mobile First Games" (Figma Blue Rectangular Button) -->
+      <div class="mb-10 sm:mb-14 relative z-20">
+        <div class="comic-btn-rect comic-btn-blue text-sm sm:text-base md:text-lg px-7 sm:px-9 py-2.5 sm:py-3 text-white font-black tracking-wide inline-block shadow-[4px_5px_0px_#000]">
+          Mobile First Games
+        </div>
+      </div>
+
+      <!-- CENTER: TILTED SMARTPHONE & SKETCH ARROWS WRAPPER -->
+      <div class="relative flex items-center justify-center w-full max-w-xl my-4 py-8 px-4">
         
-        <!-- Showcase Heading & Badge -->
-        <div class="text-center mb-8 relative z-20">
-          <span class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-xs font-bold uppercase tracking-wider px-3.5 py-1 rounded-full border border-emerald-200 shadow-sm">
-            <span>🌿 Mobile-First Portrait Mode</span>
-          </span>
-          <h3 class="text-2xl sm:text-3xl md:text-4xl font-black font-comic text-gray-900 mt-2">
-            Mow & Multiply Anywhere
-          </h3>
-          <p class="text-gray-500 text-xs sm:text-sm mt-1 max-w-md mx-auto">
-            Engineered for seamless one-thumb portrait gameplay. Pure electric chaos right in your pocket.
-          </p>
+        <!-- BARELY VISIBLE IN-GAME GRASS PATCH BEHIND THE PHONE -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-visible">
+          <div class="relative w-[480px] sm:w-[600px] h-[320px] sm:h-[400px] opacity-25 filter blur-[1px]">
+            <img 
+              src="assets/weed_grass_patch.png" 
+              alt="Weed Bush Lawn Patch" 
+              class="w-full h-full object-cover rounded-[100px] shadow-[0_0_80px_rgba(34,197,94,0.18)]"
+            >
+          </div>
         </div>
 
-        <!-- Phone & Floating Elements Wrapper -->
-        <div class="relative flex items-center justify-center w-full py-12 px-4">
-          
-          <!-- BARELY VISIBLE IN-GAME GRASS PATCH BEHIND THE PHONE -->
-          <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-visible">
-            <div class="relative w-[500px] sm:w-[650px] md:w-[780px] h-[340px] sm:h-[420px] md:h-[480px] opacity-25 filter blur-[2px] transition-opacity duration-700 hover:opacity-40">
-              <img 
-                src="assets/weed_grass_patch.png" 
-                alt="Weed Bush Lawn Patch" 
-                class="w-full h-full object-cover rounded-[100px] shadow-[0_0_80px_rgba(34,197,94,0.18)]"
-              >
-              <!-- Ambient soft green glow -->
-              <div class="absolute inset-0 bg-radial from-emerald-500/20 via-lime-600/10 to-transparent rounded-full filter blur-3xl"></div>
-            </div>
-          </div>
-          
-          <!-- REAL GAME ELEMENT 1: Pink Multiplier Bush X2.05 (Top-Left) -->
-          <div class="absolute -top-4 sm:-top-6 left-1 sm:left-4 md:left-12 lg:left-6 z-30 pointer-events-none animate-float-slow select-none">
-            <div class="bg-emerald-950/95 backdrop-blur-md p-2 sm:p-2.5 rounded-2xl shadow-2xl border-2 border-emerald-400 -rotate-12 flex flex-col items-center transform hover:rotate-0 transition-transform">
-              <img src="assets/weed_bush_pink_x205.png" alt="X2.05 Multiplier Bush" class="h-20 sm:h-24 md:h-28 w-auto object-contain rounded-lg shadow-md">
-              <span class="text-[9px] sm:text-[10px] font-black text-emerald-300 mt-1 bg-black/60 px-2 py-0.5 rounded-full border border-emerald-400/40">
-                X2.05 FLOWERING
-              </span>
-            </div>
-          </div>
+        <!-- SKETCH ARROW 1: Top-Left (Curving & Looping down toward phone) -->
+        <div class="absolute -top-6 sm:-top-8 left-2 sm:left-6 z-30 pointer-events-none select-none">
+          <svg class="w-20 sm:w-28 h-20 sm:h-28 text-[#262626] filter drop-shadow-[0_2px_2px_rgba(0,0,0,0.15)]" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Hand-drawn loop path -->
+            <path d="M 20,68 C 8,50 16,28 36,26 C 54,24 50,54 36,52 C 22,50 30,32 52,30 C 74,28 86,46 90,62" />
+            <path d="M 76,58 L 91,64 L 92,48" />
+          </svg>
+        </div>
 
-          <!-- REAL GAME ELEMENT 2: Bad Dad Pushing Mower (Top-Right) -->
-          <div class="absolute -top-6 sm:-top-8 right-1 sm:right-4 md:right-12 lg:right-6 z-30 pointer-events-none animate-float-delayed select-none">
-            <div class="bg-white/95 backdrop-blur-md p-2 sm:p-2.5 rounded-2xl shadow-2xl border-2 border-red-500/80 rotate-6 flex flex-col items-center transform hover:rotate-0 transition-transform">
-              <img src="assets/weed_dad_mower.png" alt="Dad with Mower" class="h-24 sm:h-32 md:h-36 w-auto object-contain rounded-lg">
-              <span class="text-[9px] sm:text-[10px] font-black text-red-600 mt-1 bg-red-50 px-2 py-0.5 rounded-full border border-red-200">
-                ⚡ DAD MOWING
-              </span>
-            </div>
-          </div>
+        <!-- SKETCH ARROW 2: Mid/Bottom-Left (Curving up-right toward phone) -->
+        <div class="absolute top-1/2 translate-y-6 sm:translate-y-8 left-0 sm:left-4 z-30 pointer-events-none select-none">
+          <svg class="w-16 sm:w-24 h-16 sm:h-24 text-[#262626] filter drop-shadow-[0_2px_2px_rgba(0,0,0,0.15)]" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M 20,80 C 10,48 35,26 78,28" />
+            <path d="M 64,18 L 80,30 L 68,40" />
+          </svg>
+        </div>
 
-          <!-- REAL GAME ELEMENT 3: Green Multiplier Bush X0.05 (Mid-Left) -->
-          <div class="absolute top-1/2 -translate-y-12 -left-2 sm:left-2 md:left-8 lg:left-2 z-30 pointer-events-none animate-float-fast select-none">
-            <div class="bg-white/95 backdrop-blur-md p-2 sm:p-2.5 rounded-2xl shadow-2xl border-2 border-green-500 -rotate-6 flex flex-col items-center">
-              <img src="assets/weed_bush_green_x005.png" alt="X0.05 Bush" class="h-16 sm:h-20 md:h-24 w-auto object-contain rounded-lg">
-              <span class="text-[9px] sm:text-[10px] font-black text-green-700 mt-1 bg-green-50 px-2 py-0.5 rounded-full border border-green-200">
-                X0.05 FRESH PATCH
-              </span>
-            </div>
-          </div>
+        <!-- SKETCH ARROW 3: Top-Right (Curving down-left toward phone) -->
+        <div class="absolute -top-4 sm:-top-6 right-2 sm:right-6 z-30 pointer-events-none select-none">
+          <svg class="w-18 sm:w-26 h-18 sm:h-26 text-[#262626] filter drop-shadow-[0_2px_2px_rgba(0,0,0,0.15)]" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M 28,24 C 68,26 82,54 62,82" />
+            <path d="M 50,72 L 60,84 L 72,74" />
+          </svg>
+        </div>
 
-          <!-- REAL GAME ELEMENT 4: Purple Multiplier Bush X5.05 (Mid-Right) -->
-          <div class="absolute top-1/2 translate-y-6 sm:translate-y-8 -right-2 sm:right-2 md:right-8 lg:right-2 z-30 pointer-events-none animate-float-slow select-none">
-            <div class="bg-indigo-950/95 backdrop-blur-md p-2 sm:p-2.5 rounded-2xl shadow-2xl border-2 border-yellow-400 rotate-12 flex flex-col items-center">
-              <img src="assets/weed_bush_purple_x505.png" alt="X5.05 Multiplier Bush" class="h-20 sm:h-24 md:h-28 w-auto object-contain rounded-lg shadow-md">
-              <span class="text-[9px] sm:text-[10px] font-black text-amber-300 mt-1 bg-black/60 px-2 py-0.5 rounded-full border border-amber-400/40">
-                X5.05 MULTIPLIER
-              </span>
-            </div>
-          </div>
+        <!-- SKETCH ARROW 4: Bottom-Right (Curving up-left toward phone) -->
+        <div class="absolute bottom-2 sm:bottom-4 right-0 sm:right-4 z-30 pointer-events-none select-none">
+          <svg class="w-16 sm:w-24 h-16 sm:h-24 text-[#262626] filter drop-shadow-[0_2px_2px_rgba(0,0,0,0.15)]" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M 22,76 C 54,72 74,44 65,18" />
+            <path d="M 52,28 L 66,16 L 76,26" />
+          </svg>
+        </div>
 
-          <!-- REAL GAME ELEMENT 5: Chopped Logs with Axe (Bottom-Left) -->
-          <div class="absolute -bottom-6 left-1 sm:left-6 md:left-14 lg:left-8 z-30 pointer-events-none animate-float-delayed select-none">
-            <div class="bg-amber-950/95 backdrop-blur-md p-2 sm:p-2.5 rounded-2xl shadow-2xl border-2 border-amber-500/80 -rotate-12 flex items-center gap-2">
-              <img src="assets/weed_logs_axe.png" alt="Logs with Axe" class="h-12 sm:h-14 w-auto object-contain rounded-lg">
-              <div>
-                <div class="text-[9px] sm:text-[10px] font-black text-amber-300 uppercase">CHOPPED WOOD</div>
-                <div class="text-[8px] text-amber-200 font-bold">FARM PERK</div>
-              </div>
-            </div>
-          </div>
+        <!-- FLOATING GAME ELEMENT 1: Pink Multiplier Bush X2.05 (Far Top-Left) -->
+        <div class="hidden md:block absolute -top-8 -left-8 z-20 pointer-events-none animate-float-slow select-none opacity-90">
+          <img src="assets/weed_bush_pink_x205.png" alt="X2.05 Multiplier Bush" class="h-20 w-auto object-contain drop-shadow-lg -rotate-12">
+        </div>
 
-          <!-- REAL GAME ELEMENT 6: Pit Trap Hole (Bottom-Right) -->
-          <div class="absolute -bottom-6 right-1 sm:right-6 md:right-14 lg:right-8 z-30 pointer-events-none animate-float-slow select-none">
-            <div class="bg-stone-900/95 backdrop-blur-md p-2 sm:p-2.5 rounded-2xl shadow-2xl border-2 border-stone-600 rotate-12 flex items-center gap-2">
-              <img src="assets/weed_dirt_hole.png" alt="Dirt Hole Trap" class="h-12 sm:h-14 w-auto object-contain rounded-lg">
-              <div>
-                <div class="text-[9px] sm:text-[10px] font-black text-red-400 uppercase">PIT TRAP</div>
-                <div class="text-[8px] text-stone-300 font-bold">AVOID THE HOLE!</div>
-              </div>
-            </div>
-          </div>
+        <!-- FLOATING GAME ELEMENT 2: Dad Pushing Mower (Far Top-Right) -->
+        <div class="hidden md:block absolute -top-10 -right-8 z-20 pointer-events-none animate-float-delayed select-none opacity-90">
+          <img src="assets/weed_dad_mower.png" alt="Dad with Mower" class="h-24 w-auto object-contain drop-shadow-xl rotate-6">
+        </div>
 
-          <!-- THE SMARTPHONE FRAME (iPhone-styled realistic chassis) -->
-          <div class="relative z-20 w-[290px] sm:w-[320px] md:w-[340px] rounded-[52px] bg-[#1a1917] p-3 sm:p-3.5 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.5),0_0_50px_rgba(255,52,36,0.18)] border-[8px] border-[#383430] transform hover:scale-[1.02] transition-transform duration-500 group">
+        <!-- FLOATING GAME ELEMENT 3: Purple Multiplier Bush X5.05 (Far Bottom-Right) -->
+        <div class="hidden md:block absolute -bottom-8 -right-6 z-20 pointer-events-none animate-float-slow select-none opacity-90">
+          <img src="assets/weed_bush_purple_x505.png" alt="X5.05 Bush" class="h-20 w-auto object-contain drop-shadow-lg rotate-12">
+        </div>
+
+        <!-- FLOATING GAME ELEMENT 4: Dirt Hole Trap (Far Bottom-Left) -->
+        <div class="hidden md:block absolute -bottom-6 -left-6 z-20 pointer-events-none animate-float-delayed select-none opacity-85">
+          <img src="assets/weed_dirt_hole.png" alt="Dirt Hole Trap" class="h-14 w-auto object-contain drop-shadow-md -rotate-6">
+        </div>
+
+        <!-- THE SMARTPHONE FRAME (Tilted 13 Degrees, Matching Figma Mockup) -->
+        <div 
+          class="relative z-20 w-[240px] sm:w-[270px] md:w-[290px] rounded-[48px] bg-[#1a1917] p-3 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6),0_0_40px_rgba(0,0,0,0.25)] border-[7px] border-[#383430] cursor-pointer transform rotate-[13deg] hover:rotate-0 transition-transform duration-500 group select-none"
+          onclick="window.location.href='game.html?id=weed_bush'"
+          title="Open Weed Bush Game"
+        >
+          <!-- Side Accents -->
+          <div class="absolute -left-[10px] top-20 w-[3px] h-7 bg-[#4a4540] rounded-l"></div>
+          <div class="absolute -left-[10px] top-30 w-[3px] h-10 bg-[#4a4540] rounded-l"></div>
+          <div class="absolute -right-[10px] top-24 w-[3px] h-14 bg-[#4a4540] rounded-r"></div>
+
+          <!-- Phone Screen Container -->
+          <div class="relative w-full aspect-[9/18.5] rounded-[38px] overflow-hidden bg-black flex flex-col justify-between border border-white/10 shadow-inner">
             
-            <!-- Side Buttons & Mute Switch Accents -->
-            <div class="absolute -left-[11px] top-24 w-[3px] h-8 bg-[#4a4540] rounded-l"></div>
-            <div class="absolute -left-[11px] top-36 w-[3px] h-12 bg-[#4a4540] rounded-l"></div>
-            <div class="absolute -left-[11px] top-52 w-[3px] h-12 bg-[#4a4540] rounded-l"></div>
-            <div class="absolute -right-[11px] top-32 w-[3px] h-16 bg-[#4a4540] rounded-r"></div>
+            <!-- Reflection Shine -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 pointer-events-none z-30"></div>
 
-            <!-- Inner Phone Screen -->
-            <div class="relative w-full aspect-[9/18.5] rounded-[42px] overflow-hidden bg-gradient-to-b from-[#181614] via-[#121110] to-[#0c0a09] flex flex-col justify-between border border-white/10 select-none">
-              
-              <!-- Screen Glare / Reflection -->
-              <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 pointer-events-none z-30"></div>
+            <!-- Weed Bush Gameplay Art Filling Screen (Matching Figma Mockup) -->
+            <img 
+              src="assets/weed_bush_gameplay.jpg" 
+              alt="Weed Bush Mobile Active Screen" 
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            >
 
-              <!-- Phone Status Bar & Dynamic Island Notch -->
-              <div class="pt-2 px-5 flex items-center justify-between text-[11px] text-white/80 font-bold z-20">
-                <span>9:41</span>
-                <!-- Dynamic Island -->
-                <div class="w-24 h-5 bg-black rounded-full flex items-center justify-center gap-1.5 px-2 border border-white/10 shadow-inner">
-                  <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-                  <span class="text-[9px] text-emerald-400 font-mono">LIVE MOW</span>
-                </div>
-                <div class="flex items-center gap-1 text-[10px]">
-                  <span>5G</span>
-                  <i data-lucide="wifi" class="w-3 h-3"></i>
-                </div>
-              </div>
-
-              <!-- In-Game Top Bar -->
-              <div class="px-3.5 py-1.5 flex items-center justify-between border-b border-white/10 bg-black/40 z-20">
-                <div class="flex items-center gap-1.5">
-                  <img src="assets/bad_dad_logo.png" class="h-6 w-auto object-contain" alt="Bad Dad Logo">
-                  <span class="text-[10px] font-black text-amber-400">WEED BUSH</span>
-                </div>
-                <div class="bg-black/60 px-2.5 py-0.5 rounded-full border border-amber-400/40 text-[10px] font-bold text-amber-300">
-                  💰 $4,200.00
-                </div>
-              </div>
-
-              <!-- Main Game Active Visual Display (Actual Weed Bush Gameplay Screenshot) -->
-              <div class="relative flex-1 overflow-hidden flex flex-col items-center justify-center p-2 z-10 cursor-pointer" onclick="window.location.href='game.html?id=weed_bush'">
-                <img 
-                  src="assets/weed_bush_gameplay.jpg" 
-                  alt="Weed Bush Mobile Active Screen" 
-                  class="w-full h-full object-cover rounded-2xl shadow-lg border border-white/10 transform group-hover:scale-105 transition-transform duration-500"
-                >
-                
-                <!-- In-Game Floating Live Multiplier HUD Overlay -->
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-3 rounded-2xl pointer-events-none">
-                  <div class="flex items-center justify-between">
-                    <div>
-                      <div class="text-[9px] text-gray-300 uppercase font-black tracking-wider">Current Voltage</div>
-                      <div class="text-xl font-comic text-yellow-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] animate-pulse">
-                        X5.05 WIN
-                      </div>
-                    </div>
-                    <span class="bg-brand-red text-white text-[9px] font-black uppercase px-2 py-1 rounded-full animate-bounce shadow">
-                      TAP TO PLAY
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- In-Game Bottom Mobile Controls -->
-              <div class="p-3 bg-black/70 backdrop-blur-md border-t border-white/10 z-20">
-                <div class="flex items-center justify-between mb-2 text-[10px] text-gray-400 font-medium">
-                  <span>Bet: <strong class="text-white">$1.00</strong></span>
-                  <span class="text-emerald-400 font-bold">Auto-Mow: ON</span>
-                </div>
-                <a 
-                  href="game.html?id=weed_bush"
-                  class="comic-btn comic-btn-red w-full text-xs py-2.5 rounded-xl flex items-center justify-center gap-1.5 cursor-pointer text-center"
-                >
-                  <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
-                  <span>LAUNCH GAME</span>
-                </a>
-              </div>
-
-              <!-- Home Indicator Bar -->
-              <div class="w-28 h-1 bg-white/40 rounded-full mx-auto my-1.5 z-20"></div>
-
-            </div>
-
+            <!-- Bottom Home Indicator Bar -->
+            <div class="absolute bottom-2 inset-x-0 mx-auto w-24 h-1 bg-white/50 rounded-full z-30 pointer-events-none"></div>
           </div>
-
         </div>
 
+      </div>
+
+      <!-- BOTTOM CTA BUTTON: "Explore our Games" (Figma Red Rectangular Button) -->
+      <div class="mt-10 sm:mt-12 relative z-20 flex justify-center">
+        <button 
+          onclick="scrollToCatalog()" 
+          class="comic-btn-rect comic-btn-red text-base sm:text-lg px-8 sm:px-10 py-3.5 sm:py-4 flex items-center gap-2 cursor-pointer shadow-[4px_5px_0px_#000]"
+        >
+          <span>Explore our Games</span>
+        </button>
       </div>
 
     </div>

@@ -35,6 +35,124 @@ body {
   box-shadow: 4px 4px 0px #000000;
 }
 
+/* Figma-Exact Game Card & Overhanging Buttons */
+.figma-card-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+}
+
+.figma-card {
+  position: relative;
+  background-color: #0c0b0a;
+  border: 4px solid #000000;
+  border-radius: 20px;
+  box-shadow: 6px 7px 0px #000000;
+  overflow: visible;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.figma-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 9px 0px #000000;
+}
+
+.figma-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #000;
+}
+
+.figma-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.figma-card:hover .figma-card-media img {
+  transform: scale(1.04);
+}
+
+.figma-card-bar {
+  background-color: #0c0b0a;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  padding: 10px 14px 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.figma-demo-btn {
+  position: absolute;
+  right: -8px;
+  top: -20px;
+  z-index: 25;
+  background-color: #d72015;
+  color: #ffffff;
+  border: 2.5px solid #000000;
+  box-shadow: 3px 3px 0px #000000;
+  font-family: 'Lilita One', 'Fredoka', cursive, system-ui, sans-serif;
+  letter-spacing: 0.04em;
+  font-size: 0.85rem;
+  font-weight: 900;
+  padding: 3px 11px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  cursor: pointer;
+}
+
+.figma-demo-btn:hover {
+  background-color: #ff2b1d;
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px #000000;
+}
+
+.figma-demo-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #000000;
+}
+
+.figma-info-btn {
+  background-color: #1a73e8;
+  color: #ffffff;
+  border: 2.5px solid #000000;
+  box-shadow: 3px 3px 0px #000000;
+  font-family: 'Lilita One', 'Fredoka', cursive, system-ui, sans-serif;
+  letter-spacing: 0.04em;
+  font-size: 0.8rem;
+  font-weight: 900;
+  padding: 2.5px 12px;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  cursor: pointer;
+}
+
+.figma-info-btn:hover {
+  background-color: #2b7fff;
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px #000000;
+}
+
+.figma-info-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #000000;
+}
+
 /* Comic Buttons: Thick Outline + Hard Black Extrude Shadow */
 .comic-btn,
 .comic-demo-btn {
@@ -88,6 +206,40 @@ body {
 
 .comic-btn-green:hover {
   background-color: #10b981;
+}
+
+/* Blue Comic Button Variant (Info & Mobile First Games) */
+.comic-btn-blue,
+.comic-info-btn {
+  background-color: #1a73e8;
+  color: #ffffff;
+}
+
+.comic-btn-blue:hover,
+.comic-info-btn:hover {
+  background-color: #2b7fff;
+}
+
+/* Rectangular Comic Button Style (Matching Figma Explore our Games & Mobile First) */
+.comic-btn-rect {
+  border: 3.5px solid #000000;
+  box-shadow: 4px 5px 0px #000000;
+  font-family: 'Lilita One', 'Fredoka', cursive, system-ui, sans-serif;
+  letter-spacing: 0.04em;
+  border-radius: 4px;
+  text-transform: uppercase;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  user-select: none;
+}
+
+.comic-btn-rect:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 6px 7px 0px #000000;
+}
+
+.comic-btn-rect:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000000;
 }
 
 /* White / Light Comic Button Variant */
