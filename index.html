@@ -94,21 +94,21 @@
                 
                 <!-- Dropdown Panel -->
                 <div class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-64 bg-white rounded-2xl shadow-2xl border border-gray-100 p-2.5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top scale-95 group-hover:scale-100">
-                  <a href="#games" onclick="openGameModal('weed_bush')" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 transition-colors">
+                  <a href="game.html?id=weed_bush" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 transition-colors">
                     <img src="assets/weed_bush.png" class="w-10 h-10 rounded-lg object-cover shadow-sm" alt="Weed Bush">
                     <div>
                       <div class="text-xs font-bold text-gray-900">Weed Bush</div>
                       <div class="text-[10px] text-gray-500 font-medium">Mine Game • x20 Multiplier</div>
                     </div>
                   </a>
-                  <a href="#games" onclick="openGameModal('plinko_koko')" class="flex items-center gap-3 p-2 rounded-xl hover:bg-yellow-50 transition-colors mt-1">
+                  <a href="game.html?id=plinko_koko" class="flex items-center gap-3 p-2 rounded-xl hover:bg-yellow-50 transition-colors mt-1">
                     <img src="assets/plinko_koko.png" class="w-10 h-10 rounded-lg object-cover shadow-sm" alt="Plinko Koko">
                     <div>
                       <div class="text-xs font-bold text-gray-900">Plinko Koko</div>
                       <div class="text-[10px] text-gray-500 font-medium">Plinko • Rainbow Eggs</div>
                     </div>
                   </a>
-                  <a href="#games" onclick="openGameModal('bad_darts')" class="flex items-center gap-3 p-2 rounded-xl hover:bg-orange-50 transition-colors mt-1">
+                  <a href="game.html?id=bad_darts" class="flex items-center gap-3 p-2 rounded-xl hover:bg-orange-50 transition-colors mt-1">
                     <img src="assets/bad_darts.png" class="w-10 h-10 rounded-lg object-cover shadow-sm" alt="Bad Darts">
                     <div>
                       <div class="text-xs font-bold text-gray-900">Bad Darts</div>
@@ -193,7 +193,7 @@
           <!-- Card Relative Wrapper with Sticking-out Button -->
           <div class="relative w-full aspect-square">
             <!-- Card Image Thumbnail Container with Dark Outline & Hard Black Extrude Shadow -->
-            <div class="game-thumb-container w-full h-full rounded-[30px] overflow-hidden cursor-pointer bg-black" onclick="openGameModal('weed_bush')">
+            <div class="game-thumb-container w-full h-full rounded-[30px] overflow-hidden cursor-pointer bg-black" onclick="window.location.href='game.html?id=weed_bush'">
               <img 
                 src="assets/weed_bush.png" 
                 alt="Weed Bush Game by Bad Dad Games" 
@@ -212,13 +212,13 @@
             </div>
 
             <!-- Attached DEMO Button (Bigger and sticking out of the thumbnail frame) -->
-            <button 
-              onclick="event.stopPropagation(); openGameModal('weed_bush')"
+            <a 
+              href="game.html?id=weed_bush"
               class="comic-demo-btn absolute -bottom-3 -right-3 z-30 px-5 sm:px-6 py-2 sm:py-2.5 rounded-xl flex items-center gap-2 text-sm sm:text-base font-black uppercase cursor-pointer"
             >
               <span class="text-xs leading-none">►</span>
               <span>DEMO</span>
-            </button>
+            </a>
           </div>
         </div>
 
@@ -227,7 +227,7 @@
           <!-- Card Relative Wrapper with Sticking-out Button -->
           <div class="relative w-full aspect-square">
             <!-- Card Image Thumbnail Container with Dark Outline & Hard Black Extrude Shadow -->
-            <div class="game-thumb-container w-full h-full rounded-[30px] overflow-hidden cursor-pointer bg-black" onclick="openGameModal('plinko_koko')">
+            <div class="game-thumb-container w-full h-full rounded-[30px] overflow-hidden cursor-pointer bg-black" onclick="window.location.href='game.html?id=plinko_koko'">
               <img 
                 src="assets/plinko_koko.png" 
                 alt="Plinko Koko Game by Bad Dad Games" 
@@ -246,13 +246,13 @@
             </div>
 
             <!-- Attached DEMO Button (Bigger and sticking out of the thumbnail frame) -->
-            <button 
-              onclick="event.stopPropagation(); openGameModal('plinko_koko')"
+            <a 
+              href="game.html?id=plinko_koko"
               class="comic-demo-btn absolute -bottom-3 -right-3 z-30 px-5 sm:px-6 py-2 sm:py-2.5 rounded-xl flex items-center gap-2 text-sm sm:text-base font-black uppercase cursor-pointer"
             >
               <span class="text-xs leading-none">►</span>
               <span>DEMO</span>
-            </button>
+            </a>
           </div>
         </div>
 
@@ -261,7 +261,7 @@
           <!-- Card Relative Wrapper with Sticking-out Button -->
           <div class="relative w-full aspect-square">
             <!-- Card Image Thumbnail Container with Dark Outline & Hard Black Extrude Shadow -->
-            <div class="game-thumb-container w-full h-full rounded-[30px] overflow-hidden cursor-pointer bg-black" onclick="openGameModal('bad_darts')">
+            <div class="game-thumb-container w-full h-full rounded-[30px] overflow-hidden cursor-pointer bg-black" onclick="window.location.href='game.html?id=bad_darts'">
               <img 
                 src="assets/bad_darts.png" 
                 alt="Bad Darts Game by Bad Dad Games" 
@@ -280,13 +280,13 @@
             </div>
 
             <!-- Attached DEMO Button (Bigger and sticking out of the thumbnail frame) -->
-            <button 
-              onclick="event.stopPropagation(); openGameModal('bad_darts')"
+            <a 
+              href="game.html?id=bad_darts"
               class="comic-demo-btn absolute -bottom-3 -right-3 z-30 px-5 sm:px-6 py-2 sm:py-2.5 rounded-xl flex items-center gap-2 text-sm sm:text-base font-black uppercase cursor-pointer"
             >
               <span class="text-xs leading-none">►</span>
               <span>DEMO</span>
-            </button>
+            </a>
           </div>
         </div>
 
@@ -441,7 +441,7 @@
               </div>
 
               <!-- Main Game Active Visual Display (Actual Weed Bush Gameplay Screenshot) -->
-              <div class="relative flex-1 overflow-hidden flex flex-col items-center justify-center p-2 z-10 cursor-pointer" onclick="openGameModal('weed_bush')">
+              <div class="relative flex-1 overflow-hidden flex flex-col items-center justify-center p-2 z-10 cursor-pointer" onclick="window.location.href='game.html?id=weed_bush'">
                 <img 
                   src="assets/weed_bush_gameplay.jpg" 
                   alt="Weed Bush Mobile Active Screen" 
@@ -470,13 +470,13 @@
                   <span>Bet: <strong class="text-white">$1.00</strong></span>
                   <span class="text-emerald-400 font-bold">Auto-Mow: ON</span>
                 </div>
-                <button 
-                  onclick="openGameModal('weed_bush')"
-                  class="comic-btn comic-btn-red w-full text-xs py-2.5 rounded-xl flex items-center justify-center gap-1.5 cursor-pointer"
+                <a 
+                  href="game.html?id=weed_bush"
+                  class="comic-btn comic-btn-red w-full text-xs py-2.5 rounded-xl flex items-center justify-center gap-1.5 cursor-pointer text-center"
                 >
                   <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
                   <span>LAUNCH GAME</span>
-                </button>
+                </a>
               </div>
 
               <!-- Home Indicator Bar -->

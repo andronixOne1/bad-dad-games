@@ -187,27 +187,27 @@ function renderCatalog(filter = 'all') {
 
   filtered.forEach(game => {
     const card = document.createElement('div');
-    card.className = 'group bg-white rounded-3xl p-3 border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between cursor-pointer';
-    card.onclick = () => openGameModal(game.id);
+    card.className = 'group bg-white rounded-3xl p-3 border-2 border-black shadow-[4px_4px_0px_#000] hover:shadow-[6px_6px_0px_#000] transition-all duration-300 flex flex-col justify-between cursor-pointer';
+    card.onclick = () => window.location.href = `game.html?id=${game.id}`;
 
     card.innerHTML = `
-      <div class="relative aspect-square rounded-2xl overflow-hidden mb-3 bg-gray-100">
+      <div class="relative aspect-square rounded-2xl overflow-hidden mb-3 bg-gray-100 border-2 border-black">
         <img src="${game.image}" alt="${game.title}" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-        <div class="absolute top-2.5 right-2.5 bg-black/70 backdrop-blur-sm text-amber-300 text-[10px] font-black px-2 py-0.5 rounded-full">
+        <div class="absolute top-2.5 right-2.5 bg-black/85 backdrop-blur-sm text-amber-300 text-[10px] font-black px-2.5 py-1 rounded-full border border-amber-400/40">
           ${game.maxMultiplier}
         </div>
       </div>
       <div>
         <div class="flex items-center justify-between">
           <h4 class="font-bold text-gray-900 group-hover:text-brand-red transition-colors text-sm sm:text-base">${game.title}</h4>
-          <span class="text-[11px] font-semibold text-gray-400 bg-gray-50 px-2 py-0.5 rounded-md">${game.category}</span>
+          <span class="text-[11px] font-semibold text-gray-700 bg-gray-100 px-2 py-0.5 rounded-md border border-gray-200">${game.category}</span>
         </div>
         <p class="text-[11px] text-gray-500 mt-1 line-clamp-2 leading-relaxed">${game.tagline}</p>
       </div>
-      <button class="comic-btn comic-btn-red w-full mt-3 text-xs py-2.5 rounded-xl flex items-center justify-center gap-1.5 cursor-pointer">
+      <a href="game.html?id=${game.id}" class="comic-btn comic-btn-red w-full mt-3 text-xs py-2.5 rounded-xl flex items-center justify-center gap-1.5 cursor-pointer text-center">
         <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
-        <span>View Game & Demo</span>
-      </button>
+        <span>Play & View Game</span>
+      </a>
     `;
 
     grid.appendChild(card);
