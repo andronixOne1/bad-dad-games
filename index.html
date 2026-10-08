@@ -70,90 +70,62 @@
       <!-- ================= HEADER & HERO CONTENT ================= -->
       <div class="absolute inset-0 z-40 w-full pointer-events-none">
         
-        <!-- TOP NAVIGATION BAR (Flush to the very top, comfortable width) -->
-        <header class="w-full px-4 sm:px-8 lg:px-12 flex items-start justify-between pointer-events-auto">
-          <!-- BAD DAD STICKER LOGO (Offset slightly from top for natural sticker look) -->
-          <a href="#hero" class="relative group transition-transform duration-300 hover:scale-105 active:scale-95 z-50 pt-3 sm:pt-4">
-            <img src="assets/bad_dad_logo.png" alt="Bad Dad Logo" class="h-16 sm:h-20 md:h-24 w-auto drop-shadow-2xl filter hover:drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-all">
+        <!-- TOP NAVIGATION BAR (Matching Figma: Logo Left, Links & Red Contact Us Right) -->
+        <header class="w-full px-4 sm:px-8 lg:px-12 flex items-center justify-between pointer-events-auto pt-3 sm:pt-4">
+          <!-- BAD DAD STICKER LOGO -->
+          <a href="#hero" class="relative group transition-transform duration-300 hover:scale-105 active:scale-95 z-50">
+            <img src="assets/bad_dad_logo.png" alt="Bad Dad Logo" class="h-14 sm:h-18 md:h-20 w-auto drop-shadow-2xl">
             <span class="sr-only">Bad Dad Games</span>
           </a>
 
-          <!-- DESKTOP TOP-RIGHT PILL NAVBAR (Sticks directly flush to the top edge) -->
-          <nav class="hidden md:flex items-center bg-white rounded-b-2xl shadow-xl border-b border-x border-gray-100/90 px-7 py-3 transition-all duration-300 hover:shadow-2xl">
-            <ul class="flex items-center space-x-7 text-sm font-semibold text-gray-800">
-              <li>
-                <a href="#hero" class="text-brand-red font-bold transition-colors hover:text-brand-red-dark">Home</a>
-              </li>
-              
-              <!-- Games Dropdown Menu -->
-              <li class="relative group" id="games-nav-item">
-                <button type="button" class="flex items-center gap-1.5 transition-colors hover:text-brand-red py-1 focus:outline-none">
-                  <span>Games</span>
-                  <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180 text-gray-500"></i>
-                </button>
-                
-                <!-- Dropdown Panel -->
-                <div class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-64 bg-white rounded-2xl shadow-2xl border border-gray-100 p-2.5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top scale-95 group-hover:scale-100">
-                  <a href="game.html?id=weed_bush" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 transition-colors">
-                    <img src="assets/weed_bush.png" class="w-10 h-10 rounded-lg object-cover shadow-sm" alt="Weed Bush">
-                    <div>
-                      <div class="text-xs font-bold text-gray-900">Weed Bush</div>
-                      <div class="text-[10px] text-gray-500 font-medium">Mine Game • x20 Multiplier</div>
-                    </div>
-                  </a>
-                  <a href="game.html?id=plinko_koko" class="flex items-center gap-3 p-2 rounded-xl hover:bg-yellow-50 transition-colors mt-1">
-                    <img src="assets/plinko_koko.png" class="w-10 h-10 rounded-lg object-cover shadow-sm" alt="Plinko Koko">
-                    <div>
-                      <div class="text-xs font-bold text-gray-900">Plinko Koko</div>
-                      <div class="text-[10px] text-gray-500 font-medium">Plinko • Rainbow Eggs</div>
-                    </div>
-                  </a>
-                  <a href="game.html?id=bad_darts" class="flex items-center gap-3 p-2 rounded-xl hover:bg-orange-50 transition-colors mt-1">
-                    <img src="assets/bad_darts.png" class="w-10 h-10 rounded-lg object-cover shadow-sm" alt="Bad Darts">
-                    <div>
-                      <div class="text-xs font-bold text-gray-900">Bad Darts</div>
-                      <div class="text-[10px] text-gray-500 font-medium">Crash • x50 Bullseye</div>
-                    </div>
-                  </a>
-                </div>
-              </li>
-              
-              <li>
-                <a href="#about" class="transition-colors hover:text-brand-red">About</a>
-              </li>
-              <li>
-                <a href="#careers" class="transition-colors hover:text-brand-red">Careers</a>
-              </li>
-              <li>
-                <a href="#contact" class="transition-colors hover:text-brand-red">Contact</a>
-              </li>
-            </ul>
+          <!-- DESKTOP TOP-RIGHT NAV (Text links + Red Contact Us Button) -->
+          <nav class="hidden md:flex items-center space-x-6 lg:space-x-8 text-xs lg:text-sm font-black uppercase text-white tracking-wider">
+            <a href="#hero" class="hover:text-brand-red transition-colors drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Home</a>
+            <a href="#games" class="hover:text-brand-red transition-colors drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Games</a>
+            <a href="#about" class="hover:text-brand-red transition-colors drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">About Us</a>
+            <a href="#contact" class="comic-btn comic-btn-red text-xs px-4 py-2 rounded-none border-[2.5px] border-black shadow-[3px_3px_0px_#000] inline-flex items-center gap-1 cursor-pointer">
+              <span>CONTACT US</span>
+              <span class="text-xs">↗</span>
+            </a>
           </nav>
 
-          <!-- MOBILE MENU BUTTON (Flush near top) -->
-          <div class="flex items-center gap-2 md:hidden bg-white/95 backdrop-blur rounded-b-2xl px-4 py-2.5 shadow-lg pointer-events-auto">
-            <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-1 text-gray-700 hover:text-brand-red focus:outline-none" aria-label="Toggle Navigation">
+          <!-- MOBILE MENU BUTTON -->
+          <div class="flex items-center gap-2 md:hidden pointer-events-auto">
+            <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-2 text-white bg-black/60 rounded-lg border-2 border-white/20 focus:outline-none" aria-label="Toggle Navigation">
               <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
             </button>
           </div>
         </header>
 
         <!-- MOBILE MENU DRAWER -->
-        <div id="mobile-menu" class="hidden md:hidden fixed inset-x-0 top-16 mx-4 bg-white rounded-3xl shadow-2xl border border-gray-100 p-6 z-50 animate-fade-in pointer-events-auto">
-          <div class="flex flex-col space-y-4 text-center font-bold text-gray-800 text-lg">
-            <a href="#hero" onclick="toggleMobileMenu()" class="py-2 text-brand-red">Home</a>
-            <a href="#games" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-red">Games</a>
-            <a href="#about" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-red">About</a>
-            <a href="#careers" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-red">Careers</a>
-            <a href="#contact" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-red">Contact</a>
-            <button onclick="scrollToGames(); toggleMobileMenu();" class="comic-btn comic-btn-red w-full py-3.5 rounded-2xl text-base">
-              Explore Our Games
-            </button>
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-x-0 top-20 mx-4 bg-white rounded-2xl shadow-2xl border-4 border-black p-6 z-50 animate-fade-in pointer-events-auto">
+          <div class="flex flex-col space-y-4 text-center font-comic font-black text-gray-900 text-lg">
+            <a href="#hero" onclick="toggleMobileMenu()" class="py-2 text-brand-red">HOME</a>
+            <a href="#games" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-red">GAMES</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-red">ABOUT US</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="comic-btn comic-btn-red w-full py-3 rounded-none text-base">
+              CONTACT US ↗
+            </a>
           </div>
         </div>
 
-        <!-- HEADER TEXT CONTAINER (Comfortably spaced below logo and nav menu) -->
-        <div class="w-full px-4 sm:px-8 lg:px-12 mt-12 sm:mt-16 md:mt-20 lg:mt-24 select-none pointer-events-none">
+        <!-- HERO STICKER 1: "NO BORING GAMES !!!" (Tilted yellow sticker on porch) -->
+        <div class="absolute top-[26%] left-[45%] sm:left-[47%] md:left-[49%] -rotate-[6deg] comic-sticker bg-[#ffd000] text-black text-[10px] sm:text-xs font-black px-2.5 sm:px-3 py-1 sm:py-1.5 uppercase pointer-events-none z-30 shadow-[3px_3px_0px_#000] border-2 border-black">
+          NO BORING GAMES !!!
+        </div>
+
+        <!-- HERO STICKER 2: "BUILT DIFFERENT" (Tilted white sticker on right porch) -->
+        <div class="absolute bottom-[20%] sm:bottom-[23%] right-[28%] sm:right-[32%] md:right-[34%] rotate-[4deg] comic-sticker bg-white text-black text-[10px] sm:text-xs font-black px-2.5 sm:px-3 py-1 sm:py-1.5 uppercase pointer-events-none z-30 shadow-[3px_3px_0px_#000] border-2 border-black">
+          BUILT DIFFERENT
+        </div>
+
+        <!-- HERO STICKER 3: FUNNY CHICKEN CHARACTER (Overlapping bottom right & wave) -->
+        <div class="absolute bottom-[1%] sm:bottom-[2%] right-2 sm:right-6 md:right-12 lg:right-20 z-30 pointer-events-none select-none">
+          <img src="assets/chicken_sticker.png" alt="Bad Dad Chicken" class="w-24 sm:w-32 md:w-40 lg:w-48 h-auto filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.6)]">
+        </div>
+
+        <!-- HEADER TEXT CONTAINER & YELLOW EXPLORE BUTTON (Figma Layout) -->
+        <div class="w-full px-4 sm:px-8 lg:px-12 mt-10 sm:mt-14 md:mt-16 select-none pointer-events-none">
           <div class="max-w-xl">
             <h1 class="font-comic tracking-tight leading-none drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
               <span class="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-black tracking-normal">
@@ -163,6 +135,12 @@
                 BAD<br>MANNERS.
               </span>
             </h1>
+
+            <!-- Yellow Comic Explore Button -->
+            <a href="#games" class="comic-btn-yellow text-xs sm:text-sm px-5 sm:px-6 py-2.5 sm:py-3 inline-flex items-center gap-1.5 uppercase tracking-wider mt-5 sm:mt-6 pointer-events-auto rounded-none border-[3px] border-black shadow-[4px_4px_0px_#000]">
+              <span>EXPLORE OUR GAMES</span>
+              <span class="text-xs">↗</span>
+            </a>
           </div>
         </div>
 
@@ -176,144 +154,117 @@
     </div>
   </section>
 
-  <!-- ================= FEATURED GAMES SHOWCASE ================= -->
-  <!-- Overlapping the wave naturally with negative margin -->
-  <section id="games" class="relative z-30 -mt-10 sm:-mt-16 md:-mt-24 lg:-mt-32 pb-20 pt-4">
+  <!-- ================= SECTION 2: PICK YOUR POISON. (FIGMA GAMES SHOWCASE) ================= -->
+  <section id="games" class="relative z-30 -mt-10 sm:-mt-16 md:-mt-24 lg:-mt-28 pb-20 pt-10 sm:pt-14 bg-[#f6f4ee]">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- CARDS GRID (3 Columns, matching Figma design) -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 justify-items-center">
+      <!-- Section Title & Subtitle (Matching Figma) -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 sm:mb-10">
+        <div>
+          <span class="text-[11px] font-bold text-gray-500 uppercase tracking-widest block mb-1">SELECTED GAMES</span>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-comic font-black text-[#1e1b18] tracking-tight uppercase leading-none">
+            PICK YOUR POISON.
+          </h2>
+        </div>
+        <p class="text-xs sm:text-sm text-gray-500 max-w-sm font-medium leading-relaxed">
+          Familiar mechanics, sharper personalities, and polished mobile-first execution.
+        </p>
+      </div>
+
+      <!-- ROW 1: 3 FEATURED CARDS (Matching Figma top row) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 lg:gap-8 mb-6 sm:mb-8">
 
         <!-- CARD 1: WEED BUSH -->
-        <div class="figma-card-wrapper">
-          <div class="figma-card group">
-            <!-- Card Thumbnail Media -->
-            <div class="figma-card-media" onclick="window.location.href='game.html?id=weed_bush'">
-              <img 
-                src="assets/weed_bush.png" 
-                alt="Weed Bush Game by Bad Dad Games" 
-                class="w-full h-full object-cover"
-              >
+        <div class="figma-poison-card group flex flex-col justify-between cursor-pointer" onclick="window.location.href='game.html?id=weed_bush'">
+          <!-- Square Thumbnail -->
+          <div class="relative w-full aspect-square overflow-hidden bg-black border-b-[3.5px] border-black">
+            <img src="assets/weed_bush.png" alt="Weed Bush" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+          </div>
+          <!-- Card Info Bar -->
+          <div class="p-3 sm:p-3.5 bg-white flex items-center justify-between gap-2">
+            <div>
+              <h3 class="font-comic font-black text-lg sm:text-xl text-black uppercase leading-tight">
+                WEED BUSH
+              </h3>
+              <p class="text-[10px] sm:text-[11px] text-gray-500 font-medium leading-tight mt-0.5">
+                A clean crash game built around chain-reaction tension.
+              </p>
             </div>
-
-            <!-- In-Card Bottom Bar -->
-            <div class="figma-card-bar">
-              <div>
-                <h3 class="text-xl sm:text-2xl font-black font-comic text-white leading-tight">
-                  Weed Bush
-                </h3>
-                <p class="text-xs font-semibold text-gray-400 leading-none mt-1">
-                  Mines
-                </p>
-              </div>
-
-              <!-- Overhanging Buttons (DEMO on top sticking out, Info below) -->
-              <div class="flex flex-col items-end gap-1.5">
-                <a 
-                  href="game.html?id=weed_bush&play=true" 
-                  class="figma-demo-btn"
-                  title="Play Weed Bush Demo"
-                >
-                  <span class="text-xs">►</span>
-                  <span>DEMO</span>
-                </a>
-                <a 
-                  href="game.html?id=weed_bush" 
-                  class="figma-info-btn"
-                  title="View Weed Bush Info"
-                >
-                  <span>Info</span>
-                </a>
+            <div class="flex flex-col items-end gap-1.5 shrink-0">
+              <a 
+                href="game.html?id=weed_bush&play=true" 
+                onclick="event.stopPropagation()"
+                class="card-play-demo-btn cursor-pointer"
+              >
+                PLAY DEMO
+              </a>
+              <div class="flex items-center gap-1">
+                <span class="badge-yellow-comic">Crash</span>
+                <span class="badge-yellow-comic">RTP 97%</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- CARD 2: PLINKO KOKO -->
-        <div class="figma-card-wrapper">
-          <div class="figma-card group">
-            <!-- Card Thumbnail Media -->
-            <div class="figma-card-media" onclick="window.location.href='game.html?id=plinko_koko'">
-              <img 
-                src="assets/plinko_koko.png" 
-                alt="Plinko Koko Game by Bad Dad Games" 
-                class="w-full h-full object-cover"
-              >
+        <!-- CARD 2: PLINKOKO -->
+        <div class="figma-poison-card group flex flex-col justify-between cursor-pointer" onclick="window.location.href='game.html?id=plinko_koko'">
+          <!-- Square Thumbnail -->
+          <div class="relative w-full aspect-square overflow-hidden bg-black border-b-[3.5px] border-black">
+            <img src="assets/plinko_koko.png" alt="PlinKoko" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+          </div>
+          <!-- Card Info Bar -->
+          <div class="p-3 sm:p-3.5 bg-white flex items-center justify-between gap-2">
+            <div>
+              <h3 class="font-comic font-black text-lg sm:text-xl text-black uppercase leading-tight">
+                PLINKOKO
+              </h3>
+              <p class="text-[10px] sm:text-[11px] text-gray-500 font-medium leading-tight mt-0.5">
+                A clean plinko game built around chain-reaction tension.
+              </p>
             </div>
-
-            <!-- In-Card Bottom Bar -->
-            <div class="figma-card-bar">
-              <div>
-                <h3 class="text-xl sm:text-2xl font-black font-comic text-white leading-tight">
-                  Plinko Koko
-                </h3>
-                <p class="text-xs font-semibold text-gray-400 leading-none mt-1">
-                  Plinko
-                </p>
-              </div>
-
-              <!-- Overhanging Buttons (DEMO on top sticking out, Info below) -->
-              <div class="flex flex-col items-end gap-1.5">
-                <a 
-                  href="game.html?id=plinko_koko&play=true" 
-                  class="figma-demo-btn"
-                  title="Play Plinko Koko Demo"
-                >
-                  <span class="text-xs">►</span>
-                  <span>DEMO</span>
-                </a>
-                <a 
-                  href="game.html?id=plinko_koko" 
-                  class="figma-info-btn"
-                  title="View Plinko Koko Info"
-                >
-                  <span>Info</span>
-                </a>
+            <div class="flex flex-col items-end gap-1.5 shrink-0">
+              <a 
+                href="game.html?id=plinko_koko&play=true" 
+                onclick="event.stopPropagation()"
+                class="card-play-demo-btn cursor-pointer"
+              >
+                PLAY DEMO
+              </a>
+              <div class="flex items-center gap-1">
+                <span class="badge-yellow-comic">Plinko</span>
+                <span class="badge-yellow-comic">RTP 97%</span>
               </div>
             </div>
           </div>
         </div>
 
         <!-- CARD 3: BAD DARTS -->
-        <div class="figma-card-wrapper">
-          <div class="figma-card group">
-            <!-- Card Thumbnail Media -->
-            <div class="figma-card-media" onclick="window.location.href='game.html?id=bad_darts'">
-              <img 
-                src="assets/bad_darts.png" 
-                alt="Bad Darts Game by Bad Dad Games" 
-                class="w-full h-full object-cover"
+        <div class="figma-poison-card group flex flex-col justify-between cursor-pointer" onclick="window.location.href='game.html?id=bad_darts'">
+          <!-- Square Thumbnail -->
+          <div class="relative w-full aspect-square overflow-hidden bg-black border-b-[3.5px] border-black">
+            <img src="assets/bad_darts.png" alt="Bad Darts" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+          </div>
+          <!-- Card Info Bar -->
+          <div class="p-3 sm:p-3.5 bg-white flex items-center justify-between gap-2">
+            <div>
+              <h3 class="font-comic font-black text-lg sm:text-xl text-black uppercase leading-tight">
+                BAD DARTS
+              </h3>
+              <p class="text-[10px] sm:text-[11px] text-gray-500 font-medium leading-tight mt-0.5">
+                A clean crash game built around chain-reaction tension.
+              </p>
+            </div>
+            <div class="flex flex-col items-end gap-1.5 shrink-0">
+              <a 
+                href="game.html?id=bad_darts&play=true" 
+                onclick="event.stopPropagation()"
+                class="card-play-demo-btn cursor-pointer"
               >
-            </div>
-
-            <!-- In-Card Bottom Bar -->
-            <div class="figma-card-bar">
-              <div>
-                <h3 class="text-xl sm:text-2xl font-black font-comic text-white leading-tight">
-                  Bad Darts
-                </h3>
-                <p class="text-xs font-semibold text-gray-400 leading-none mt-1">
-                  Crash
-                </p>
-              </div>
-
-              <!-- Overhanging Buttons (DEMO on top sticking out, Info below) -->
-              <div class="flex flex-col items-end gap-1.5">
-                <a 
-                  href="game.html?id=bad_darts&play=true" 
-                  class="figma-demo-btn"
-                  title="Play Bad Darts Demo"
-                >
-                  <span class="text-xs">►</span>
-                  <span>DEMO</span>
-                </a>
-                <a 
-                  href="game.html?id=bad_darts" 
-                  class="figma-info-btn"
-                  title="View Bad Darts Info"
-                >
-                  <span>Info</span>
-                </a>
+                PLAY DEMO
+              </a>
+              <div class="flex items-center gap-1">
+                <span class="badge-yellow-comic">Crash</span>
+                <span class="badge-yellow-comic">RTP 97%</span>
               </div>
             </div>
           </div>
@@ -321,330 +272,202 @@
 
       </div>
 
-      <!-- PRIMARY CTA BUTTON (Matching Figma Red Rectangular Button) -->
-      <div class="mt-14 sm:mt-16 flex flex-col items-center justify-center">
-        <button 
-          id="explore-btn" 
-          onclick="scrollToCatalog()" 
-          class="comic-btn-rect comic-btn-red text-base sm:text-lg px-8 sm:px-10 py-3.5 sm:py-4 flex items-center gap-2 cursor-pointer"
-        >
-          <span>Explore our Games</span>
-        </button>
-        <span class="text-xs text-gray-500 mt-2.5 font-medium tracking-wide">
-          Over 5+ original fast-paced titles created for instant laughs &amp; wins
-        </span>
-      </div>
+      <!-- ROW 2: 4 CATALOG CARDS (Matching Figma bottom row) -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
 
-    </div>
-  </section>
-
-  <!-- ================= MOBILE FIRST GAMES SECTION (Figma Exact Layout) ================= -->
-  <section id="mobile-showcase" class="w-full bg-[#d5d6da] py-16 sm:py-24 border-y-4 border-black relative overflow-hidden">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col items-center justify-center">
-      
-      <!-- TOP BADGE: "Mobile First Games" (Figma Blue Rectangular Button) -->
-      <div class="mb-10 sm:mb-14 relative z-20">
-        <div class="comic-btn-rect comic-btn-blue text-sm sm:text-base md:text-lg px-7 sm:px-9 py-2.5 sm:py-3 text-white font-black tracking-wide inline-block shadow-[4px_5px_0px_#000]">
-          Mobile First Games
-        </div>
-      </div>
-
-      <!-- CENTER: TILTED SMARTPHONE & SKETCH ARROWS WRAPPER -->
-      <div class="relative flex items-center justify-center w-full max-w-xl my-4 py-8 px-4">
-        
-        <!-- BARELY VISIBLE IN-GAME GRASS PATCH BEHIND THE PHONE -->
-        <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-visible">
-          <div class="relative w-[480px] sm:w-[600px] h-[320px] sm:h-[400px] opacity-25 filter blur-[1px]">
-            <img 
-              src="assets/weed_grass_patch.png" 
-              alt="Weed Bush Lawn Patch" 
-              class="w-full h-full object-cover rounded-[100px] shadow-[0_0_80px_rgba(34,197,94,0.18)]"
-            >
+        <!-- CARD 4: WEED BUSH -->
+        <div class="figma-poison-card group flex flex-col justify-between cursor-pointer" onclick="window.location.href='game.html?id=weed_bush'">
+          <div class="relative w-full aspect-square overflow-hidden bg-black border-b-[3.5px] border-black">
+            <img src="assets/weed_bush.png" alt="Weed Bush" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+          </div>
+          <div class="p-2.5 sm:p-3 bg-white flex flex-col justify-between">
+            <div>
+              <h3 class="font-comic font-black text-sm sm:text-base text-black uppercase leading-tight">WEED BUSH</h3>
+              <p class="text-[9px] sm:text-[10px] text-gray-500 font-medium leading-tight mt-0.5 line-clamp-1">A clean crash game built around chain-reaction tension.</p>
+            </div>
+            <div class="flex items-center justify-between mt-2 pt-2 border-t border-gray-100">
+              <div class="flex items-center gap-1">
+                <span class="badge-yellow-comic text-[8px] py-0.5 px-1">Crash</span>
+                <span class="badge-yellow-comic text-[8px] py-0.5 px-1">97%</span>
+              </div>
+              <a href="game.html?id=weed_bush&play=true" onclick="event.stopPropagation()" class="card-play-demo-btn text-[9px] py-1 px-2">PLAY DEMO</a>
+            </div>
           </div>
         </div>
 
-        <!-- SKETCH ARROW 1: Top-Left (Curving & Looping down toward phone) -->
-        <div class="absolute -top-6 sm:-top-8 left-2 sm:left-6 z-30 pointer-events-none select-none">
-          <svg class="w-20 sm:w-28 h-20 sm:h-28 text-[#262626] filter drop-shadow-[0_2px_2px_rgba(0,0,0,0.15)]" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-            <!-- Hand-drawn loop path -->
-            <path d="M 20,68 C 8,50 16,28 36,26 C 54,24 50,54 36,52 C 22,50 30,32 52,30 C 74,28 86,46 90,62" />
-            <path d="M 76,58 L 91,64 L 92,48" />
-          </svg>
+        <!-- CARD 5: MOONSHINE RUN -->
+        <div class="figma-poison-card group flex flex-col justify-between cursor-pointer" onclick="window.location.href='game.html?id=moonshine_run'">
+          <div class="relative w-full aspect-square overflow-hidden bg-black border-b-[3.5px] border-black">
+            <img src="assets/hero_banner.jpg" alt="Moonshine Run" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+          </div>
+          <div class="p-2.5 sm:p-3 bg-white flex flex-col justify-between">
+            <div>
+              <h3 class="font-comic font-black text-sm sm:text-base text-black uppercase leading-tight">MOONSHINE RUN</h3>
+              <p class="text-[9px] sm:text-[10px] text-gray-500 font-medium leading-tight mt-0.5 line-clamp-1">Speed down winding mountain ridges before the sheriff catches up.</p>
+            </div>
+            <div class="flex items-center justify-between mt-2 pt-2 border-t border-gray-100">
+              <div class="flex items-center gap-1">
+                <span class="badge-yellow-comic text-[8px] py-0.5 px-1">Crash</span>
+                <span class="badge-yellow-comic text-[8px] py-0.5 px-1">98%</span>
+              </div>
+              <a href="game.html?id=moonshine_run&play=true" onclick="event.stopPropagation()" class="card-play-demo-btn text-[9px] py-1 px-2">PLAY DEMO</a>
+            </div>
+          </div>
         </div>
 
-        <!-- SKETCH ARROW 2: Mid/Bottom-Left (Curving up-right toward phone) -->
-        <div class="absolute top-1/2 translate-y-6 sm:translate-y-8 left-0 sm:left-4 z-30 pointer-events-none select-none">
-          <svg class="w-16 sm:w-24 h-16 sm:h-24 text-[#262626] filter drop-shadow-[0_2px_2px_rgba(0,0,0,0.15)]" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M 20,80 C 10,48 35,26 78,28" />
-            <path d="M 64,18 L 80,30 L 68,40" />
-          </svg>
+        <!-- CARD 6: PORCH DELUXE -->
+        <div class="figma-poison-card group flex flex-col justify-between cursor-pointer" onclick="window.location.href='game.html?id=porch_slots'">
+          <div class="relative w-full aspect-square overflow-hidden bg-black border-b-[3.5px] border-black">
+            <img src="assets/weed_bush.png" alt="Porch Dog Deluxe" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+          </div>
+          <div class="p-2.5 sm:p-3 bg-white flex flex-col justify-between">
+            <div>
+              <h3 class="font-comic font-black text-sm sm:text-base text-black uppercase leading-tight">PORCH DELUXE</h3>
+              <p class="text-[9px] sm:text-[10px] text-gray-500 font-medium leading-tight mt-0.5 line-clamp-1">5x3 reels with sleeping hound sticky wilds and beer cooler scatters.</p>
+            </div>
+            <div class="flex items-center justify-between mt-2 pt-2 border-t border-gray-100">
+              <div class="flex items-center gap-1">
+                <span class="badge-yellow-comic text-[8px] py-0.5 px-1">Slots</span>
+                <span class="badge-yellow-comic text-[8px] py-0.5 px-1">97%</span>
+              </div>
+              <a href="game.html?id=porch_slots&play=true" onclick="event.stopPropagation()" class="card-play-demo-btn text-[9px] py-1 px-2">PLAY DEMO</a>
+            </div>
+          </div>
         </div>
 
-        <!-- SKETCH ARROW 3: Top-Right (Curving down-left toward phone) -->
-        <div class="absolute -top-4 sm:-top-6 right-2 sm:right-6 z-30 pointer-events-none select-none">
-          <svg class="w-18 sm:w-26 h-18 sm:h-26 text-[#262626] filter drop-shadow-[0_2px_2px_rgba(0,0,0,0.15)]" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M 28,24 C 68,26 82,54 62,82" />
-            <path d="M 50,72 L 60,84 L 72,74" />
-          </svg>
-        </div>
-
-        <!-- SKETCH ARROW 4: Bottom-Right (Curving up-left toward phone) -->
-        <div class="absolute bottom-2 sm:bottom-4 right-0 sm:right-4 z-30 pointer-events-none select-none">
-          <svg class="w-16 sm:w-24 h-16 sm:h-24 text-[#262626] filter drop-shadow-[0_2px_2px_rgba(0,0,0,0.15)]" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M 22,76 C 54,72 74,44 65,18" />
-            <path d="M 52,28 L 66,16 L 76,26" />
-          </svg>
-        </div>
-
-        <!-- FLOATING GAME ELEMENT 1: Pink Multiplier Bush X2.05 (Far Top-Left) -->
-        <div class="hidden md:block absolute -top-8 -left-8 z-20 pointer-events-none animate-float-slow select-none opacity-90">
-          <img src="assets/weed_bush_pink_x205.png" alt="X2.05 Multiplier Bush" class="h-20 w-auto object-contain drop-shadow-lg -rotate-12">
-        </div>
-
-        <!-- FLOATING GAME ELEMENT 2: Dad Pushing Mower (Far Top-Right) -->
-        <div class="hidden md:block absolute -top-10 -right-8 z-20 pointer-events-none animate-float-delayed select-none opacity-90">
-          <img src="assets/weed_dad_mower.png" alt="Dad with Mower" class="h-24 w-auto object-contain drop-shadow-xl rotate-6">
-        </div>
-
-        <!-- FLOATING GAME ELEMENT 3: Purple Multiplier Bush X5.05 (Far Bottom-Right) -->
-        <div class="hidden md:block absolute -bottom-8 -right-6 z-20 pointer-events-none animate-float-slow select-none opacity-90">
-          <img src="assets/weed_bush_purple_x505.png" alt="X5.05 Bush" class="h-20 w-auto object-contain drop-shadow-lg rotate-12">
-        </div>
-
-        <!-- FLOATING GAME ELEMENT 4: Dirt Hole Trap (Far Bottom-Left) -->
-        <div class="hidden md:block absolute -bottom-6 -left-6 z-20 pointer-events-none animate-float-delayed select-none opacity-85">
-          <img src="assets/weed_dirt_hole.png" alt="Dirt Hole Trap" class="h-14 w-auto object-contain drop-shadow-md -rotate-6">
-        </div>
-
-        <!-- THE SMARTPHONE FRAME (Tilted 13 Degrees, Matching Figma Mockup) -->
-        <div 
-          class="relative z-20 w-[240px] sm:w-[270px] md:w-[290px] rounded-[48px] bg-[#1a1917] p-3 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6),0_0_40px_rgba(0,0,0,0.25)] border-[7px] border-[#383430] cursor-pointer transform rotate-[13deg] hover:rotate-0 transition-transform duration-500 group select-none"
-          onclick="window.location.href='game.html?id=weed_bush'"
-          title="Open Weed Bush Game"
-        >
-          <!-- Side Accents -->
-          <div class="absolute -left-[10px] top-20 w-[3px] h-7 bg-[#4a4540] rounded-l"></div>
-          <div class="absolute -left-[10px] top-30 w-[3px] h-10 bg-[#4a4540] rounded-l"></div>
-          <div class="absolute -right-[10px] top-24 w-[3px] h-14 bg-[#4a4540] rounded-r"></div>
-
-          <!-- Phone Screen Container -->
-          <div class="relative w-full aspect-[9/18.5] rounded-[38px] overflow-hidden bg-black flex flex-col justify-between border border-white/10 shadow-inner">
-            
-            <!-- Reflection Shine -->
-            <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 pointer-events-none z-30"></div>
-
-            <!-- Weed Bush Gameplay Art Filling Screen (Matching Figma Mockup) -->
-            <img 
-              src="assets/weed_bush_gameplay.jpg" 
-              alt="Weed Bush Mobile Active Screen" 
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            >
-
-            <!-- Bottom Home Indicator Bar -->
-            <div class="absolute bottom-2 inset-x-0 mx-auto w-24 h-1 bg-white/50 rounded-full z-30 pointer-events-none"></div>
+        <!-- CARD 7: LAWNMOWER MAYHEM -->
+        <div class="figma-poison-card group flex flex-col justify-between cursor-pointer" onclick="window.location.href='game.html?id=lawnmower_mayhem'">
+          <div class="relative w-full aspect-square overflow-hidden bg-black border-b-[3.5px] border-black">
+            <img src="assets/weed_bush.png" alt="Lawnmower Mayhem" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+          </div>
+          <div class="p-2.5 sm:p-3 bg-white flex flex-col justify-between">
+            <div>
+              <h3 class="font-comic font-black text-sm sm:text-base text-black uppercase leading-tight">MOWER MAYHEM</h3>
+              <p class="text-[9px] sm:text-[10px] text-gray-500 font-medium leading-tight mt-0.5 line-clamp-1">High-volatility terrain sweeper with double turbo boost triggers.</p>
+            </div>
+            <div class="flex items-center justify-between mt-2 pt-2 border-t border-gray-100">
+              <div class="flex items-center gap-1">
+                <span class="badge-yellow-comic text-[8px] py-0.5 px-1">Mine</span>
+                <span class="badge-yellow-comic text-[8px] py-0.5 px-1">98%</span>
+              </div>
+              <a href="game.html?id=lawnmower_mayhem&play=true" onclick="event.stopPropagation()" class="card-play-demo-btn text-[9px] py-1 px-2">PLAY DEMO</a>
+            </div>
           </div>
         </div>
 
       </div>
 
-      <!-- BOTTOM CTA BUTTON: "Explore our Games" (Figma Red Rectangular Button) -->
-      <div class="mt-10 sm:mt-12 relative z-20 flex justify-center">
-        <button 
-          onclick="scrollToCatalog()" 
-          class="comic-btn-rect comic-btn-red text-base sm:text-lg px-8 sm:px-10 py-3.5 sm:py-4 flex items-center gap-2 cursor-pointer shadow-[4px_5px_0px_#000]"
-        >
-          <span>Explore our Games</span>
-        </button>
-      </div>
-
     </div>
   </section>
 
-  <!-- ================= EXPANDED GAMES CATALOG (When clicking Explore) ================= -->
-  <section id="catalog" class="py-16 bg-white border-t border-gray-100">
+  <!-- ================= SECTION 3: MEET THE STUDIO (FIGMA ABOUT LAYOUT) ================= -->
+  <section id="about" class="py-20 sm:py-28 bg-white border-t-4 border-black relative overflow-hidden">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
-        <div>
-          <span class="text-xs font-bold text-brand-red uppercase tracking-wider">The Bad Dad Vault</span>
-          <h2 class="text-3xl sm:text-4xl font-black font-comic text-gray-900 mt-1">Full Game Library</h2>
-          <p class="text-gray-500 text-sm mt-1">All titles feature certified provably fair RNG, mobile portrait mode, and high-frequency action.</p>
-        </div>
-
-        <!-- Filter Tags -->
-        <div class="flex flex-wrap gap-2" id="filter-tabs">
-          <button onclick="filterGames('all')" class="catalog-filter active bg-brand-red text-white text-xs font-bold px-4 py-2 rounded-full transition-all">All (6)</button>
-          <button onclick="filterGames('Mine')" class="catalog-filter bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-bold px-4 py-2 rounded-full transition-all">Mine</button>
-          <button onclick="filterGames('Plinko')" class="catalog-filter bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-bold px-4 py-2 rounded-full transition-all">Plinko</button>
-          <button onclick="filterGames('Crash')" class="catalog-filter bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-bold px-4 py-2 rounded-full transition-all">Crash</button>
-          <button onclick="filterGames('Slots')" class="catalog-filter bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-bold px-4 py-2 rounded-full transition-all">Slots</button>
-        </div>
-      </div>
-
-      <!-- Catalog Grid -->
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6" id="games-grid">
-        <!-- Will be dynamically populated / filtered by JS -->
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= ABOUT STUDIO SECTION ================= -->
-  <section id="about" class="py-20 bg-[#f6f6f2] relative overflow-hidden">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <span class="text-xs font-bold text-brand-red uppercase tracking-wider">Meet The Studio</span>
-          <h2 class="text-3xl sm:text-5xl font-black font-comic text-gray-900 mt-2 leading-tight">
-            GOOD GAMES.<br><span class="text-brand-red">UNAPOLOGETIC FUN.</span>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <!-- Left Text Column -->
+        <div class="lg:col-span-7">
+          <span class="text-[11px] font-bold text-gray-400 uppercase tracking-widest block mb-2">MEET THE STUDIO</span>
+          <h2 class="text-4xl sm:text-5xl lg:text-6xl font-comic font-black text-[#1e1b18] leading-[0.95] tracking-tight">
+            GOOD GAMES.<br>
+            <span class="text-brand-red">UNAPOLOGETIC FUN.</span>
           </h2>
-          <p class="text-gray-600 mt-4 leading-relaxed text-sm sm:text-base">
-            Bad Dad Games was founded in a weather-beaten wooden cabin with a simple mission: strip away corporate gaming fluff and deliver unfiltered, laugh-out-loud entertainment.
+          <p class="text-gray-700 font-medium text-sm sm:text-base leading-relaxed mt-6 sm:mt-8 max-w-xl">
+            Bad Dad Games was founded in a weather-beaten wooden cabin with a simple mission: strip away corporate gaming fluff and deliver unfiltered, laugh-out-loud entertainment. Every game is built around iconic characters, absurd situations, and high-adrenaline gameplay. Whether it's mowing energized weed patches, tossing darts in smoky dive bars, or dropping rainbow eggs with hilarious chickens, we build memories and instant smiles.
           </p>
-          <p class="text-gray-600 mt-3 leading-relaxed text-sm sm:text-base">
-            Every game is built around iconic characters, absurd situations, and high-adrenaline gameplay. Whether it's mowing energized weed patches, tossing darts in smoky dive bars, or dropping rainbow eggs with hilarious chickens, we build memories and instant smiles.
-          </p>
+        </div>
 
-          <div class="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-gray-200/80">
+        <!-- Right Illustration Column (Dad with beer + Chicken laying rainbow egg) -->
+        <div class="lg:col-span-5 flex justify-center lg:justify-end">
+          <img 
+            src="assets/figma_about_illustration.png" 
+            alt="Bad Dad and Chicken laying rainbow egg" 
+            class="w-full max-w-md sm:max-w-lg lg:max-w-full h-auto object-contain filter drop-shadow-md select-none pointer-events-none"
+          >
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION 4: HOLLER AT BAD DAD (FIGMA CONTACT LAYOUT) ================= -->
+  <section id="contact" class="py-20 sm:py-28 bg-[#faf5ea] border-t-4 border-black relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <!-- Left Info & Emails Column -->
+        <div class="lg:col-span-6">
+          <span class="text-[11px] font-bold text-gray-400 uppercase tracking-widest block mb-1">GET IN TOUCH</span>
+          <p class="text-xs text-gray-500 font-medium mb-3">We typically reply within 1-2 business days.</p>
+          <h2 class="text-4xl sm:text-5xl font-comic font-black text-[#1e1b18] tracking-tight uppercase leading-none mb-10">
+            HOLLER AT BAD DAD
+          </h2>
+
+          <div class="space-y-6">
             <div>
-              <div class="text-2xl sm:text-3xl font-black font-comic text-brand-red">99.2%</div>
-              <div class="text-xs text-gray-500 font-medium mt-0.5">Certified Max RTP</div>
+              <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-1">ALL INQUIRIES</span>
+              <a href="mailto:business@baddadgames.com" class="font-bold text-sm sm:text-base text-gray-900 border-b-2 border-brand-red pb-0.5 hover:text-brand-red transition-colors inline-block">
+                business@baddadgames.com
+              </a>
             </div>
             <div>
-              <div class="text-2xl sm:text-3xl font-black font-comic text-gray-900">12M+</div>
-              <div class="text-xs text-gray-500 font-medium mt-0.5">Spins Played</div>
+              <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-1">PRESS &amp; MEDIA</span>
+              <a href="mailto:press@baddadgames.com" class="font-bold text-sm sm:text-base text-gray-900 border-b-2 border-brand-red pb-0.5 hover:text-brand-red transition-colors inline-block">
+                press@baddadgames.com
+              </a>
             </div>
             <div>
-              <div class="text-2xl sm:text-3xl font-black font-comic text-amber-500">100%</div>
-              <div class="text-xs text-gray-500 font-medium mt-0.5">Dad Bod Certified</div>
+              <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-1">EVERYTHING ELSE</span>
+              <a href="mailto:hello@baddadgames.com" class="font-bold text-sm sm:text-base text-gray-900 border-b-2 border-brand-red pb-0.5 hover:text-brand-red transition-colors inline-block">
+                hello@baddadgames.com
+              </a>
             </div>
           </div>
         </div>
 
-        <div class="relative">
-          <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white">
-            <img src="assets/hero_banner.jpg" alt="Bad Dad Cabin" class="w-full h-80 object-cover object-center">
-            <div class="p-6 bg-white">
-              <div class="flex items-center gap-3">
-                <img src="assets/bad_dad_logo.png" class="w-16 h-auto object-contain" alt="Bad Dad">
+        <!-- Right Comic Form Box Column -->
+        <div class="lg:col-span-6">
+          <div class="contact-form-box p-6 sm:p-8">
+            <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <h4 class="font-bold text-gray-900">Headquarters: The Porch</h4>
-                  <p class="text-xs text-gray-500">Somewhere off Route 66 • Cold Beer & Good Luck</p>
+                  <label class="block text-[10px] font-black uppercase text-gray-800 mb-1">NAME</label>
+                  <input type="text" required placeholder="Bad Dad" class="w-full bg-white border-2 border-black rounded-none px-3 py-2 text-xs font-semibold text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-red">
+                </div>
+                <div>
+                  <label class="block text-[10px] font-black uppercase text-gray-800 mb-1">EMAIL</label>
+                  <input type="email" required placeholder="you@company.com" class="w-full bg-white border-2 border-black rounded-none px-3 py-2 text-xs font-semibold text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-red">
                 </div>
               </div>
-            </div>
+
+              <div>
+                <label class="block text-[10px] font-black uppercase text-gray-800 mb-1">WHAT'S THIS ABOUT?</label>
+                <select required class="w-full bg-white border-2 border-black rounded-none px-3 py-2 text-xs font-semibold text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-red">
+                  <option value="" disabled selected>Select a topic</option>
+                  <option value="partnership">Partnership &amp; Distribution</option>
+                  <option value="licensing">Game Licensing</option>
+                  <option value="press">Press &amp; Media</option>
+                  <option value="careers">Careers / Join the Crew</option>
+                  <option value="other">General Holler</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-[10px] font-black uppercase text-gray-800 mb-1">MESSAGE</label>
+                <textarea rows="4" required placeholder="Tell us a bit about what you need..." class="w-full bg-white border-2 border-black rounded-none px-3 py-2 text-xs font-semibold text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-red resize-none"></textarea>
+              </div>
+
+              <button type="submit" class="comic-btn comic-btn-red w-full py-3.5 text-xs sm:text-sm uppercase font-black tracking-wider flex items-center justify-center gap-1.5 cursor-pointer mt-2 shadow-[3px_3px_0px_#000] border-[2.5px] border-black">
+                <span>SEND MESSAGE</span>
+                <span class="text-xs">↗</span>
+              </button>
+
+              <p class="text-[10px] text-gray-500 text-center font-medium mt-2">
+                We'll only use your email to reply to your message.
+              </p>
+            </form>
           </div>
         </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= CAREERS SECTION ================= -->
-  <section id="careers" class="py-20 bg-white border-t border-gray-100">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-2xl mx-auto mb-14">
-        <span class="text-xs font-bold text-brand-red uppercase tracking-wider">Join The Pack</span>
-        <h2 class="text-3xl sm:text-4xl font-black font-comic text-gray-900 mt-2">Work With Bad Dad</h2>
-        <p class="text-gray-500 text-sm mt-2">We build games people actually laugh playing. If you love arcade mechanics, wild 2D art, and zero red tape, pull up a rocking chair.</p>
-      </div>
-
-      <div class="space-y-4">
-        
-        <!-- Job 1 -->
-        <div class="p-6 rounded-2xl border border-gray-100 bg-[#fbfbf9] hover:border-brand-red/40 hover:bg-white hover:shadow-lg transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="bg-red-100 text-brand-red text-[11px] font-bold px-2.5 py-0.5 rounded-full">Engineering</span>
-              <span class="text-xs text-gray-400">Remote / Hybrid</span>
-            </div>
-            <h3 class="text-lg font-bold text-gray-900 mt-1">Senior WebGL / Canvas Game Developer</h3>
-            <p class="text-xs text-gray-500 mt-0.5">Build blazing-fast 60fps lightweight mobile slot and multiplier engines.</p>
-          </div>
-          <button onclick="openApplyModal('Senior WebGL Developer')" class="comic-btn comic-btn-dark text-xs px-5 py-2.5 rounded-xl whitespace-nowrap self-start sm:self-auto cursor-pointer">
-            Apply Now
-          </button>
-        </div>
-
-        <!-- Job 2 -->
-        <div class="p-6 rounded-2xl border border-gray-100 bg-[#fbfbf9] hover:border-brand-red/40 hover:bg-white hover:shadow-lg transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="bg-amber-100 text-amber-700 text-[11px] font-bold px-2.5 py-0.5 rounded-full">Art & Animation</span>
-              <span class="text-xs text-gray-400">Remote</span>
-            </div>
-            <h3 class="text-lg font-bold text-gray-900 mt-1">Lead 2D Character Animator</h3>
-            <p class="text-xs text-gray-500 mt-0.5">Spine 2D master who can bring Dad, crazy chickens, and lawnmowers to life.</p>
-          </div>
-          <button onclick="openApplyModal('Lead 2D Character Animator')" class="comic-btn comic-btn-dark text-xs px-5 py-2.5 rounded-xl whitespace-nowrap self-start sm:self-auto cursor-pointer">
-            Apply Now
-          </button>
-        </div>
-
-        <!-- Job 3 -->
-        <div class="p-6 rounded-2xl border border-gray-100 bg-[#fbfbf9] hover:border-brand-red/40 hover:bg-white hover:shadow-lg transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="bg-emerald-100 text-emerald-700 text-[11px] font-bold px-2.5 py-0.5 rounded-full">Math & Tech</span>
-              <span class="text-xs text-gray-400">Remote</span>
-            </div>
-            <h3 class="text-lg font-bold text-gray-900 mt-1">Game Mathematician & Economy Designer</h3>
-            <p class="text-xs text-gray-500 mt-0.5">Formulate volatility curves, crash algorithms, and provably fair seeds.</p>
-          </div>
-          <button onclick="openApplyModal('Game Mathematician')" class="comic-btn comic-btn-dark text-xs px-5 py-2.5 rounded-xl whitespace-nowrap self-start sm:self-auto cursor-pointer">
-            Apply Now
-          </button>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= CONTACT SECTION ================= -->
-  <section id="contact" class="py-20 bg-[#f6f6f2] border-t border-gray-200/80">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 sm:p-12">
-        <div class="text-center mb-8">
-          <span class="text-xs font-bold text-brand-red uppercase tracking-wider">Get In Touch</span>
-          <h2 class="text-3xl font-black font-comic text-gray-900 mt-1">Holler At Bad Dad</h2>
-          <p class="text-gray-500 text-sm mt-1">Operator distribution, media inquiries, or player feedback — drop a note below.</p>
-        </div>
-
-        <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-5">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            <div>
-              <label class="block text-xs font-bold text-gray-700 uppercase mb-1.5">Your Name</label>
-              <input type="text" required placeholder="Hank Hill" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-red text-sm">
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-gray-700 uppercase mb-1.5">Your Email</label>
-              <input type="email" required placeholder="hank@porch.com" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-red text-sm">
-            </div>
-          </div>
-
-          <div>
-            <label class="block text-xs font-bold text-gray-700 uppercase mb-1.5">Subject</label>
-            <select class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-red text-sm bg-white">
-              <option>Casino / Operator Integration</option>
-              <option>Game Licensing & API Access</option>
-              <option>Player Support & Feedback</option>
-              <option>Media & Partnerships</option>
-            </select>
-          </div>
-
-          <div>
-            <label class="block text-xs font-bold text-gray-700 uppercase mb-1.5">Message</label>
-            <textarea rows="4" required placeholder="Tell us what's on your mind..." class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-red text-sm"></textarea>
-          </div>
-
-          <button type="submit" class="comic-btn comic-btn-red w-full text-base py-4 rounded-xl cursor-pointer">
-            Send Message
-          </button>
-        </form>
       </div>
 
     </div>
